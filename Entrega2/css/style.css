@@ -1,0 +1,38 @@
+* {
+margin:0;
+padding:0;
+list-style: none;
+text-decoration: none; 
+border:none;
+
+}
+.container {
+    min-height: 100vh;
+    background: #01888E;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 86px 1fr 200px;
+    grid-template-areas: "head logo"
+                         "content"
+                         "foot";   
+}
+header{
+   grid-area: "head";       
+   background-color: #EDFDFE;
+
+}
+.logo{
+    grid-area: "logo";
+     
+}
+
+footer{
+    grid-area: "foot";
+    background-color: green;
+
+}
+
+.menu{
+    grid-area:"menu";
+
+}
