@@ -7,9 +7,9 @@ border:none;
 font-family: 'Roboto';
 
 }
-/*layout
+/*layout main
 */
-.layout {
+.main_layout {
     min-height: 100vh;
     background: #01888E;
     display: grid;
@@ -19,16 +19,21 @@ font-family: 'Roboto';
                          "content"
                          "foot";   
 }
+header .main_layout{
+    grid-area: "head";       
+
+}
+.content_main{
+    grid-area: "content";   
+}
 header{
-   grid-area: "head";       
-   background-color: #EDFDFE;
+    background-color: #EDFDFE;
     display: flex;
     flex-direction: row;
 }
 .logo{
     padding-left: 12px;
     width: 50%;
-    grid-area: "logo";
     height: 80px;
     
 }
@@ -48,7 +53,7 @@ header{
 height: 100%;
 }
 
-footer{
+.main_layout footer{
     grid-area: "foot";
 }
 /*header
@@ -56,7 +61,6 @@ footer{
 
 nav{
     width: 50%;
-    grid-area:"menu";
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -142,6 +146,12 @@ footer li{
    
 
 }
+footer li a{
+    color: #1B1F20;
+    
+   
+
+}
 footer li:hover{
     transform: scale(1.1)
 }
@@ -212,13 +222,14 @@ padding: 8px;
        
 }
 .icon_social img{
-    padding-top: 5%;
-    width: 80%;
+   
+    width: 100%;
 }
 .social_bar{
     height: 35%;
     display:flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 /* hamburguesa
@@ -232,9 +243,8 @@ padding: 8px;
     width: 360px;
     border-bottom: 1px solid #004C50;
     border-radius: 8px 8px 0px 0px;
-    margin-left: 550%;
     position: relative;
-    
+    display:none;
    
 }
 .scrolled_menu ul{
@@ -255,6 +265,10 @@ padding: 8px;
     padding-top: 15px;
 
 }
+.scrolled_menu li a{
+color: #1B1F20;
+}
+
 .scrolled_menu li a:hover{
     display: inline-block;
     vertical-align: middle;
@@ -274,10 +288,33 @@ padding: 8px;
    
 }
 .showHamburguer{
+    display:flex;
     transition: all .2s;
     margin-left: -550%;
     
 }
+/* layout page ufc
+*/
 
+.ufc_layout {
+    min-height: 100vh;
+    background: #01888E;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 80px 1fr 200px;
+    grid-template-areas: "head"
+                         "content"
+                         "foot";   
+}
 
+.ufc_layout{
+    grid-area: "head";       
 
+}
+.content_ufc{
+    grid-area: "content";   
+}
+
+.ufc_layout footer{
+    grid-area: "foot";
+}
