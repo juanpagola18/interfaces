@@ -11,28 +11,82 @@ border:none;
     background: #01888E;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 86px 1fr 200px;
-    grid-template-areas: "head logo"
+    grid-template-rows: 80px 1fr 200px;
+    grid-template-areas: "head"
                          "content"
                          "foot";   
 }
 header{
    grid-area: "head";       
    background-color: #EDFDFE;
-
+    display: flex;
+    flex-direction: row;
 }
 .logo{
+    padding-left: 12px;
+    width: 50%;
     grid-area: "logo";
-     
+    height: 80px;
+    
+}
+.title_logo{
+    height: 20%;
+    font-size: 14px;
+    color: #01888E;
+    width:120.68px;
+    text-align: center;
+   
+}
+.img_logo {
+    height: 80%;
+ 
+}
+.img_logo img{
+height: 100%;
 }
 
 footer{
     grid-area: "foot";
     background-color: green;
-
 }
 
-.menu{
+nav{
+    width: 50%;
     grid-area:"menu";
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+}
+.lens{
+    height: 40px;
+}
+.lens img{
+    height: 100%;
+    width: 40px;
+}
+.search{
+    width: 217px;
+    height: 36px;
+}
+.search input{
+    height: 100%;
+    width: 100%;
+}
+.hamburguer{
+    width: 53px;
+    height: 40px;
+}
+.hamburguer img{
+    height: 100%;
+    width: 100%;
+    
+}
+.profile{
+    width: 50px;
+    height: 50px; 
+}
+.profile img{
+    height: 100%;
+    width: 100%;
 }
