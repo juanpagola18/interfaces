@@ -4,9 +4,12 @@ padding:0;
 list-style: none;
 text-decoration: none; 
 border:none;
+font-family: 'Roboto';
 
 }
-.container {
+/*layout
+*/
+.layout {
     min-height: 100vh;
     background: #01888E;
     display: grid;
@@ -47,8 +50,9 @@ height: 100%;
 
 footer{
     grid-area: "foot";
-    background-color: green;
 }
+/*header
+*/
 
 nav{
     width: 50%;
@@ -56,26 +60,31 @@ nav{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
 }
 .lens{
-    height: 40px;
+    height: 50px;
 }
 .lens img{
     height: 100%;
-    width: 40px;
+    width: 50px;
 }
 .search{
     width: 217px;
-    height: 36px;
+    height: 50px;
 }
 .search input{
     height: 100%;
     width: 100%;
+    background-color: #F4F7F9;
+    border: 1px solid #DFE4E7;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+
 }
 .hamburguer{
     width: 53px;
-    height: 40px;
+    height: 50px;
 }
 .hamburguer img{
     height: 100%;
@@ -89,4 +98,120 @@ nav{
 .profile img{
     height: 100%;
     width: 100%;
+    align-items: center;
 }
+
+/* footer
+*/
+footer{
+    background-color: #F4F7F9;
+    border-top: 3px solid #D84089;
+    display: flex;
+}
+.foot_category{
+    width: 70%;
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.foot_links{
+    height: 80%;
+    display: flex;
+    
+}
+.foot_links li{
+    padding-top: 5px;
+    padding-right: 45px;
+}
+footer h3{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+    color: #1B1F20
+}
+footer li{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: #1B1F20;
+}
+.company{
+    height: 20%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    color: #1B1F20;
+}
+/*footer
+social*/
+
+.foot_social{
+    padding: 10px;
+    width:30%;
+    display:flex;
+    flex-direction: column;
+}
+.foot_title{
+    height: 15%;
+}
+.foot_social p{
+    height: 30%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 14px;
+
+}
+.suscribe_newsletter{
+    height: 20%;
+    align-items: center;
+}
+.suscribe_newsletter input{
+background: #F4F7F9;
+border: 1px solid #DFE4E7;
+box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+box-sizing: border-box;
+height: 80%;
+width: 60%;
+padding: 8px;
+}
+.suscribe_newsletter button{
+    background: #D84089;
+    height: 60%;
+    width: 20%;
+    border-radius: 8px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: #F4F7F9;
+    margin-left: 5%;
+
+}
+
+
+.icon_social{
+        height: 50px;
+        width: 50px;
+       
+}
+.icon_social img{
+    padding-top: 5%;
+    width: 80%;
+}
+.social_bar{
+    height: 35%;
+    display:flex;
+    justify-content: space-around;
+}
+
