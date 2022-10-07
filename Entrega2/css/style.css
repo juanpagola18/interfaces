@@ -748,9 +748,113 @@ form button{
     background-size: cover;
     background-repeat:   no-repeat;
     background-position: center center;
-
+    display:flex;
+    flex-direction: column;
 }
 .game_info{
     width: 100%;
     height: 50%;
 }
+.header_ufc{
+    width: 100%;
+    height: 10%;
+    display:flex;
+
+}
+.title_ufc{
+    background-color: #D20B0B;
+    width: 75%;
+
+}
+.title_ufc h1 {
+    padding-left: 8px;
+    color:#F4F7F9;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+    display: flex;
+    align-items: center;
+}
+.title_ufc p{
+    padding-left: 8px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color:#F4F7F9;
+}
+.days_left{
+    background: #64002F;
+    width: 25%;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0em;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    color:#F4F7F9;
+}
+.days_left:hover{
+    animation-duration: 1s;
+    animation-name: comingSoon;
+}
+  
+@keyframes comingSoon {
+    from {
+     opacity: 0.2;
+     transform: scale(1.1);
+     
+    }
+  
+    to {
+    opacity: 0.9;
+    
+    }
+  }
+.days_left span{    
+        font-weight: 700;
+        font-size: 36px;
+    }
+    .image_principal{
+        display:flex;
+        height: 80%;
+        width: 100%;
+        justify-content: center;
+        
+    }
+    .image_principal img.fondo{
+        
+        mix-blend-mode:darken;
+        height: 100%;
+        width: 60%;
+        margin-top:5%;
+        overflow: hidden;
+        
+    }
+    .image_principal img.mcGregor{
+        position:absolute;
+        bottom: 12.91%;
+        border-radius: 150px;
+        height: 300px;
+        width: 300px;
+        left: 102px;
+        top: 503px;
+        border-radius: 150px;
+
+
+    }
+    .image_principal img.logoUfc{
+        position:absolute;
+        top: 54.56%;
+        bottom: 12.91%;
+        border-radius: 150px;
+        height: 300px;
+        width: 300px;
+        left: 613px;
+        top: 503px;
+        border-radius: 150px;
+
+
+    }
