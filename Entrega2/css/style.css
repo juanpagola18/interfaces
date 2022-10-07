@@ -718,7 +718,7 @@ form button{
     background: #01888E;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 80px 1500px 200px;
+    grid-template-rows: 80px 1800px 200px;
     grid-template-areas: "head"
                          "content"
                          "foot";   
@@ -835,26 +835,27 @@ form button{
     }
     .image_principal img.mcGregor{
         position:absolute;
-        bottom: 12.91%;
+        height: 250px;
+        width: 250px;
         border-radius: 150px;
-        height: 300px;
-        width: 300px;
-        left: 102px;
-        top: 503px;
-        border-radius: 150px;
-
-
+        left: 10.84%;
+        bottom: 20%;
+        overflow:hidden;
     }
     .image_principal img.logoUfc{
         position:absolute;
-        top: 54.56%;
-        bottom: 12.91%;
+        height: 250px;
+        width: 250px;
         border-radius: 150px;
-        height: 300px;
-        width: 300px;
-        left: 613px;
-        top: 503px;
-        border-radius: 150px;
-
-
+        right: 10.84%;
+        bottom: 20%;
+        overflow:hidden;    
+    }
+    .features_container{
+        height: 30%;
+        display:flex;
+        flex-direction: row;
+    }
+    .features_container img{
+        height: 100%;
     }
