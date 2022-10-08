@@ -292,6 +292,10 @@ body{
     background-color: #33BDC2;
 }
 
+.game-container .btn-buy:hover{
+    background-color: #13ABB2;
+}
+
 .game-container .btn-buy:active{
     background-color:#13ABB2;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25); 
@@ -305,6 +309,11 @@ body{
     background-color:#CC1E70;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25); 
 }
+
+.game-container .btn-play:hover{
+    background-color: #CC1E70;
+}
+
 
 .game-container .game-cards-container{
     display: flex;
@@ -430,29 +439,22 @@ ul.breadcrumbs li a:hover {
 
 .btn-play-help{
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     position: absolute;
     top: 40%;
-	/* animation: rotateAngle 6s linear infinite; */
+    animation: moveForward 1s;
+    animation-timing-function:ease-in;
+    transform-style: preserve-3d;
 }
-/* @keyframes rotateAngle {
-	0% {
-		transform: rotateY(0deg) rotateX(10deg);
-		animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1);
-	}
-	25% {
-		transform: rotateY(20deg) rotateX(10deg);
-	}
-	75% {
-		transform: rotateY(-20deg) rotateX(10deg);
-	}
-	100% {
-		transform: rotateY(0deg) rotateX(10deg);
-	}
-} */
-
-.btn-play-help button {
-    
+  @keyframes moveForward {
+    0% {
+        transform: scale(60%);
+    }
+    100% {
+        transform: scale(100%) ;
+    }
   }
 
   
@@ -530,8 +532,8 @@ ul.breadcrumbs li a:hover {
 .btn-play-help button a{
     text-decoration: none;
     color: #F4F7F9;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 15px;
 }
 
 .play-game-area .btn-help{
