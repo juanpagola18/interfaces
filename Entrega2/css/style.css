@@ -857,8 +857,33 @@ form button{
         background: #D20B0B;
         height: 100%;
         z-index: 1;
+        display: flex;
+        justify-content: center;
+        
     }
+    .footer_ufc button{
+        width: 30%;
+        height: 60%;
+        align-self: center;
+        background-color: #28C451;
+        border-radius: 8px;
+        color:#F4F7F9;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 18px;        
+    }
+    .footer_ufc p{
+        padding-left:25px;
+        align-self: center;
+        color:#F4F7F9;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 18px;
 
+    }
+    .footer_ufc p span{
+        text-decoration-line: line-through;
+    }
     /*features
     */
     .features_container{
