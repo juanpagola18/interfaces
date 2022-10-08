@@ -6,3 +6,19 @@ icono.addEventListener('click', () => {
     desplegable.classList.toggle('showHamburguer');
     
 });
+
+let numero = document.getElementById("percent");
+let i = 1;
+
+
+setInterval(function increment(){
+   if(i <=100){
+    numero.innerHTML = i+"%";
+    i++;
+    }
+    
+    
+    
+},100);
+
+increment(); 
