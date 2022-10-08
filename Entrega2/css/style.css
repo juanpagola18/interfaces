@@ -852,10 +852,41 @@ form button{
         overflow:hidden;    
     }
     .features_container{
+        width: 100%;
         height: 30%;
         display:flex;
         flex-direction: row;
+        background-image: url(../images/background\ fighters.jpeg);
     }
-    .features_container img{
+    .feature{
+        width: 33%; 
+        border: 3px solid #D20B0B;
+    }
+    .feature_image{
+        display:flex;
+        flex-direction: row;
+        height: 80%;
+    }
+    .feature h2{
+        background-color: #D20B0B;
+        color:#F4F7F9;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 38px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    .feature_image img{
+       width:70%;
         height: 100%;
+
+
     }
+    .feature_image p{
+        width:30%;
+         height: 100%;
+        
+ 
+     }
+ 
