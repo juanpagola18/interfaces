@@ -14,29 +14,32 @@ header{
     background-color: #EDFDFE;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .logo{
-    padding-left: 12px;
-    width: 50%;
-    height: 80px;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 12px;
+    width: 66px;
 }
 
 .title_logo{
-    height: 20%;
     font-size: 14px;
     color: #01888E;
-    width:120.68px;
     text-align: center;
+    font-weight: bold;
    
 }
-.img_logo {
-    height: 80%;
+.img_logo a img{
+    width: 100%;
+    border-radius: 8px;
+    mix-blend-mode:darken;
 }
-.img_logo img{
-    height: 100%;
-    border-radius: 20px;
-}
+
 .img_logo img:hover{
     transition: 2s; 
     transform: rotate(360deg); 
@@ -45,22 +48,27 @@ header{
 */
 
 nav{
-    width: 50%;
+    height: 80px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
     padding: 10px;
 }
 .lens{
-    height: 50px;
+    height: 36px;
 }
 .lens img{
     height: 100%;
-    width: 50px;
+    object-fit: contain;
 }
+
+.search,.hamburguer,.profile{
+    margin-left: 5px;
+}
+
 .search{
-    width: 217px;
-    height: 50px;
+    width: 250px;
+    height: 36px;
 }
 .search input{
     height: 100%;
@@ -71,23 +79,31 @@ nav{
     border-radius: 8px;
 
 }
+
 .hamburguer{
     width: 53px;
     height: 50px;
 }
-.hamburguer img{
+
+.hamburguer .hamburguer-icon{
     height: 100%;
     width: 100%;
-    
 }
-.profile{
-    width: 50px;
-    height: 50px; 
+
+.scrolled_menu div{
+    margin-top: 30px;
 }
-.profile img{
-    height: 100%;
-    width: 100%;
-    align-items: center;
+
+button.profile{
+    width: 40px;
+    height: 40px; 
+    font-weight: 500;
+    font-size: 24px;
+    text-align: center;
+    color: #F4F7F9;
+    background-color: #D84089;
+    border-radius: 50%;
+    object-fit: contain;
 }
 
 /* footer
@@ -98,6 +114,7 @@ footer{
     background-color: #F4F7F9;
     border-top: 3px solid #D84089;
     display: flex;
+    justify-content: space-between;
 }
 .foot_category{
     width: 70%;
@@ -135,10 +152,8 @@ footer li{
 }
 footer li a{
     color: #1B1F20;
-    
-   
-
 }
+
 footer li:hover{
     transform: scale(1.1)
 }
@@ -158,10 +173,11 @@ social*/
 
 .foot_social{
     padding: 10px;
-    width:30%;
+    width:25%;
     display:flex;
     flex-direction: column;
 }
+
 .foot_title{
     height: 15%;
 }
@@ -175,8 +191,11 @@ social*/
 
 }
 .suscribe_newsletter{
+    display: flex;
+    flex-flow: row nowrap;
     height: 20%;
     align-items: center;
+    justify-content: space-between;
 }
 .suscribe_newsletter input{
     background: #F4F7F9;
@@ -185,20 +204,19 @@ social*/
     border-radius: 8px;
     box-sizing: border-box;
     height: 80%;
-    width: 60%;
-    padding: 8px;
+    width: 73%;
+    padding: 6px;
 }
 .suscribe_newsletter button{
     background: #D84089;
-    width: 20%;
+    height: 80%;
+    width: 25%;
     border-radius: 8px;
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 16px;
     color: #F4F7F9;
-    margin-left: 5%;
-
 }
 
 .icon_social{
@@ -210,10 +228,27 @@ social*/
     width: 100%;
 }
 
+.foot_social .social_bar{
+    width: 100%;
+    margin-top: 15px;
+    justify-content: space-between;
+    mix-blend-mode: luminosity;
+}
+
+.foot_social .social_bar div{
+    transform: scale(0.7);
+}
+
 .social_bar{
     height: 35%;
     display:flex;
+    flex-flow: row nowrap;
     justify-content: space-around;
+    align-items: center;
+}
+
+.social_bar div {
+    display: flex;
     align-items: center;
 }
 
@@ -225,8 +260,8 @@ social*/
     flex-direction: column;
     height: 400px;
     width: 360px;
+    border-top:1px solid #004C50;
     border-bottom: 1px solid #004C50;
-    border-radius: 8px 8px 0px 0px;
     position: relative;
     display: none;
     margin-left: -550%;
@@ -256,10 +291,10 @@ social*/
     color: #1B1F20;
 }
 
-.scrolled_menu li a:hover{
+.scrolled_menu li:hover{
     display: inline-block;
     vertical-align: middle;
-    transform: scale(1.3) rotate(-2deg);
+    transform: scale(1.3) rotate(-4deg);
 }
   
 .scrolled_menu .social_bar{
@@ -275,7 +310,8 @@ social*/
 }
 
 .showHamburguer{
-    display:flex;    
+    display:flex; 
+    margin-top: 11px;  
 }
 
 /*index main*/
@@ -283,6 +319,11 @@ social*/
 body{
     background-color: rgba(1, 136, 142, 1);
 }
+
+.game-container{
+    padding-left: 10px;
+}
+
 .game-container button{
     width: 58px;
     height: 21px;
@@ -319,18 +360,63 @@ body{
 .game-container .game-cards-container{
     display: flex;
     flex-flow: row nowrap;
+    width: 100%;
+    overflow: auto;
+    min-height: fit-content;
+    padding: 6px;
 }
 
 .game-container h2{
+    margin-top: 30px;
     margin-bottom: 2px;
     font-weight: 500;
     font-size: 32px;
     line-height: 38px;
     color: #F4F7F9;
+    max-height: 38px;
 }
-.game-container h2 {
-    margin-top: 35px;
+
+.game-container section:hover{
+    transform: scale(1.01,);
 }
+
+.game-container section{
+    display: flex;
+    flex-direction: column;
+}
+
+/* barra de scroll cards */
+
+.game-cards-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    background-color: #004C50;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+}
+
+.game-cards-container::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.game-cards-container::-webkit-scrollbar:horizontal {
+    height:10px;
+}
+
+.game-cards-container::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.game-cards-container::-webkit-scrollbar-thumb {
+    background-color: #86E1E5;
+    border-radius: 20px;
+    border: 1px solid #004C50;
+    margin-left: 2px;
+}
+
+.game-cards-container::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
 /*game
  card 
  styling- index*/
@@ -339,13 +425,18 @@ body{
     display: flex;
     flex-direction: column;
     height: 198px;
-    width: 194px;
+    max-width: 194px;
+    min-width: 194px;
+    
     border-radius: 10px;
     margin-right:15px ;
     color: #F4F7F9;
     outline: solid 1px #1B1F20;
     
+}
 
+.game-card:hover{
+    transform: scale(1.05);
 }
 
 .img-container{
