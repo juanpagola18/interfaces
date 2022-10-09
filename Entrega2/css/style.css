@@ -1015,8 +1015,28 @@ form button{
  }
  .heros_carousel{
     width: 100%;
-    overflow: hidden;
+    overflow-x: auto;
+   
+
+    
  }
+.heros_carousel::-webkit-scrollbar {  
+    -webkit-appearance: none;
+    background-color: #465152;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px 0px #00000040 inset;
+
+
+
+}
+.heros_carousel::-webkit-scrollbar-thumb {
+    background-color: #F4F7F9;
+    border-radius: 20px;
+    border: 1px solid #00000040;
+    
+  
+}
+
 
 
  .carousel{
