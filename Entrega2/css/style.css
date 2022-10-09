@@ -910,6 +910,10 @@ form button{
         font-size: 25px;
         }
 
+
+
+
+        
     .footer_ufc p{
         padding-left:25px;
         align-self: center;
@@ -922,6 +926,10 @@ form button{
     .footer_ufc p span{
         text-decoration-line: line-through;
     }
+    .payment_page{
+        display:none;
+    }
+
     /*features
     */
     .features_container{
@@ -1016,7 +1024,6 @@ form button{
  .heros_carousel{
     width: 100%;
     overflow-x: auto;
-   
 
     
  }
