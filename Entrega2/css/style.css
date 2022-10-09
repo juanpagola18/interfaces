@@ -442,7 +442,25 @@ body{
 .img-container{
     width: 100%;
     height: 122px;
-    
+    position: relative;
+}
+
+.img-container p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #D84089;
+    border-radius: 8px 0px 0px 0px;
+    border-width: 1px 0px 0px 1px;
+    border-style: solid;
+    border-color: #1B1F20;
+    font-weight: 700;
+    font-size: 14px;
+    width: 64px;
+    height: 35px;
 }
 
 .game-container .img-container img{
@@ -539,7 +557,7 @@ ul.breadcrumbs li a:hover {
     flex-direction: column;
     position: absolute;
     top: 40%;
-    animation: moveForward 1s;
+    animation: moveForward 1s 5s; /*lo ultimo es el delay*/
     animation-timing-function:ease-in;
     transform-style: preserve-3d;
 }
@@ -1228,24 +1246,24 @@ form button{
             width:100%;
             height:100%;
             position: fixed;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(27, 31, 32, 0.5);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 3;
             transition: 1s all;
             color:#DFE4E7
-            
-            
         }
+
         .loading.show {
-            opacity: 1;
             display: flex;
             flex-direction: column;
         }
+
         .notShow{
             display: none;
         }
+
         .loading .spin {
             border: 3px solid  #DFE4E7;
             border-top-color: #D20B0B;
