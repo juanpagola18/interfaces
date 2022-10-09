@@ -1086,6 +1086,9 @@ form button{
             display: flex;
             flex-direction: column;
         }
+        .notShow{
+            display: none;
+        }
         .loading .spin {
             border: 3px solid  #DFE4E7;
             border-top-color: #D20B0B;

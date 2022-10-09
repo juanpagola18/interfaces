@@ -19,6 +19,14 @@ setInterval(function increment(){
     
     
     
-},100);
+},50);
 
-increment(); 
+let carga = document.querySelector('.show');
+
+setTimeout(function desapear(){
+    carga.classList.remove('show');
+    carga.classList.remove('loading');
+    carga.classList.add('notShow');
+},5000);
+
+
