@@ -8,44 +8,20 @@ list-style: none;
 text-decoration: none; 
 border:none;
 font-family: 'Roboto';
-
 }
-/*layout main
-*/
-/* .main_layout {
-    min-height: 100vh;
-    background: #01888E;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 80px 1fr 250px;
-    grid-template-areas: "head"
-                         "content"
-                         "foot";   
-}
-header .main_layout{
-    grid-area: "head";   
- 
-}
-.game-container{
-    grid-area: "content";   
-} */
-
-
 
 header{
-
     background-color: #EDFDFE;
     display: flex;
     flex-direction: row;
-
 }
+
 .logo{
     padding-left: 12px;
     width: 50%;
-    height: 80px;
-    
-    
+    height: 80px;    
 }
+
 .title_logo{
     height: 20%;
     font-size: 14px;
@@ -59,13 +35,11 @@ header{
 }
 .img_logo img{
     height: 100%;
+    border-radius: 20px;
 }
 .img_logo img:hover{
     transition: 2s; 
     transform: rotate(360deg); 
-}
-.main_layout footer{
-    grid-area: "foot";
 }
 /*header
 */
@@ -119,6 +93,8 @@ nav{
 /* footer
 */
 footer{
+    height: 200px;
+    margin-top: 30px;
     background-color: #F4F7F9;
     border-top: 3px solid #D84089;
     display: flex;
@@ -225,16 +201,15 @@ social*/
 
 }
 
-
 .icon_social{
         height: 50px;
-        width: 50px;
-       
+        width: 50px;    
 }
+
 .icon_social img{
-   
     width: 100%;
 }
+
 .social_bar{
     height: 35%;
     display:flex;
@@ -245,7 +220,6 @@ social*/
 /* hamburguesa
 */
 .scrolled_menu{
-  
     background-color: #EDFDFE;
     display: flex;
     flex-direction: column;
@@ -259,14 +233,15 @@ social*/
     z-index: 1;
    
 }
+
 .scrolled_menu ul{
     display: flex;
     flex-direction: column;
     padding-bottom: 30px;
     height: 70%;
 }
-.scrolled_menu li{
 
+.scrolled_menu li{
     font-size: 24px;
     line-height: 28px;
     align-items: center;
@@ -275,18 +250,17 @@ social*/
     width: 360px;
     padding-bottom: 15px;
     padding-top: 15px;
-
 }
+
 .scrolled_menu li a{
-color: #1B1F20;
+    color: #1B1F20;
 }
 
 .scrolled_menu li a:hover{
     display: inline-block;
     vertical-align: middle;
     transform: scale(1.3) rotate(-2deg);
- 
-  }
+}
   
 .scrolled_menu .social_bar{
     border-top: 3px solid #1B1F20;
@@ -294,17 +268,17 @@ color: #1B1F20;
     height: 20%;
     justify-content: space-around;
 }
+
 .scrolled_menu .social_bar .icon_social{
     height: 40px;
     width: 40px;
-   
-}
-.showHamburguer{
-    display:flex;
-       
 }
 
-/*index*/
+.showHamburguer{
+    display:flex;    
+}
+
+/*index main*/
 
 body{
     background-color: rgba(1, 136, 142, 1);
@@ -318,9 +292,29 @@ body{
 .game-container .btn-buy{
     background-color: #33BDC2;
 }
+
+.game-container .btn-buy:hover{
+    background-color: #13ABB2;
+}
+
+.game-container .btn-buy:active{
+    background-color:#13ABB2;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25); 
+}
+
 .game-container .btn-play{
     background-color: #D84089;
 }
+
+.game-container .btn-play:active{
+    background-color:#CC1E70;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25); 
+}
+
+.game-container .btn-play:hover{
+    background-color: #CC1E70;
+}
+
 
 .game-container .game-cards-container{
     display: flex;
@@ -449,10 +443,27 @@ ul.breadcrumbs li a:hover {
 
 .btn-play-help{
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     position: absolute;
     top: 40%;
+    animation: moveForward 1s;
+    animation-timing-function:ease-in;
+    transform-style: preserve-3d;
 }
+  @keyframes moveForward {
+    0% {
+        transform: scale(60%);
+    }
+    100% {
+        transform: scale(100%) ;
+    }
+  }
+
+  
+
+/****************/  
 
 .play-game-area img{
     width: 100%;
@@ -516,6 +527,7 @@ ul.breadcrumbs li a:hover {
     height: 40px;
     border:solid 3px rgba(51, 189, 194, 1);
     background-color: rgba(51, 189, 194, 1);
+    border: solid 3px #F4F7F9;
     color: #F4F7F9;
     border-radius: 8px;
     margin: 25px; 
@@ -524,12 +536,13 @@ ul.breadcrumbs li a:hover {
 .btn-play-help button a{
     text-decoration: none;
     color: #F4F7F9;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 15px;
 }
 
 .play-game-area .btn-help{
     background-color: #F4F7F9;
+    border: solid 3px rgba(51, 189, 194, 1);
 }
 
 .play-game-area .btn-help a{
@@ -869,7 +882,10 @@ form button{
         color:#F4F7F9;
         font-weight: 700;
         font-size: 18px;
-        line-height: 18px;        
+        line-height: 18px;   
+        cursor: pointer;
+        position: relative;     
+        
     }
 
         .preOrder:before {
@@ -888,7 +904,7 @@ form button{
         .preOrder:hover:before {
         height: 100%;
         }
-
+        
         .preOrder:hover{
         transform: scale(1.05);
         font-size: 25px;
