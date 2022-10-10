@@ -68,6 +68,10 @@
     .scrolled_menu div{
         margin-top: 30px;
     }
+
+    button{
+        cursor: pointer;
+    }
     
     button.profile{
         width: 40px;
@@ -1122,50 +1126,38 @@ ul.img-container li{
             font-weight: 700;
             font-size: 36px;
         }
-        .image_principal{
+        .main-image{
             display:flex;
             height: 80%;
             width: 100%;
+            position: relative;
             justify-content: center;
-            object-fit: contain;
+            align-items:flex-end;
         }
-        .image_principal img.fondo{
-            
+
+        .main-image img.background-fighters{
             mix-blend-mode:darken;
-            height: 100%;
-            width: 60%;
-            margin-top:5%;
-            overflow: hidden;
-           
+            height: 100%;          
         }
-        .image_principal img.mcGregor{
+        .main-image img.circle{
             position: absolute;
-            max-width:250px;
-            max-height: 250px;
-            min-width: 150px;
-            min-height: 150px;
-            width:25%;
-            height:25%;
+            width:250px;
+            height: 250px;
             border-radius: 50%;
-            left: 10.84%;
-            bottom: 20%;
+            bottom: 10%;
             overflow:hidden;
         }
-    
-    
-        .image_principal img.logoUfc{
-            position:absolute;
-            max-width:250px;
-            max-height: 250px;
-            min-width: 150px;
-            min-height: 150px;
-            width:25%;
-            height:25%;
-            border-radius: 50%;
-            right: 10.84%;
-            bottom: 20%;
-            overflow:hidden;    
+
+        .main-image img.mcGregor{
+            left: 10%;
         }
+    
+    
+        .main-image img.logoUfc{
+            right: 10%;   
+        }
+
+
         .footer_ufc{
             background: #D20B0B;
             height: 100%;
