@@ -548,6 +548,8 @@ ul.breadcrumbs li a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    height: 700px;
 }
 
 .btn-play-help{
@@ -572,10 +574,22 @@ ul.breadcrumbs li a:hover {
 
   
 
-/****************/  
+/********game img and game videos********/  
 
 .play-game-area img{
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section.images-container{
+    display: flex;
+    flex-direction: column;
+}
+
+section.images-container ul{
+    width: 100%;
+    height: 100%;
 }
 
 .likeAndShare{
@@ -610,18 +624,12 @@ ul.breadcrumbs li a:hover {
     height: 42px;
 }
 
-.images-container{
-    display: flex;
-    flex-direction: column;
-    width: inherit;
-}
-
 .videos-container{
     display: flex;
     flex-direction: column;
 }
 
-.videos-container ul, .images-container ul{
+.videos-container ul.img-library-state, .images-container ul.img-library-state{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -636,12 +644,14 @@ ul.breadcrumbs li a:hover {
     left: 25px;
 }
 
-.videos-container ul li{
+
+
+.videos-container ul.img-library-state li,.images-container ul.img-library-state li {
     color: #1B1F20;
     font-size: 12px;
 }
 
-.videos-container ul li+li:before,.images-container ul li+li:before{
+.videos-container ul.img-library-state li+li:before,.images-container ul.img-library-state li+li:before{
     padding: 8px;
     color:#1B1F20;
     content: "/\00a0";
@@ -688,10 +698,14 @@ ul.breadcrumbs li a:hover {
     
 }
 
+ul.img-container li{
+    height: 100%;
+}
+
 .game-page-container .img-container img,.game-page-container .vid-container img{
     object-fit: cover;
     width:100%;
-    height:100%;
+    height: 100%;
 }
 
 .section-container{
@@ -720,10 +734,6 @@ ul.breadcrumbs li a:hover {
 .game-page-container{
     padding: 10px;
 }
-
-/* .game-page-container p, .game-links ul, .game-page-container h3, .game-page-container form{
-    padding: 5px;
-} */
 
 .game-links li{
     list-style:inside;
