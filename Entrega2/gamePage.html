@@ -10,17 +10,19 @@
 </head>
 
 <body>
+    <div class="loading show">
+        <div class="spin"></div>
+        <p id="percent">1%</p>
+    </div>  
     <header>
         <div class="logo" alt="logo">
             <h3 class="title_logo">All Games</h3>
-            <div class="img_logo"><a href="index.html"><img src="images/Logo.jpg" alt="Logo Header"></a>
-            
-            </div>
+            <div class="img_logo"><a href="index.html"><img src="images/Logo.jpg" alt="Logo Header"></a></div>
         </div>
         <nav>
             <div class="lens"><img src="images/Lupa.png" alt="lens"></div>
             <div class="search"><input type="text"></div>
-            <div class="hamburguer"><img src="images/menu.png" alt="hamburger">
+            <div class="hamburguer"><img class="hamburguer-icon" src="images/menu.png" alt="hamburger">
                 <div class="scrolled_menu">
                     <ul>
                     <li><a href="index.html">Home</li></a>
@@ -30,15 +32,14 @@
                     <li>Logout</li>
                     </ul>
                     <div class="social_bar">
-                        <div class="icon_social"><img src="images/facebook.png" alt="facebook"></div>
-                        <div class="icon_social"><img src="images/instagram.png" alt="instagram"></div>
-                        <div class="icon_social"><img src="images/twitter.png" alt="twitter"></div>
-                        <div class="icon_social"><img src="images/gmail.png" alt="gmail"></div>
+                        <div class="icon_social"><img src="images/facebookLogo.png" alt="facebook"></div>
+                        <div class="icon_social"><img src="images/instagramLogo.webp" alt="instagram"></div>
+                        <div class="icon_social"><img src="images/tweeter-logo.webp" alt="twitter"></div>
+                        <div class="icon_social"><img src="images/gmaillogo.png" alt="gmail"></div>
                     </div>
                 </div>
             </div>
-            
-            <div class="profile"><img src="images/profile.png" alt="profile"></div>
+            <button class="profile">P</button>
         </nav>
     </header>
     <div class="game-page-container">
@@ -49,7 +50,7 @@
                     <li><a href="#">4 in a Row</a></li>
                   </ul>
             <div class="play-game-area">
-                <img src="https://www.imgacademy.com/themes/custom/imgacademy/images/helpbox-contact.jpg"
+                <img src="images/the boys juego.jpg"
                     alt="game-4in-a-row">
                 <div class="btn-play-help">
                     <button><a href="">Play</a></button>
@@ -59,33 +60,41 @@
             </div>
             <div class="likeAndShare">
                 <div class="like">
-                    <button>Like</button>
+                    <button><img src="images/Like.jpg" alt="Like"></button>
                     <p>Like</p>
                 </div>
                 <div class="share">
-                    <button>Share</button>
+                    <button><img src="images/share.jpg" alt="Share"></button>
                     <p>Share</p>
                 </div>
             </div>
         </section>
         <div class="section-container">
-            <section class="images-container">
+            <section class="images-container library" >
                 <h3>Images</h3>
-                <div class="img-container">
-                    <img src="https://www.imgacademy.com/sites/default/files/2022-07/img-homepage-meta.jpg" alt="img1">
-                </div>
-                <ul>
+                <button id="btn-prev-img" class="btn-prev"><img src="images/prevIcon.png" alt="prev"></button>
+                <button id="btn-next-img" class="btn-next"><img src="images/nextIcon.png" alt="next"></button>
+                <ul id="img-ul-container"class="img-container">
+                    <li class="li-gallery"><img src="images/the boys gal1.jpeg" alt="img1"></li>
+                    <li class="li-gallery notShow"><img src="images/the boys gal2.jpg" alt="img2"></li>
+                    <li class="li-gallery notShow"><img src="images/the boys gal3.jpg" alt="img3"></li>
+                    <li class="li-gallery notShow"><img src="images/the boys gal4.jpeg" alt="img4"></li>
+                    <li class="li-gallery notShow"><img src="images/the boys gal5.jpg" alt="img5"></li>
+                    <li class="li-gallery notShow"><img src="images/the boys gal6.jpg" alt="img6"></li>
+                </ul>
+                <ul class="img-library-state">
                     <li>1</li>
                     <li>11</li>
                 </ul>
             </section>
-            <section class="videos-container">
+            <section class="videos-container library">
                 <h3>Videos</h3>
-                <div class="vid-container">
-                    <img src="https://www.imgacademy.com/sites/default/files/2022-07/img-homepage-meta.jpg"
-                        alt="video1">
-                </div>
-                <ul>
+                <button id="btn-prev-vid" class="btn-prev"><img src="images/prevIcon.png" alt="prev"></button>
+                <button id="btn-next-vid" class="btn-next"><img src="images/nextIcon.png" alt="next"></button>
+                <ul id="vid-ul-container" class="img-container">
+                    <li><img src="images/the boys juego.jpg" alt="vid1"></li>
+                </ul>
+                <ul class="img-library-state">
                     <li>1</li>
                     <li>3</li>
                 </ul>
@@ -117,14 +126,25 @@
                 <li class="comment-container">
                     <div class="name-tag-comment">
                         <p>Macanudo</p>
-                        <div><img src="" alt="*"><!-- aca va una lista??? --></div>
+                        <ul>
+                            <li><img src="images/star-icon.jpg" alt="star"></li>
+                            <li><img src="images/star-icon.jpg" alt="star"></li>
+                            <li><img src="images/star-icon.jpg" alt="star"></li>
+                            <li><img src="images/star-icon.jpg" alt="star"></li>
+                        </ul>
                     </div>
                     <p class="p-comment">Muy bueno todo, el juego es muy divertido</p>
                 </li>
                 <li class="comment-container">
                     <div class="name-tag-comment">
                         <p>CarlitosMarchet</p>
-                        <div><img src="" alt="*"><!-- aca va una lista??? --></div> 
+                        <ul>
+                            <li><img src="images/star-icon.jpg" alt="star"></li>
+                            <li><img src="images/star-icon.jpg" alt="star"></li>
+                            <li><img src="images/star-icon.jpg" alt="star"></li>
+                            <li><img src="images/star-icon.jpg" alt="star"></li>
+                            <li><img src="images/star-icon.jpg" alt="star"></li>
+                        </ul>
                     </div>
                     <p class="p-comment">Lo mejor que jugue en mi vida. Me voló la cabeza! La gente
                          que programa este juego evidentemente está para mucho mas!
@@ -133,7 +153,9 @@
                 <li class="comment-container">
                     <div class="name-tag-comment">
                         <p>elMalaLeche</p>
-                        <div><img src="" alt="*"><!-- aca va una lista??? --></div> 
+                        <ul>
+                            <li><img src="images/star-icon.jpg" alt="star"></li>
+                        </ul> 
                     </div>
                     <p class="p-comment">No me parece que sea lo que se promete en la descripcion.
                     Entre imaginando un juego de The Boys y era simplemente un 4 en linea. Ultima vez que lo juego!!!
@@ -161,7 +183,14 @@
                  </li>
                 </ul>
                 <div class="btn-send-container">
-                    <button>Send</button> <div>*****</div>
+                    <button>Send</button> 
+                    <ul>
+                        <li><img src="images/star-icon.png" alt="star"></li>
+                        <li><img src="images/star-icon.png" alt="star"></li>
+                        <li><img src="images/star-icon.png" alt="star"></li>
+                        <li><img src="images/star-icon.png" alt="star"></li>
+                        <li><img src="images/star-icon.png" alt="star"></li>
+                    </ul>
                 </div>
                 
                </form>
@@ -206,13 +235,14 @@
                 <button class="btn_action">Send</button>
             </div>
             <div class="social_bar">
-                <div class="icon_social"><img src="images/facebook.png" alt="facebook"></div>
-                <div class="icon_social"><img src="images/instagram.png" alt="instagram"></div>
-                <div class="icon_social"><img src="images/twitter.png" alt="twitter"></div>
-                <div class="icon_social"><img src="images/gmail.png" alt="gmail"></div>
+                <div class="icon_social"><img src="images/facebookLogo.png" alt="facebook"></div>
+                <div class="icon_social"><img src="images/instagramLogo.webp" alt="instagram"></div>
+                <div class="icon_social"><img src="images/tweeter-logo.webp" alt="twitter"></div>
+                <div class="icon_social"><img src="images/gmaillogo.png" alt="gmail"></div>
             </div>
         </div>
         </footer>
+ 
         <script type="text/javascript" src="js/hamburguer.js"></script>  
 
 </body>
