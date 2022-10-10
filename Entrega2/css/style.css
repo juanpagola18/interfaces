@@ -476,12 +476,19 @@ ul.img-container li{
     .game-container .btn-buy{
         background-color: #33BDC2;
     }
-
+    .game-container .btn-buy:hover{
+        box-shadow: 0 4px 16px  #33BDC2;
+    }
+   
     
     .game-container .btn-play{
         background-color: #D84089;
     }
-    
+        
+    .game-container .btn-play:hover{
+        box-shadow: 0 4px 16px #D84089;
+    }
+     
 
     
     
