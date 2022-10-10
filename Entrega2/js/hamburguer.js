@@ -9,6 +9,8 @@ icono.addEventListener('click', () => {
     
 });
 
+
+
 let numero = document.getElementById("percent");
 let i = 1;
 
