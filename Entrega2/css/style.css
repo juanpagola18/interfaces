@@ -730,8 +730,7 @@ section.library button:hover{
 
 .game-page-container .img-container,.game-page-container .vid-container{
     display: inline-block;
-    height: 90%;
-    
+    height: 90%;   
 }
 
 ul.img-container{
@@ -740,13 +739,25 @@ ul.img-container{
 
 ul.img-container li{
     height: 100%;
+    background-color: black;
+    height: 350px;
 }
 
 .game-page-container .img-container img,.game-page-container .vid-container img{
     object-fit: cover;
     width:100%;
     height: 100%;
+    animation: iluminate 1s;
 }
+
+@keyframes iluminate {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1 ;
+    }
+  }
 
 .section-container{
     display: flex;
