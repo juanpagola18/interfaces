@@ -259,6 +259,13 @@ section.library button{
     width: 40px;
     object-fit: cover;
     top: 240px;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+section.library button:hover{
+    opacity: 0.95;
+    cursor: pointer;
 }
 
 section.library button.btn-next{
