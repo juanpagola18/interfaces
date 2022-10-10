@@ -316,11 +316,11 @@ section.library button img{
     border-radius: 8px;
     margin: 25px; 
 }
-
-.btn-help:hover{
-    animation-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
-    animation: moveForward 1s 5s;
-    background-color: red;
+.btn-play-help button:hover{
+    box-shadow: 0 4px 16px rgba(51, 189, 194, 1);
+    transition: all 0.2s ease;  
+    transform: scale(1.01);
+  
 }
 
 .btn-play-help button a{
@@ -330,9 +330,15 @@ section.library button img{
     font-size: 15px;
 }
 
+
 .play-game-area .btn-help{
     background-color: #F4F7F9;
     border: solid 3px rgba(51, 189, 194, 1);
+}
+.play-game-area .btn-help:hover{
+    box-shadow: 0 4px 16px rgba(51, 189, 194, 1);
+    transition: all 0.2s ease;
+    transform: scale(1.01)
 }
 
 .play-game-area .btn-help a{
