@@ -1107,8 +1107,21 @@ form button{
         animation: moveForward 1s;
 
     }
- 
+    .payment_page{
+        
+        position: absolute;
+        margin-top: 15%;
+        z-index: 1;
+        align-self: center;
+        display:none;
+    }
+    .showPayment{
+        display:flex;
+        z-index: 99991;
+        
+    }
 
+  
     /*features
     */
     .features_container{
@@ -1226,20 +1239,20 @@ form button{
 
 
  .carousel{
-    width: 200%;
+    width: 170%;
     height: 100%;
     display:flex;
     flex-direction: row;
     flex-wrap: nowrap;  
-
+    justify-content: space-around;
  }
  .hero{
     padding-top: 20px;
     padding-left: 15px;
     display:flex;
     flex-direction: column;
-    width:15%;
-    height: 100%;
+    object-fit: contain;
+
     
  }
  .hero h1{

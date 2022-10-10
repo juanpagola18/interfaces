@@ -29,4 +29,19 @@ setTimeout(function desapear(){
     carga.classList.add('notShow');
 },5000);
 
+let btn = document.querySelector('.preOrder');
+let payment = document.querySelector('.payment_page');
+let closePayment = document.querySelector('#closePayment');
+let content_ufc = document.querySelector('.content_ufc');
 
+closePayment.addEventListener('click', () => {
+    payment.classList.toggle('showPayment');
+    
+});
+
+btn.addEventListener('click', () => {
+    content_ufc.classList.toggle('borroneado');
+    payment.classList.toggle('showPayment');
+
+    
+});
