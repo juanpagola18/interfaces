@@ -43,5 +43,5 @@ btn.addEventListener('click', () => {
     content_ufc.classList.toggle('borroneado');
     payment.classList.toggle('showPayment');
 
-    
+     
 });

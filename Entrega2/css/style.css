@@ -1015,7 +1015,7 @@ form div{
         height: 80%;
         width: 100%;
         justify-content: center;
-        
+        object-fit: contain;
     }
     .image_principal img.fondo{
         
@@ -1024,22 +1024,32 @@ form div{
         width: 60%;
         margin-top:5%;
         overflow: hidden;
-        
+       
     }
     .image_principal img.mcGregor{
-        position:absolute;
-        height: 250px;
-        width: 250px;
-        border-radius: 150px;
+        position: absolute;
+        max-width:250px;
+        max-height: 250px;
+        min-width: 150px;
+        min-height: 150px;
+        width:25%;
+        height:25%;
+        border-radius: 50%;
         left: 10.84%;
         bottom: 20%;
         overflow:hidden;
     }
+
+
     .image_principal img.logoUfc{
         position:absolute;
-        height: 250px;
-        width: 250px;
-        border-radius: 150px;
+        max-width:250px;
+        max-height: 250px;
+        min-width: 150px;
+        min-height: 150px;
+        width:25%;
+        height:25%;
+        border-radius: 50%;
         right: 10.84%;
         bottom: 20%;
         overflow:hidden;    
@@ -1050,6 +1060,7 @@ form div{
         z-index: 1;
         display: flex;
         justify-content: center;
+        max-height: 100px;
         
     }
     .footer_ufc button{
@@ -1085,6 +1096,7 @@ form div{
         }
         
         .preOrder:hover{
+        transition: all 1s;
         transform: scale(1.05);
         font-size: 25px;
         }
@@ -1100,7 +1112,7 @@ form div{
         font-weight: 700;
         font-size: 15px;
         line-height: 18px;
-
+      
     }
     .footer_ufc p span{
         text-decoration-line: line-through;
@@ -1263,7 +1275,8 @@ form div{
         font-weight: 400;
         font-size: 18px;
         line-height: 1.5em;
-        padding:2px;
+        overflow:hidden; 
+        padding: 2%;
      }
  .characters{
     height: 30%;
@@ -1340,9 +1353,11 @@ form div{
     display:flex;
     flex-direction: column;
     object-fit: contain;
-
+    width: 15%;
     
  }
+
+ 
  .hero h1{
     color: #F4F7F9;
     font-weight: 400;
@@ -1350,32 +1365,67 @@ form div{
     background-color: #465152;
     text-align: center;
     justify-content: center;
+    min-width: 156px;
+    width: 100%;
+    align-self: center;
 }
 
  .hero_image{
-    width:100%;
-    height: 60%;
+    width: 100%;
+    height: 100%;
     margin-top:10%;
+    z-index: 1;
+    object-fit: contain;
+  
+ }
+ .hero_stats{
+    color:#1B1F20;
+    z-index: -1;
+    font-weight: 400;
+    font-size: 14;
+    line-height: 1.5em;
+    text-align: center;
+    padding-top: 5px;
+
+
  }
  
  .hero_image img{
     width:100%;
     height: 90%;
-    position: relative;
+    margin-bottom: 5px;
 
-    
  }
- .efect_circle{
-    height: 10%;
+.hero:hover .hero_image{
+    display:none;
+    transition: 10s;
+ }
+ .hero:hover .efect_circle{
+    display:none;
+    transition: 10s;
+ }
+ .hero:hover .hero_stats{
+    z-index: 1;
+    width:100%;
+    height: 70%;
+    background-color: #F4F7F9;
+    border: 1px solid #F4F7F9;  
+
+ }
+
+
+ .hero .efect_circle{
+    height: 25%;
     width: 40%;
     align-self: center;
     box-sizing: border-box;
     background: #1B1F20;
     border-bottom: 1px solid #F4F7F9;
     box-shadow: 0px 3px 4px #F5F5F5;
-    border-radius:100%;
-    margin: -10%;
-
+    border-radius:50%;
+    margin-bottom: -45%;
+    margin-top: -18%;
+    overflow: hidden;
  }
  .info{
     background-color: #DFE4E7;
