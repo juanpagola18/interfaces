@@ -2,9 +2,7 @@
 let icono = document.querySelector('.hamburguer');
 let desplegable = document.querySelector('.scrolled_menu');
 let ulImg = document.querySelectorAll('.li-gallery');
-let index=0;
-document.querySelector('#btn-prev-img').addEventListener('click',()=>changeDisplay(-1,ulImg));
-document.querySelector('#btn-next-img').addEventListener('click',()=>changeDisplay(1,ulImg));
+
 
 icono.addEventListener('click', () => {
     desplegable.classList.toggle('showHamburguer');
@@ -50,20 +48,5 @@ btn.addEventListener('click', () => {
      
 });
 
-function changeDisplay(num,liElement){
-   if((num==-1)&&(index==0)){
-    liElement[index].classList.toggle('notShow');
-    index=liElement.length-1;
-    liElement[index].classList.toggle('notShow');
-   }else if((num==1)&&(index>=liElement.length-1) ){
-    liElement[index].classList.toggle('notShow');
-    index=0;
-    liElement[index].classList.toggle('notShow');
-   }else{
-    liElement[index].classList.toggle('notShow');
-    index+=num;
-    liElement[index].classList.toggle('notShow');
-    
-   }
-}
+
 
