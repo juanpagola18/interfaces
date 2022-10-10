@@ -51,11 +51,15 @@
     
     }
     
-    .hamburguer{
+    .hamburguer, .hamburguer2{
         width: 53px;
         height: 50px;
     }
     
+    .hamburguer2 .hamburguer-icon{
+        height: 100%;
+        width: 100%;
+    }
     .hamburguer .hamburguer-icon{
         height: 100%;
         width: 100%;
@@ -196,7 +200,20 @@
         z-index: 1;
        
     }
-    
+    .scrolled_menu2{
+        background-color: #EDFDFE;
+        flex-direction: column;
+        height: 400px;
+        width: 360px;
+        border-top: 1px solid #004C50;
+        border-bottom: 0.3px solid #004C50;
+        position: absolute;
+        display: none;
+        z-index: 1;
+        top: -500%;
+        left: 2%;
+       
+    }
     .scrolled_menu ul{
         display: flex;
         flex-direction: column;
@@ -204,7 +221,7 @@
         height: 70%;
     }
     
-    .scrolled_menu li{
+    .scrolled_menu li,  .scrolled_menu2 li {
         font-size: 24px;
         line-height: 28px;
         align-items: center;
@@ -215,7 +232,7 @@
         padding-top: 15px;
     }
     
-    .scrolled_menu li a{
+    .scrolled_menu li a,  .scrolled_menu2 li a{
         color: #1B1F20;
     }
     
@@ -225,14 +242,14 @@
         transform: scale(1.3) rotate(-4deg);
     }
       
-    .scrolled_menu .social_bar{
+    .scrolled_menu .social_bar,  .scrolled_menu2 .social_bar{
         border-top: 3px solid #1B1F20;
         padding-top: 3%;
         height: 20%;
         justify-content: space-around;
     }
     
-    .scrolled_menu .social_bar .icon_social{
+    .scrolled_menu .social_bar .icon_social,.scrolled_menu2 .social_bar .icon_social {
         height: 40px;
         width: 40px;
     }
@@ -1691,6 +1708,8 @@
                 .icon_social{
                         height: 50px;
                         width: 50px;    
+                        mix-blend-mode: darken;
+
                 }
                 
                 .icon_social img{
@@ -1701,7 +1720,8 @@
                     width: 100%;
                     margin-top: 15px;
                     justify-content: space-between;
-                    mix-blend-mode: luminosity;
+                    mix-blend-mode: darken;
+                 
                 }
                 
                 .foot_social .social_bar div{
