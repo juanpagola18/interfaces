@@ -830,7 +830,8 @@ ul.img-container li{
     ul.img-container li{
         height: 100%;
     }
-    
+
+
     .game-page-container .img-container img,.game-page-container .vid-container img{
         object-fit: cover;
         width:100%;
