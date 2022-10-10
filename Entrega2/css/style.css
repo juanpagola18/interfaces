@@ -234,7 +234,7 @@
     flex-direction: column;
 }
 
-.videos-container ul.img-library-state, .images-container ul.img-library-state{
+.videos-container ul.img-library-state , .images-container ul.img-library-state{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -247,6 +247,31 @@
     position: relative;
     bottom: 35px;
     left: 25px;
+}
+
+section.library{
+    position:relative;
+}
+
+section.library button{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    top: 240px;
+}
+
+section.library button.btn-next{
+    right: 5px;
+}
+
+section.library button.btn-prev{
+    left: 5px;
+}
+
+section.library button img{
+    height: 100%;
+    width: 100%;
 }
 
 
@@ -307,9 +332,9 @@ ul.img-container{
 }
 
 ul.img-container li{
-    height: 100%;
     background-color: black;
-    height: 350px;
+    max-height: 450px;
+    min-height: 450px;
 }
 
 .game-page-container .img-container img,.game-page-container .vid-container img{
