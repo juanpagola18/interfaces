@@ -129,150 +129,57 @@
     
     /* footer
     */
-    footer{
-        height: 200px;
-        padding-top: 30px;
-        background-color: #F4F7F9;
-        border-top: 3px solid #D84089;
-        display: flex;
-        justify-content: space-between;
+    footer .foot_social{
+        display:none;
     }
-    .foot_category{
-        width: 70%;
-        display:flex;
-        flex-direction: column;
-        padding: 10px;
+    footer .foot_category{
+        display:none;
     }
-    .foot_links{
-        height: 80%;
-        display: flex;
-        
-    }
-    .foot_links li{
-        padding-top: 5px;
-        padding-right: 45px;
-    }
-    footer h3{
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 18px;
-        color: #1B1F20
-    }
-    footer li{
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 18px;
-        color: #1B1F20;
-        transition: .2s ease-in-out; 
-       
-    
-    }
-    footer li a{
-        color: #1B1F20;
-    }
-    
-    footer li:hover{
-        transform: scale(1.1)
-    }
-    .company{
-        height: 20%;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 14px;
-        display: flex;
-        align-items: center;
-        color: #1B1F20;
-    }
-    /*footer
-    social*/
-    
-    .foot_social{
-        padding: 10px;
-        width:25%;
-        display:flex;
-        flex-direction: column;
-    }
-    
-    .foot_title{
-        height: 15%;
-    }
-    .foot_social p{
-        height: 30%;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 14px;
-    
-    }
-    .suscribe_newsletter{
-        display: flex;
-        flex-flow: row nowrap;
-        height: 20%;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .suscribe_newsletter input{
-        background: #F4F7F9;
-        border: 1px solid #DFE4E7;
-        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 8px;
-        box-sizing: border-box;
-        height: 80%;
-        width: 73%;
-        padding: 6px;
-    }
-    .suscribe_newsletter button{
-        background: #D84089;
-        height: 80%;
-        width: 25%;
-        border-radius: 8px;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 16px;
-        color: #F4F7F9;
-    }
-    
-    .icon_social{
-            height: 50px;
-            width: 50px;    
-    }
-    
-    .icon_social img{
-        width: 100%;
-    }
-    
-    .foot_social .social_bar{
-        width: 100%;
-        margin-top: 15px;
-        justify-content: space-between;
-        mix-blend-mode: luminosity;
-    }
-    
-    .foot_social .social_bar div{
-        transform: scale(0.7);
-    }
-    
     .social_bar{
         height: 35%;
         display:flex;
         flex-flow: row nowrap;
         justify-content: space-around;
         align-items: center;
+       
     }
+    .foot_social .social_bar{
+        width: 100%;
+        margin-top: 15px;
+        justify-content: space-around;
+        mix-blend-mode: darken;
+
+    }
+    .icon_social{
+        height: 20px;
+        width: 20px;    
+        mix-blend-mode: luminosity; 
+}
+    .foot_mobile{
+        height: 100%;
+        background-color:#EDFDFE;
+        display:flex;
+        flex-direction: column;
+        padding-bottom: 10px;
     
-    .social_bar div {
-        display: flex;
+    }
+    .foot_mobile p{
+        height: 50%;
+        text-align: center;
+        border-top: 3px solid #33BDC2;
+        border-radius: 0px 0px 8px 8px;
+    }
+    .foot_mobile .social_bar{
+        height: 50%;
         align-items: center;
+        padding-top: 2px;   
+        width: 50%;
+        align-self: center;
     }
-    
+
+    .icon_social img{
+        width: 100%;
+    }
     /* hamburguesa
     */
     .scrolled_menu{
@@ -282,7 +189,7 @@
         height: 400px;
         width: 360px;
         border-top:1px solid #004C50;
-        border-bottom: 1px solid #004C50;
+        border-bottom: 0.3px solid #004C50;
         position: relative;
         display: none;
         margin-left: -550%;
@@ -370,21 +277,19 @@
         overflow: auto;
         min-height: fit-content;
         padding: 6px;
+        background-color: #004C50;
     }
     
     .game-container h2{
-        margin-top: 30px;
+        margin-top: 15px;
         margin-bottom: 2px;
-        font-weight: 500;
-        font-size: 32px;
-        line-height: 38px;
+        font-size: 22px;
+        line-height: 30px;
         color: #F4F7F9;
-        max-height: 38px;
+        max-height: 30px;
     }
     
-    .game-container section:hover{
-        transform: scale(1.01,);
-    }
+  
     
     .game-container section{
         display: flex;
@@ -426,25 +331,19 @@
     /*game
      card 
      styling- index*/
-    
-    .game-card{
+     .game-card{
         display: flex;
         flex-direction: column;
-        height: 198px;
-        max-width: 194px;
-        min-width: 194px;
-        
+        height: 180px;
+        max-width: 120px;
+        min-width: 120px;
         border-radius: 10px;
         margin-right:15px ;
         color: #F4F7F9;
         outline: solid 1px #1B1F20;
         
     }
-    
-    .game-card:hover{
-        transform: scale(1.05);
-    }
-    
+
     .img-container{
         width: 100%;
         height: 122px;
@@ -491,7 +390,7 @@
     
     .card-description h3{
         height: 60%;
-        font-size: 20px;
+        font-size: 15px;
         text-align: center;
         padding: 1px 2px;
     }
@@ -1639,6 +1538,195 @@
                 .game-container section:hover{
                     transform: scale(1.01,);
                 }
+                .game-container section:hover{
+                    transform: scale(1.01,);
+                }
+                .game-card{
+                    display: flex;
+                    flex-direction: column;
+                    height: 198px;
+                    max-width: 194px;
+                    min-width: 194px;
+                    
+                    border-radius: 10px;
+                    margin-right:15px ;
+                    color: #F4F7F9;
+                    outline: solid 1px #1B1F20;
+                    
+                }
                 
+                .game-card:hover{
+                    transform: scale(1.05);
+                }
+                .game-container h2{
+                    margin-top: 30px;
+                    margin-bottom: 2px;
+                    font-weight: 500;
+                    font-size: 32px;
+                    line-height: 38px;
+                    color: #F4F7F9;
+                    max-height: 38px;
+                }
+                .card-description h3{
+                    height: 60%;
+                    font-size: 20px;
+                    text-align: center;
+                    padding: 1px 2px;
+                }  
+                 .game-container .game-cards-container{
+           
+                    background-color: #01888E;
+                }
+                footer{
+                    height: 200px;
+                    padding-top: 30px;
+                    background-color: #F4F7F9;
+                    border-top: 3px solid #D84089;
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .foot_category{
+                    width: 70%;
+                    display:flex;
+                    flex-direction: column;
+                    padding: 10px;
+                }
+                .foot_links{
+                    height: 80%;
+                    display: flex;
+                    
+                }
+                .foot_links li{
+                    padding-top: 5px;
+                    padding-right: 45px;
+                }
+                footer h3{
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 18px;
+                    color: #1B1F20
+                }
+                footer li{
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 15px;
+                    line-height: 18px;
+                    color: #1B1F20;
+                    transition: .2s ease-in-out; 
+                   
+                
+                }
+                footer li a{
+                    color: #1B1F20;
+                }
+                
+                footer li:hover{
+                    transform: scale(1.1)
+                }
+                .company{
+                    height: 20%;
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 14px;
+                    display: flex;
+                    align-items: center;
+                    color: #1B1F20;
+                }
+                /*footer
+                social*/
+                
+                .foot_social{
+                    padding: 10px;
+                    width:25%;
+                    display:flex;
+                    flex-direction: column;
+                }
+                
+                .foot_title{
+                    height: 15%;
+                }
+                .foot_social p{
+                    height: 30%;
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 14px;
+                
+                }
+                .suscribe_newsletter{
+                    display: flex;
+                    flex-flow: row nowrap;
+                    height: 20%;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+                .suscribe_newsletter input{
+                    background: #F4F7F9;
+                    border: 1px solid #DFE4E7;
+                    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border-radius: 8px;
+                    box-sizing: border-box;
+                    height: 80%;
+                    width: 73%;
+                    padding: 6px;
+                }
+                .suscribe_newsletter button{
+                    background: #D84089;
+                    height: 80%;
+                    width: 25%;
+                    border-radius: 8px;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: #F4F7F9;
+                }
+                
+                .icon_social{
+                        height: 50px;
+                        width: 50px;    
+                }
+                
+                .icon_social img{
+                    width: 100%;
+                }
+                
+                .foot_social .social_bar{
+                    width: 100%;
+                    margin-top: 15px;
+                    justify-content: space-between;
+                    mix-blend-mode: luminosity;
+                }
+                
+                .foot_social .social_bar div{
+                    transform: scale(0.7);
+                }
+                
+                .social_bar{
+                    height: 35%;
+                    display:flex;
+                    flex-flow: row nowrap;
+                    justify-content: space-around;
+                    align-items: center;
+                }
+                
+                .social_bar div {
+                    display: flex;
+                    align-items: center;
+                }
+                footer .foot_social{
+                    display:flex;
+                }
+                footer .foot_category{
+                    display:flex;
+                }
+                footer .foot_mobile{
+                    display:none;
+                }
             }
-        
