@@ -1041,83 +1041,90 @@ ul.img-container li{
         height:90%;    
     }
     
-    
-    
-    /* layout page ufc
-    */
-    
+    /* layout page ufc*/
     .ufc_layout {
         min-height: 100vh;
         background: #01888E;
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 80px 1800px 200px;
+        grid-template-rows: 2fr 34fr 5fr;
         grid-template-areas: "head"
-                             "content"
-                             "foot";   
+            "content"
+            "foot";
     }
     
-    .ufc_layout{
-        grid-area: "head";       
+    .ufc_layout {
+        grid-area: "head";
     
     }
-    .content_ufc{
-        grid-area: "content";   
+    
+    .content_ufc {
+        grid-area: "content";
+        display: flex;
+        flex-direction: column;
     }
     
-    .ufc_layout footer{
+    .content_ufc .footer_ufc {
+        height: 8%;
+    }
+    
+    .ufc_layout footer {
         grid-area: "foot";
     }
     
-    .content_ufc{
+    .game_container {
+        width: 100%;
+        height: 50%;
+        max-height: 700px;
+        background-image: url(../images/ring3.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
         display: flex;
         flex-direction: column;
+    }
     
-    }
-    .game_container{
-        width: 100%;
-        height: 50%;
-        background-image:url(../images/ring2);
-        background-size: cover;
-        background-repeat:   no-repeat;
-        background-position: center center;
-        display:flex;
-        flex-direction: column;
-    }
-    .game_info{
+    .game_info {
         width: 100%;
         height: 50%;
     }
-    .header_ufc{
+    
+    .header_ufc {
         width: 100%;
         height: 10%;
-        display:flex;
-    
+        display: flex;
     }
-    .title_ufc{
+    
+    .title_ufc {
         background-color: #D20B0B;
         width: 75%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     
     }
+    
     .title_ufc h1 {
         padding-left: 8px;
-        color:#F4F7F9;
+        color: #F4F7F9;
         font-weight: 700;
         font-size: 40px;
         line-height: 47px;
         display: flex;
         align-items: center;
     }
-    .title_ufc p{
+    
+    .title_ufc p {
         padding-left: 8px;
         font-weight: 400;
         font-size: 14px;
         line-height: 16px;
         display: flex;
         align-items: center;
-        color:#F4F7F9;
+        color: #F4F7F9;
     }
-    .days_left{
+    
+    .days_left {
         background: #64002F;
         width: 25%;
         font-size: 24px;
@@ -1125,311 +1132,324 @@ ul.img-container li{
         line-height: 28px;
         letter-spacing: 0em;
         display: flex;
-        align-items:center;
+        align-items: center;
         justify-content: center;
-        color:#F4F7F9;
+        color: #F4F7F9;
     }
-    .days_left:hover{
+    
+    .days_left:hover {
         animation-duration: 1s;
         animation-name: comingSoon;
     }
-      
+    
     @keyframes comingSoon {
         from {
-         opacity: 0.2;
-         transform: scale(1.1);
-         
+            opacity: 0.2;
+            transform: scale(1.1);
+    
         }
-      
+    
         to {
-        opacity: 0.9;
-        
-        }
-      }
-    .days_left span{    
-            font-weight: 700;
-            font-size: 36px;
-        }
-        .main-image{
-            display:flex;
-            height: 80%;
-            width: 100%;
-            position: relative;
-            justify-content: center;
-            align-items:flex-end;
-        }
-
-        .main-image img.background-fighters{
-            mix-blend-mode:darken;
-            height: 100%;          
-        }
-        .main-image img.circle{
-            position: absolute;
-            width:250px;
-            height: 250px;
-            border-radius: 50%;
-            bottom: 10%;
-            overflow:hidden;
-        }
-
-        .main-image img.mcGregor{
-            left: 10%;
-        }
-    
-    
-        .main-image img.logoUfc{
-            right: 10%;   
-        }
-
-
-        .footer_ufc{
-            background: #D20B0B;
-            height: 100%;
-            z-index: 1;
-            display: flex;
-            justify-content: center;
-            max-height: 100px;
-            
-        }
-        .footer_ufc button{
-            width: 30%;
-            height: 60%;
-            align-self: center;
-            background-color: #28C451;
-            border-radius: 8px;
-            color:#F4F7F9;
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 18px;   
-            cursor: pointer;
-            position: relative;    
-            
-            
-        }
-    
-            .preOrder:before {
-            content:"";
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            height: 0px;
-            background: rgba(255, 255, 255, 0.1);
-            transition: all 1s ease;
-            
-                
-            } 
-            
-            .preOrder:hover:before {
-            height: 100%;
-            }
-            
-            .preOrder:hover{
-            transition: all 1s;
-            transform: scale(1.05);
-            font-size: 25px;
-            }
-    
-    
-    
-    
-            
-        .footer_ufc p{
-            padding-left:25px;
-            align-self: center;
-            color:#F4F7F9;
-            font-weight: 700;
-            font-size: 15px;
-            line-height: 18px;
-          
-        }
-        .footer_ufc p span{
-            text-decoration-line: line-through;
-        }
-        .payment_page{
-            background-color: #F4F7F9;
-            width: 20%;
-            display:flex;
-            flex-direction: column;
-            align-self: center;
-            line-height: 2em;
-            padding: 10px;
-            min-width: 500px;
-        }
-        .payment_header{
-            height:100px;
-            border-bottom: 1px solid #1B1F20;
-            display:flex;
-            flex-direction: column;
-            align-items: flex-end;
-            padding: 5%;
-        }
-        .payment_page img{
-            width: 10%;
-           
-        }
-        .payment_page h3{
-            font-weight: 700;
-            font-size: 14px;
-            line-height: 16px;
-        }
-        .payment_title{
-            margin-bottom: 5%;
-            margin-top: 5%;
-            text-align: center;
-        }
-            input[type=number]::-webkit-inner-spin-button, 
-            input[type=number]::-webkit-outer-spin-button { 
-            -webkit-appearance: none; 
-            margin: 0; 
-        }
-        .normal_input{
-            background-color: #F4F7F9;
-            border: 1px solid #C0C7C8;
-            border-radius: 8px;
-            width: 50%;
-            line-height: 1.5;
-            padding: 2px;
-        }
-        .short_input{
-            background-color: #F4F7F9;
-            border: 1px solid #C0C7C8;
-            border-radius: 8px;
-            line-height: 1.5;
-            width: 15%;
-        }
-        .total{
-            padding-top: 10px;
-            align-self: center;
-        }
-        .price{
-            border: 1px solid #1B1F20;
-            border-radius: 8px;
-            padding-left: 25px;
-            padding-right: 25px;
-            font-weight: 400;
-            font-size: 15px;
-            line-height: 1.5em;
-        }
-        .pay{
-            
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            
-        }
-        .pay button{
-            margin: 10px;
-            background: #33BDC2;
-            border-radius: 8px;
-            padding-left: 30px;
-            padding-right: 30px;
-            font-weight: 400;
-            font-size: 15px;
-            line-height: 1.8em;
-            color:#F4F7F9;
-            justify-content: center;
-         
-        }
-        .pay button:hover{
-            background: #1B1F20;
-            animation: moveForward 1s;
+            opacity: 0.9;
     
         }
-        .payment_page{
-            
-            position: absolute;
-            margin-top: 15%;
-            z-index: 1;
-            align-self: center;
-            display:none;
-        }
-        .showPayment{
-            display:flex;
-            z-index: 99991;
-            
-        }
-    
-      
-        /*features
-        */
-        .features_container{
-            width: 100%;
-            height: 35%;
-            display:flex;
-            flex-direction: row;
-            background-image: url(../images/Reja.jpeg);
-            padding-top: 1%;
-            padding-bottom: 1%;
-            justify-content: space-around;
-        }
-        .feature{
-            width: 30%; 
-            border: 3px solid #D20B0B;
-            height: 100%;
-            
-            
-        }
-        .feature_image{
-            display:flex;
-            flex-direction: row;
-            height: 80%;
-            
-            
-        }
-        .feature h2{
-            
-            background-color: #D20B0B;
-            color:#F4F7F9;
-            font-weight: 500;
-            font-size: 32px;
-            line-height: 38px;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            height: 20%;
-            justify-content:center;
-        }
-        .feature_image img{
-            
-            width:70%;
-            
-    
-        }
-        .feature_image p{
-            width:30%;
-        
-            background: #F4F7F9;
-            color: #1B1F20;
-            font-weight: 400;
-            font-size: 18px;
-            line-height: 1.5em;
-            overflow:hidden; 
-            padding: 2%;
-         }
-     .characters{
-        height: 30%;
-        display:flex;
-     
-     }
-     .characters .characters_info{
-        width: 20%;
-        background-color:#D20B0B;
-        color:#F4F7F9;
-        justify-content:center;
-     
     }
-    .characters_info h1{
+    
+    .days_left span {
+        font-weight: 700;
+        font-size: 36px;
+    }
+    
+    .main-image {
+        display: flex;
+        height: 82%;
+        width: 100%;
+        position: relative;
+        justify-content: center;
+        align-items: flex-end;
+        padding-bottom: 3%;
+    }
+    
+    
+    .main-image img.background-fighters {
+        mix-blend-mode: darken;
+        transform: scale(1.3);
+    }
+    
+    .main-image img.circle {
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        bottom: 10%;
+        overflow: hidden;
+    }
+    
+    .main-image img.mcGregor {
+        left: 10%;
+    }
+    
+    
+    .main-image img.logoUfc {
+        right: 10%;
+    }
+    
+    
+    .footer_ufc {
+        background: #D20B0B;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        max-height: 100px;
+    
+    }
+    
+    .footer_ufc button {
+        width: 30%;
+        height: 60%;
+        align-self: center;
+        background-color: #28C451;
+        border-radius: 8px;
+        color: #F4F7F9;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 18px;
+        cursor: pointer;
+        position: relative;
+    
+    
+    }
+    
+    .preOrder:before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 0px;
+        background: rgba(255, 255, 255, 0.1);
+        transition: all 1s ease;
+    
+    
+    }
+    
+    .preOrder:hover:before {
+        height: 100%;
+    }
+    
+    .preOrder:hover {
+        transition: all 1s;
+        transform: scale(1.05);
+        font-size: 25px;
+    }
+    
+    
+    
+    
+    
+    .footer_ufc p {
+        padding-left: 25px;
+        align-self: center;
+        color: #F4F7F9;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 18px;
+    
+    }
+    
+    .footer_ufc p span {
+        text-decoration-line: line-through;
+    }
+    
+    .payment_page {
+        background-color: #F4F7F9;
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        line-height: 2em;
+        padding: 10px;
+        min-width: 500px;
+    }
+    
+    .payment_header {
+        height: 100px;
+        border-bottom: 1px solid #1B1F20;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 5%;
+    }
+    
+    .payment_page img {
+        width: 10%;
+    
+    }
+    
+    .payment_page h3 {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 16px;
+    }
+    
+    .payment_title {
+        margin-bottom: 5%;
+        margin-top: 5%;
+        text-align: center;
+    }
+    
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    
+    .normal_input {
+        background-color: #F4F7F9;
+        border: 1px solid #C0C7C8;
+        border-radius: 8px;
+        width: 50%;
+        line-height: 1.5;
+        padding: 2px;
+    }
+    
+    .short_input {
+        background-color: #F4F7F9;
+        border: 1px solid #C0C7C8;
+        border-radius: 8px;
+        line-height: 1.5;
+        width: 15%;
+    }
+    
+    .total {
+        padding-top: 10px;
+        align-self: center;
+    }
+    
+    .price {
+        border: 1px solid #1B1F20;
+        border-radius: 8px;
+        padding-left: 25px;
+        padding-right: 25px;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 1.5em;
+    }
+    
+    .pay {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .pay button {
+        margin: 10px;
+        background: #33BDC2;
+        border-radius: 8px;
+        padding-left: 30px;
+        padding-right: 30px;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 1.8em;
+        color: #F4F7F9;
+        justify-content: center;
+    }
+    
+    .pay button:hover {
+        background: #1B1F20;
+        animation: moveForward 1s;
+    }
+    
+    .payment_page {
+        position: absolute;
+        margin-top: 15%;
+        z-index: 1;
+        align-self: center;
+        display: none;
+    }
+    
+    .showPayment {
+        display: flex;
+        z-index: 99991;
+    }
+    
+    
+    /*features
+            */
+    .features_container {
+        width: 100%;
+        height: 35%;
+        display: flex;
+        flex-direction: row;
+        background-image: url(../images/cageBackground.jpg);
+        padding-top: 1%;
+        padding-bottom: 1%;
+        justify-content: space-around;
+    }
+    
+    .feature {
+        width: 30%;
+        outline: 3px solid #D20B0B;
+        height: 100%;
+    }
+    
+    .feature_image {
+        display: flex;
+        flex-flow: row nowrap;
+        height: 80%;
+    }
+    
+    .feature h2 {
+        background-color: #D20B0B;
+        color: #F4F7F9;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 38px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        height: 20%;
+        justify-content: center;
+    }
+    
+    .feature_image img {
+        object-fit: cover;
+        width: 70%;
+    }
+    
+    .feature_image p {
+        width: 30%;
+        background: #F4F7F9;
+        color: #1B1F20;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5em;
+        overflow: hidden;
+        padding: 2%;
+    }
+    
+    /********section hero**********/
+    .characters {
+        height: 30%;
+        display: flex;
+    }
+    
+    .characters .characters_info {
+        width: 20%;
+        background-color: #D20B0B;
+        color: #F4F7F9;
+        justify-content: center;
+    }
+    
+    .characters_info h1 {
         font-weight: 25;
         font-size: 32px;
         line-height: 38px;
         text-align: center;
-        
-     
-     
     }
-    .characters_info p{
+    
+    .characters_info p {
         padding: 12%;
         font-weight: 400;
         font-size: 18px;
@@ -1437,139 +1457,150 @@ ul.img-container li{
         text-align: center;
         justify-content: center;
         overflow: hidden;
-    
     }
-     .characters .heros_carousel{
-        width: 80%;
-        background-image: url(../images/background\ fighters.jpeg);
     
-     }
-     .heros_carousel{
+    .characters .heros_carousel {
+        width: 80%;
+        background-color: rgba(27, 31, 32, 1);
+    }
+    
+    .heros_carousel {
         width: 100%;
         overflow-x: auto;
+    }
     
-        
-     }
-    .heros_carousel::-webkit-scrollbar {  
+    .heros_carousel::-webkit-scrollbar {
         -webkit-appearance: none;
         background-color: #465152;
         border-radius: 8px;
         box-shadow: 0px 2px 4px 0px #00000040 inset;
-    
-    
-    
     }
+    
     .heros_carousel::-webkit-scrollbar-thumb {
         background-color: #F4F7F9;
         border-radius: 20px;
         border: 1px solid #00000040;
-        
-      
+    }
+    
+    .heros_carousel::-webkit-scrollbar:horizontal {
+        height: 10px;
+    }
+    
+    .carousel {
+        width: 170%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        padding-top: 10px;
+    }
+    
+    .hero {
+        margin-top: 10px;
+        margin-left: 15px;
+        display: flex;
+        flex-direction: column;
+        height: 90%;
+        min-width: 130px;
+        background-color:rgba(27, 31, 32, 1);
     }
     
     
-    
-     .carousel{
-        width: 170%;
-        height: 100%;
-        display:flex;
-        flex-direction: row;
-        flex-wrap: nowrap;  
-        justify-content: space-around;
-     }
-     .hero{
-        padding-top: 20px;
-        padding-left: 15px;
-        display:flex;
-        flex-direction: column;
-        object-fit: contain;
-        width: 15%;
-        
-     }
-    
-     
-     .hero h1{
+    .hero h1 {
         color: #F4F7F9;
         font-weight: 400;
-        font-size: 32px;
+        font-size: 25px;
         background-color: #465152;
         text-align: center;
         justify-content: center;
-        min-width: 156px;
-        width: 100%;
+        min-width: 100%;
         align-self: center;
+        border-radius: 8px 8px 0 0;
+        outline: 1px solid #F4F7F9;;
     }
     
-     .hero_image{
+    .hero_image {
         width: 100%;
         height: 100%;
-        margin-top:10%;
         z-index: 1;
-        object-fit: contain;
-      
-     }
-     .hero_stats{
-        color:#1B1F20;
+        border-radius: 0 0 8px 8px;
+    }
+    
+    .hero_image img{
+        width: 100%;
+        height: 90%;
+        object-fit: cover;
+        border-radius: 0 0 8px 8px;
+        outline: 1px solid #F4F7F9;
+    }
+    
+    .hero_stats {
+        min-width: 130px;
+        color: #1B1F20;
         z-index: -1;
         font-weight: 400;
         font-size: 14;
-        line-height: 1.5em;
+        line-height: 1em;
         text-align: center;
-        padding-top: 5px;
+        outline: 1px solid #F4F7F9;
+    }
     
+    .hero:hover .hero_image {
+        display: none;
+    }
     
-     }
-     
-     .hero_image img{
-        width:100%;
-        height: 90%;
-        margin-bottom: 5px;
+    .hero:hover .efect_circle {
+        display: none;
+    }
     
-     }
-    .hero:hover .hero_image{
-        display:none;
-        transition: 10s;
-     }
-     .hero:hover .efect_circle{
-        display:none;
-        transition: 10s;
-     }
-     .hero:hover .hero_stats{
+    .hero:hover{
+        transform: scale(1.1);
+    }
+    
+    .hero:hover .hero_stats {
         z-index: 1;
-        width:100%;
+        width: 100%;
         height: 70%;
         background-color: #F4F7F9;
-        border: 1px solid #F4F7F9;  
+        border: 1px solid #F4F7F9;
+        border-radius: 0 0 8px 8px;
     
-     }
+    }
     
     
-     .hero .efect_circle{
+    .hero .efect_circle {
         height: 25%;
-        width: 40%;
+        width: 65%;
         align-self: center;
         box-sizing: border-box;
         background: #1B1F20;
         border-bottom: 1px solid #F4F7F9;
         box-shadow: 0px 3px 4px #F5F5F5;
-        border-radius:50%;
+        border-radius: 50%;
         margin-bottom: -45%;
         margin-top: -18%;
         overflow: hidden;
-     }
-     .info{
+    }
+    
+    .info {
         background-color: #DFE4E7;
         height: 35%;
-        display:flex;
-        
-     }
-     .info .logo_survival{
-        width: 30%;
-        display:flex;
+        display: flex;
+    
+    }
+    
+    .info .logo_survival {
+        width: 20%;
+        display: flex;
         align-items: center;
         justify-content: center;
-     }
-    .logo_survival p{
+    }
+    
+    /*************story*************/
+    
+    .logo_survival p {
+        text-align: center;
         transform: rotate(-20deg);
         color: #F4F7F9;
         font-weight: 400;
@@ -1577,18 +1608,21 @@ ul.img-container li{
         line-height: 2em;
         background-color: #D20B0B;
         background-position: 0%;
+        width: 90%;
+        height: 20%;
     
-     }
-     .info .info_content{
-        display:flex;
+    }
+    
+    .info .info_content {
+        display: flex;
         margin: 25px;
         width: 70%;
         font-weight: 400;
         font-size: 20px;
         line-height: 1.5em;
         align-items: center;
-        color:#1B1F20;
-     }
+        color: #1B1F20;
+    }
     
      /* loading
      */
