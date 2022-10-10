@@ -576,20 +576,56 @@ ul.breadcrumbs li a:hover {
 
 /********game img and game videos********/  
 
-.play-game-area img{
+.play-game-area img,section.library button img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
+.show{
+    display: flex;
+}
+
 section.images-container{
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+section.videos-container{
+    position: relative;
+}
+
+section.videos-container ul{
+    z-index: -1;
 }
 
 section.images-container ul{
     width: 100%;
     height: 100%;
+    z-index: -1;
+}
+
+section.library button.btn-next{
+    right: 5px;
+}
+
+section.library button.btn-prev{
+    left: 5px;
+}
+
+section.library button{
+    height: 45px;
+    width: 45px;
+    position: absolute;
+    top: 180px;    
+    border-radius: 50%;
+    opacity: 0.8; 
+}
+
+section.library button:hover{
+    cursor: pointer;
+    opacity: 0.95;
 }
 
 .likeAndShare{
@@ -696,6 +732,10 @@ section.images-container ul{
     display: inline-block;
     height: 90%;
     
+}
+
+ul.img-container{
+    z-index: -1;
 }
 
 ul.img-container li{
