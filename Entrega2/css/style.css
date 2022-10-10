@@ -334,6 +334,7 @@ section.library button img{
 .play-game-area .btn-help{
     background-color: #F4F7F9;
     border: solid 3px rgba(51, 189, 194, 1);
+
 }
 .play-game-area .btn-help:hover{
     box-shadow: 0 4px 16px rgba(51, 189, 194, 1);
@@ -348,6 +349,7 @@ section.library button img{
 .game-page-container .img-container,.game-page-container .vid-container{
     display: inline-block;
     height: 90%;   
+  
 }
 
 ul.img-container{
@@ -718,7 +720,16 @@ ul.img-container li{
         display: flex;
         justify-content: space-between;
     }
-    
+
+
+
+    .likeAndShare{
+        width: 100%;
+        margin-top: 15px;
+        justify-content: space-around;
+        mix-blend-mode: darken;
+
+    }
     .like button,.share button{
         display: flex;
         justify-content: center;
@@ -734,13 +745,18 @@ ul.img-container li{
         width: 100%;
         
     }
-    
+    .like button img:hover{
+        transform: scale(1.1);
+    }
     .share button{
         align-items: center;
     }
     
     .share button img{
         height: 42px;
+    }
+    .share button img:hover{
+        transform: scale(1.1);
     }
     
     .videos-container{
