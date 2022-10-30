@@ -16,6 +16,7 @@ class Zone {
     getChip() {
         return this.chip;
     }
+   
 
     drawImg(img){
         if(this.image.src===''){

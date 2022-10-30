@@ -4,16 +4,19 @@ document.addEventListener('DOMContentLoaded', load)
 function load() {
 
     let canvas = document.querySelector('#canvas');
+    /** @type {CanvasRenderingContext2D} */
     let ctx = canvas.getContext('2d');
     let canvasWidth = canvas.width;
     let canvasHeight = canvas.height;
-
+    let selectedChip = null;
     let figures = [];
     let board = [];
     let dropZone = [];
     let imgBoard = 'img/boardCell.png';
     let imgPlayer1 = 'img/theBoysPin.jpg';
     let imgPlayer2 = 'img/heroesPin.webp';
+    let inicioX = 0;
+    let inicioY = 0;
 
     //luego pasar por parametro
 
@@ -38,7 +41,7 @@ function load() {
     let chipsPlayed = 0;
 
     //ficha jugandose actualmente
-    let lastTokenSelected;
+    let lastChipSelected;
     let isMouseDown = false;
 
     //ubicacion x y inicial del tablero
@@ -145,10 +148,48 @@ function load() {
         }
     }
     function initEvents(){
-        
-
+        canvas.addEventListener('mousedown', onMouseDown, false);
+        canvas.addEventListener('mouseup', onMouseUp, false);
+        canvas.addEventListener('mousemove', onMouseMove, false);
     }
+   
+    function onMouseDown(event){
+            isMouseDown = true;
+        for (var i = 0; i < chipsPlayer1.length; i++) {
+           
+          if (
+            chipsPlayer1[i].isCliked(event.clientX,event.clientY)
+         ) {
+            console.log("holaaa")
+            selectedChip = chipsPlayer1[i];
+            console.log(chipsPlayer1[i])
+            console.log(selectedChip);
+            inicioY = event.clientY - chipsPlayer1[i].y;
+            console.log(inicioY);
+            inicioX = event.clientX - chipsPlayer1[i].x;
+            console.log(inicioX);
+            i = chipsPlayer1.length;
+          }
+        }
+      }
 
+      function onMouseMove(event) {
+        console.log("sadsda")   
+        if (selectedChip != null) {
+            selectedChip.x = event.clientX - inicioX;
+            selectedChip.y = event.clientY - inicioY;
+            console.log(selectedChip);
+        }
+        clearCanvas();
+        drawChips();
+        drawBoard();
+        drawDropZone();
+      }
+
+      function onMouseUp(event)  {
+          selectedChip = null;
+      }
+    
     //......................................
 
     
