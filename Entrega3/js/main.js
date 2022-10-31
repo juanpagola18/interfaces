@@ -13,8 +13,8 @@ function load() {
     let board = [];
     let dropZone = [];
     let imgBoard = 'img/boardCell.png';
-    let imgPlayer1 = 'img/theBoysPin.jpg';
-    let imgPlayer2 = 'img/heroesPin.webp';
+    let imgPlayer1 = 'img/theBoysPin.png';
+    let imgPlayer2 = 'img/theSeven.png';
     let inicioX = 0;
     let inicioY = 0;
 
@@ -94,17 +94,17 @@ function load() {
         for (let i = 0; i < maxChips/2; i++) {
             //fichas jugador1
 
-            let posX=Math.round(Math.random()*(locationBoardX-SIZEPOSBOARD*2)+SIZEPOSBOARD);
-            let posY=canvasHeight-Math.round(Math.random()*heigthBoard)-locationBoardY;
+            let posX=locationBoardX-SIZEPOSBOARD- Math.round(Math.random()*SIZEPOSBOARD*2);
+            let posY=Math.round(Math.random()*(heigthBoard-SIZEPOSBOARD))+locationBoardY+SIZEPOSBOARD/2;
             let singleChipP1= new Chip(posX,posY,SIZECHIP,ctx,player1);
             chipsPlayer1.push(singleChipP1);
 
             //fichas jugador 2
-            //ojo que aca al final no se como termina
-            posX= Math.round(Math.random()*((canvasWidth-SIZEPOSBOARD*2)-(locationBoardX+widthBoard+SIZEPOSBOARD))+(locationBoardX*3    ))
-            posY= canvasHeight- Math.round(Math.random()*heigthBoard)-locationBoardY;
+            posX= locationBoardX+widthBoard+SIZEPOSBOARD+ Math.round(Math.random()*SIZEPOSBOARD*2);
+            posY= Math.round(Math.random()*(heigthBoard-SIZEPOSBOARD))+locationBoardY+SIZEPOSBOARD/2;
             let singleChipP2= new Chip(posX,posY,SIZECHIP,ctx,player2);
             chipsPlayer2.push(singleChipP2);
+
         }
 
         drawChips();
