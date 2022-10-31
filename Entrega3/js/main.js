@@ -37,7 +37,7 @@ function load() {
     let player2 = new Player("user2", 2);
     let chipsPlayer2 = [];
 
-    let playerTurn = player1;
+    let playerTurn = 1;
     let chipsPlayed = 0;
 
     //ficha jugandose actualmente
@@ -155,30 +155,49 @@ function load() {
    
     function onMouseDown(event){
             isMouseDown = true;
+            console.log("ahora es"+ playerTurn)
+        if (playerTurn == true){
         for (var i = 0; i < chipsPlayer1.length; i++) {
            
           if (
             chipsPlayer1[i].isCliked(event.clientX,event.clientY)
          ) {
-            console.log("holaaa")
+           
             selectedChip = chipsPlayer1[i];
-            console.log(chipsPlayer1[i])
-            console.log(selectedChip);
             inicioY = event.clientY - chipsPlayer1[i].y;
             console.log(inicioY);
             inicioX = event.clientX - chipsPlayer1[i].x;
             console.log(inicioX);
-            i = chipsPlayer1.length;
+           
           }
         }
-      }
+        
+    }
+        else if (playerTurn == false){
+            for (var i = 0; i < chipsPlayer2.length; i++) {
+               
+              if (
+                chipsPlayer2[i].isCliked(event.clientX,event.clientY)
+             ) {
+               
+                selectedChip = chipsPlayer2[i];
+                inicioY = event.clientY - chipsPlayer2[i].y;
+                console.log(inicioY);
+                inicioX = event.clientX - chipsPlayer2[i].x;
+                console.log(inicioX);
+              
+              }
+            }
+   
 
+
+      }
+    }
       function onMouseMove(event) {
-        console.log("sadsda")   
         if (selectedChip != null) {
             selectedChip.x = event.clientX - inicioX;
             selectedChip.y = event.clientY - inicioY;
-            console.log(selectedChip);
+            
         }
         clearCanvas();
         drawChips();
@@ -187,7 +206,20 @@ function load() {
       }
 
       function onMouseUp(event)  {
+        console.log(playerTurn);
+        isMouseDown = false;
           selectedChip = null;
+     
+        if (playerTurn == true) {
+            playerTurn = false;
+          
+        }
+        else if (playerTurn == false) {
+            playerTurn = true;
+       
+        };
+     
+       
       }
     
     //......................................
@@ -214,8 +246,8 @@ function load() {
 
 
 
-}
 
+}
 
 
 
