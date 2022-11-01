@@ -1,5 +1,6 @@
 class Zone {
-    constructor(x, y, width, ctx) {
+    constructor(x, y, width, ctx,id) {
+        this.id=id;
         this.x = x;
         this.y = y;
         this.width = width;
@@ -16,6 +17,7 @@ class Zone {
     getChip() {
         return this.chip;
     }
+   
 
     drawImg(img){
         if(this.image.src===''){
@@ -35,5 +37,6 @@ class Zone {
         this.ctx.fillStyle='blue';
         this.ctx.fill();
     }
+
 }
 
