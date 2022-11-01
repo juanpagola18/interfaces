@@ -9,8 +9,8 @@ class Chip {
         this.selected = false;
         this.canMove = true;
         this.image = new Image();
-        let initialX=xPos;
-        let initialY=yPos;
+        this.initialX=xPos;
+        this.initialY=yPos;
     }
 
 
@@ -21,6 +21,8 @@ class Chip {
     getInitialY(){
         return this.initialY;
     }
+
+    
 
     getPlayer() {
         return this.player;
