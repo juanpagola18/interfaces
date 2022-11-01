@@ -37,7 +37,7 @@ function load() {
     let player2 = new Player("user2", 2);
     let chipsPlayer2 = [];
 
-    let playerTurn = 1;
+    let playerTurn = true;
     let chipsPlayed = 0;
 
     //ficha jugandose actualmente
@@ -152,10 +152,14 @@ function load() {
         canvas.addEventListener('mouseup', onMouseUp);
         canvas.addEventListener('mousemove', onMouseMove);
     }
+
+
    
-    function onMouseDown(event){
-            isMouseDown = true;
-            console.log("ahora es"+ playerTurn)
+    
+      
+    
+
+    function onMouseDown(event) {
         if (playerTurn == true){
         for (var i = 0; i < chipsPlayer1.length; i++) {
            
@@ -187,47 +191,8 @@ function load() {
                 console.log(inicioX);
               
               }
-            }
-   
-
-
-      }
+         }
     }
-      function onMouseMove(event) {
-        if (selectedChip != null) {
-            selectedChip.x = event.clientX - inicioX;
-            selectedChip.y = event.clientY - inicioY;
-            
-        }
-       redraw();
-      }
-
-      function onMouseUp(event)  {
-        console.log(playerTurn);
-        isMouseDown = false;
-          selectedChip = null;
-        changeTurn();
-     
-        };
-     
-       
-      }
-    
-
-    function onMouseDown(event) {
-        isMouseDown = true;
-        for (var i = 0; i < chipsPlayer1.length; i++) {
-
-            if (chipsPlayer1[i].isCliked(event.clientX, event.clientY)) {
-                selectedChip = chipsPlayer1[i];
-                console.log(selectedChip);
-                inicioY = event.clientY - chipsPlayer1[i].getY();
-                console.log(inicioY);
-                inicioX = event.clientX - chipsPlayer1[i].getX();
-                console.log(inicioX);
-                //i = chipsPlayer1.length;
-            }
-        }
     }
 
     function onMouseMove(event) {
@@ -237,11 +202,8 @@ function load() {
             console.log(selectedChip);
         }
         redraw();
-        // clearCanvas();
-        // drawChips();
-        // drawBoard();
-        // drawDropZone();
     }
+
 
     function onMouseUp(event) {
         isMouseDown = false;//revisar
@@ -249,15 +211,18 @@ function load() {
             && (selectedChip.getY() < locationBoardY && selectedChip.getY() > locationBoardY - SIZEPOSBOARD);
         if (insert) {
             insertChip(returnColumnNum(selectedChip.getX()), selectedChip);
+            changeTurn();
         } else {
             selectedChip.setX(selectedChip.getInitialX());
             selectedChip.setY(selectedChip.getInitialY());
         }
 
         selectedChip = null;
-
+        
     }
 
+
+     
     function changeTurn(){
         if (playerTurn == true) {
             playerTurn = false;
@@ -267,12 +232,10 @@ function load() {
             playerTurn = true;
        
       }
-
+    }
 
     //......................................
     //Logica
-
-
 
 
     function returnColumnNum(chipX) {
@@ -293,9 +256,10 @@ function load() {
         const firstEmptyRow = getFirstEmptyRow(numCol);
         console.log(firstEmptyRow)
         if (firstEmptyRow === -1) {
-            chip.setX(chip.getInitialX);
-            chip.setY(chip.getInitialY);
+            chip.setX(chip.getInitialX());
+            chip.setY(chip.getInitialY());
             alert('Cannot put here, it is full');
+            changeTurn();
             return;
         }
         let box=figures[firstEmptyRow][numCol]
