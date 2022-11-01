@@ -25,7 +25,7 @@ function load() {
     let inLine = 4;
     let maxChips = columns * rows;
 
-    const SIZEPOSBOARD = 50;
+    const SIZEPOSBOARD = 55;
     const SIZECHIP = 25;
 
     let widthBoard = columns * SIZEPOSBOARD;
@@ -78,31 +78,31 @@ function load() {
                 locationChipX += SIZEPOSBOARD;
                 aux.push(rect);
             }
-            locationChipX-=SIZEPOSBOARD*columns+SIZEPOSBOARD;
-            locationChipY+=SIZEPOSBOARD;
+            locationChipX -= SIZEPOSBOARD * columns + SIZEPOSBOARD;
+            locationChipY += SIZEPOSBOARD;
             figures.push(aux);
         }
         drawDropZone();
-        console.log(board);
+        console.log("board: ", board);
         initChips();
-        console.log(chipsPlayer1);
-        console.log(chipsPlayer2);
-        console.log(figures);
+        console.log("chipsPlayer1: ", chipsPlayer1);
+        console.log("chipsPlayer2: ", chipsPlayer2);
+        console.log("figures: ", figures);
     }
 
-    function initChips(){
-        for (let i = 0; i < maxChips/2; i++) {
+    function initChips() {
+        for (let i = 0; i < maxChips / 2; i++) {
             //fichas jugador1
 
-            let posX=locationBoardX-SIZEPOSBOARD- Math.round(Math.random()*SIZEPOSBOARD*2);
-            let posY=Math.round(Math.random()*(heigthBoard-SIZEPOSBOARD))+locationBoardY+SIZEPOSBOARD/2;
-            let singleChipP1= new Chip(posX,posY,SIZECHIP,ctx,player1);
+            let posX = locationBoardX - SIZEPOSBOARD - Math.round(Math.random() * SIZEPOSBOARD * 2);
+            let posY = Math.round(Math.random() * (heigthBoard - SIZEPOSBOARD)) + locationBoardY + SIZEPOSBOARD / 2;
+            let singleChipP1 = new Chip(posX, posY, SIZECHIP, ctx, player1);
             chipsPlayer1.push(singleChipP1);
 
             //fichas jugador 2
-            posX= locationBoardX+widthBoard+SIZEPOSBOARD+ Math.round(Math.random()*SIZEPOSBOARD*2);
-            posY= Math.round(Math.random()*(heigthBoard-SIZEPOSBOARD))+locationBoardY+SIZEPOSBOARD/2;
-            let singleChipP2= new Chip(posX,posY,SIZECHIP,ctx,player2);
+            posX = locationBoardX + widthBoard + SIZEPOSBOARD + Math.round(Math.random() * SIZEPOSBOARD * 2);
+            posY = Math.round(Math.random() * (heigthBoard - SIZEPOSBOARD)) + locationBoardY + SIZEPOSBOARD / 2;
+            let singleChipP2 = new Chip(posX, posY, SIZECHIP, ctx, player2);
             chipsPlayer2.push(singleChipP2);
 
         }
@@ -112,8 +112,8 @@ function load() {
 
     //agrega fondo de board
 
-    function addZone(locationChipX,locationChipY){
-        let rectangle= new Zone(locationChipX,locationChipY,SIZEPOSBOARD,ctx);
+    function addZone(locationChipX, locationChipY) {
+        let rectangle = new Zone(locationChipX, locationChipY, SIZEPOSBOARD, ctx);
         board.push(rectangle);
         drawBoard();
         return rectangle;
@@ -121,36 +121,36 @@ function load() {
 
     //metodos dibujar
 
-    function clearCanvas(){
-        ctx.clearRect(0,0,canvasWidth,canvasHeight);
+    function clearCanvas() {
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     }
 
-    function drawDropZone(){
+    function drawDropZone() {
         for (let c = 0; c < columns; c++) {
-            let x= locationBoardX+(c*SIZEPOSBOARD);
+            let x = locationBoardX + (c * SIZEPOSBOARD);
             let y = locationBoardY - SIZEPOSBOARD;
-            let zone= new Zone(x,y, SIZEPOSBOARD,ctx);
+            let zone = new Zone(x, y, SIZEPOSBOARD, ctx, c);
             zone.draw();
-            dropZone.push(zone);         
+            dropZone.push(zone);
         }
     }
 
-    function drawChips(){
+    function drawChips() {
         for (let i = 0; i < chipsPlayer1.length; i++) {
             chipsPlayer1[i].drawImg(imgPlayer1);
-            chipsPlayer2[i].drawImg(imgPlayer2);            
+            chipsPlayer2[i].drawImg(imgPlayer2);
         }
     }
 
-    function drawBoard(){
+    function drawBoard() {
         for (let i = 0; i < board.length; i++) {
             board[i].drawImg(imgBoard);
         }
     }
-    function initEvents(){
-        canvas.addEventListener('mousedown', onMouseDown, false);
-        canvas.addEventListener('mouseup', onMouseUp, false);
-        canvas.addEventListener('mousemove', onMouseMove, false);
+    function initEvents() {
+        canvas.addEventListener('mousedown', onMouseDown);
+        canvas.addEventListener('mouseup', onMouseUp);
+        canvas.addEventListener('mousemove', onMouseMove);
     }
    
     function onMouseDown(event){
@@ -213,10 +213,52 @@ function load() {
        
       }
     
-    //......................................
 
-    
-      function changeTurn(){
+    function onMouseDown(event) {
+        isMouseDown = true;
+        for (var i = 0; i < chipsPlayer1.length; i++) {
+
+            if (chipsPlayer1[i].isCliked(event.clientX, event.clientY)) {
+                selectedChip = chipsPlayer1[i];
+                console.log(selectedChip);
+                inicioY = event.clientY - chipsPlayer1[i].getY();
+                console.log(inicioY);
+                inicioX = event.clientX - chipsPlayer1[i].getX();
+                console.log(inicioX);
+                //i = chipsPlayer1.length;
+            }
+        }
+    }
+
+    function onMouseMove(event) {
+        if (selectedChip != null) {
+            selectedChip.setX(event.clientX - inicioX);
+            selectedChip.setY(event.clientY - inicioY);
+            console.log(selectedChip);
+        }
+        redraw();
+        // clearCanvas();
+        // drawChips();
+        // drawBoard();
+        // drawDropZone();
+    }
+
+    function onMouseUp(event) {
+        isMouseDown = false;//revisar
+        let insert = (selectedChip.getX() > locationBoardX && selectedChip.getX() < locationBoardX + widthBoard)
+            && (selectedChip.getY() < locationBoardY && selectedChip.getY() > locationBoardY - SIZEPOSBOARD);
+        if (insert) {
+            insertChip(returnColumnNum(selectedChip.getX()), selectedChip);
+        } else {
+            selectedChip.setX(selectedChip.getInitialX());
+            selectedChip.setY(selectedChip.getInitialY());
+        }
+
+        selectedChip = null;
+
+    }
+
+    function changeTurn(){
         if (playerTurn == true) {
             playerTurn = false;
           
@@ -227,25 +269,61 @@ function load() {
       }
 
 
+    //......................................
+    //Logica
 
 
 
 
+    function returnColumnNum(chipX) {
+        let i = 0;
+        let currentCol = locationBoardX + SIZEPOSBOARD;
+        if (chipX < currentCol) {
+            return i
+        } else {
+            while (currentCol < chipX) {
+                currentCol += SIZEPOSBOARD;
+                i++;
+            } return i;
+        }
+    }
+
+    //insertar ficha
+    function insertChip(numCol, chip) {
+        const firstEmptyRow = getFirstEmptyRow(numCol);
+        console.log(firstEmptyRow)
+        if (firstEmptyRow === -1) {
+            chip.setX(chip.getInitialX);
+            chip.setY(chip.getInitialY);
+            alert('Cannot put here, it is full');
+            return;
+        }
+        let box=figures[firstEmptyRow][numCol]
+        //box va a ser el casillero donde "cae" la ficha
+        box.setChip(chip);
+        box.setIsChipInside(true);
+        console.log(figures)
+        chip.setX(box.getMiddleX(SIZEPOSBOARD));
+        chip.setY(box.getMiddleY(SIZEPOSBOARD));
+        chip.setCanMove(false);
+        //CHECKWINNER(chip.getPlayer.getNumber) en la logica seguro buscamos por unos y dos, no?
+        //la ficha tiene player, player tiene name y number (1 o 2)
+    }
+
+    function getFirstEmptyRow(numCol) {
+        let i = 0;
+        if (figures[i][numCol].isChipInside) {
+            return -1;
+        } else {
+            while ((i < rows)&&(figures[i][numCol].isChipInside)===false) {
+                console.log(figures[i][numCol].isChipInside)
+                i++
+            } 
+            return i-1
+        }
 
 
-
-    // for (i = 0; i < 15; i++) {
-    //     let circulo = new Circulo(ctx, Math.round(Math.random() * canvasWidth), Math.round(Math.random() * canvasHeight)
-    //         , Math.round(Math.random() * 50));
-    //     circulo.dibujarCirculo();
-    //     arrObjects.push(circulo);
-    // }
-
-
-
-
-
-
+    }
 }
 
 

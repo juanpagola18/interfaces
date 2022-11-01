@@ -7,6 +7,18 @@ class Zone {
         this.image = new Image();
         this.isChipInside = false;
         this.chip = null;
+        this.saludo="hola"
+    }
+    getMiddleX(sizeOfZone){
+        return this.x+sizeOfZone/2;
+    }
+
+    getMiddleY(sizeOfZone){
+        return this.y+sizeOfZone/2;
+    }
+
+    setIsChipInside(bool){
+        this.isChipInside=bool;
     }
 
     setChip(chip) {
@@ -36,5 +48,6 @@ class Zone {
         this.ctx.fillStyle='blue';
         this.ctx.fill();
     }
+
 }
 
