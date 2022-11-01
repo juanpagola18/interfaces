@@ -25,7 +25,7 @@ function load() {
     let inLine = 4;
     let maxChips = columns * rows;
 
-    const SIZEPOSBOARD = 50;
+    const SIZEPOSBOARD = 55;
     const SIZECHIP = 25;
 
     let widthBoard = columns * SIZEPOSBOARD;
@@ -59,7 +59,7 @@ function load() {
         drawBoard();
         drawChips();
         drawDropZone();
-        setInterval(drawChips, 20)
+        //setInterval(drawChips, 20)
     }
 
     //se inicia el tablero creandolas zonas, fichas y dropZones
@@ -83,11 +83,11 @@ function load() {
             figures.push(aux);
         }
         drawDropZone();
-        console.log("board: ",board);
+        console.log("board: ", board);
         initChips();
-        console.log("chipsPlayer1: ",chipsPlayer1);
-        console.log("chipsPlayer2: ",chipsPlayer2);
-        console.log("figures: ",figures);
+        console.log("chipsPlayer1: ", chipsPlayer1);
+        console.log("chipsPlayer2: ", chipsPlayer2);
+        console.log("figures: ", figures);
     }
 
     function initChips() {
@@ -129,7 +129,7 @@ function load() {
         for (let c = 0; c < columns; c++) {
             let x = locationBoardX + (c * SIZEPOSBOARD);
             let y = locationBoardY - SIZEPOSBOARD;
-            let zone = new Zone(x, y, SIZEPOSBOARD, ctx,c);
+            let zone = new Zone(x, y, SIZEPOSBOARD, ctx, c);
             zone.draw();
             dropZone.push(zone);
         }
@@ -175,30 +175,80 @@ function load() {
             selectedChip.setY(event.clientY - inicioY);
             console.log(selectedChip);
         }
-        clearCanvas();
-        drawChips();
-        drawBoard();
-        drawDropZone();
+        redraw();
+        // clearCanvas();
+        // drawChips();
+        // drawBoard();
+        // drawDropZone();
     }
 
     function onMouseUp(event) {
-        isMouseDown = false;
+        isMouseDown = false;//revisar
         let insert = (selectedChip.getX() > locationBoardX && selectedChip.getX() < locationBoardX + widthBoard)
             && (selectedChip.getY() < locationBoardY && selectedChip.getY() > locationBoardY - SIZEPOSBOARD);
-        
         if (insert) {
-            console.log("adentro");
-            console.log(dropZone);
-        } else{
+            insertChip(returnColumnNum(selectedChip.getX()), selectedChip);
+        } else {
             selectedChip.setX(selectedChip.getInitialX());
             selectedChip.setY(selectedChip.getInitialY());
         }
-            
+
         selectedChip = null;
 
     }
 
     //......................................
+    //Logica
+
+    function returnColumnNum(chipX) {
+        let i = 0;
+        let currentCol = locationBoardX + SIZEPOSBOARD;
+        if (chipX < currentCol) {
+            return i
+        } else {
+            while (currentCol < chipX) {
+                currentCol += SIZEPOSBOARD;
+                i++;
+            } return i;
+        }
+    }
+
+    //insertar ficha
+    function insertChip(numCol, chip) {
+        const firstEmptyRow = getFirstEmptyRow(numCol);
+        console.log(firstEmptyRow)
+        if (firstEmptyRow === -1) {
+            chip.setX(chip.getInitialX);
+            chip.setY(chip.getInitialY);
+            alert('Cannot put here, it is full');
+            return;
+        }
+        let box=figures[firstEmptyRow][numCol]
+        //box va a ser el casillero donde "cae" la ficha
+        box.setChip(chip);
+        box.setIsChipInside(true);
+        console.log(figures)
+        chip.setX(box.getMiddleX(SIZEPOSBOARD));
+        chip.setY(box.getMiddleY(SIZEPOSBOARD));
+        chip.setCanMove(false);
+        //CHECKWINNER(chip.getPlayer.getNumber) en la logica seguro buscamos por unos y dos, no?
+        //la ficha tiene player, player tiene name y number (1 o 2)
+    }
+
+    function getFirstEmptyRow(numCol) {
+        let i = 0;
+        if (figures[i][numCol].isChipInside) {
+            return -1;
+        } else {
+            while ((i < rows)&&(figures[i][numCol].isChipInside)===false) {
+                console.log(figures[i][numCol].isChipInside)
+                i++
+            } 
+            return i-1
+        }
+
+
+    }
 }
 
 

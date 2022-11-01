@@ -1,6 +1,5 @@
 class Zone {
-    constructor(x, y, width, ctx,id) {
-        this.id=id;
+    constructor(x, y, width, ctx) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -8,6 +7,18 @@ class Zone {
         this.image = new Image();
         this.isChipInside = false;
         this.chip = null;
+        this.saludo="hola"
+    }
+    getMiddleX(sizeOfZone){
+        return this.x+sizeOfZone/2;
+    }
+
+    getMiddleY(sizeOfZone){
+        return this.y+sizeOfZone/2;
+    }
+
+    setIsChipInside(bool){
+        this.isChipInside=bool;
     }
 
     setChip(chip) {
