@@ -9,6 +9,17 @@ class Chip {
         this.selected = false;
         this.canMove = true;
         this.image = new Image();
+        let initialX=xPos;
+        let initialY=yPos;
+    }
+
+
+    getInitialX(){
+        return this.initialX;
+    }
+
+    getInitialY(){
+        return this.initialY;
     }
 
     getPlayer() {
@@ -50,7 +61,7 @@ class Chip {
     getRadio() {
         return this.radius;
     }
-/*
+
     draw() {
         this.ctx.beginPath();
         this.ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
@@ -58,7 +69,7 @@ class Chip {
         this.ctx.fill();
         this.ctx.stroke();
         this.ctx.closePath();
-    }*/
+    }
 
     drawImg(img){
         this.ctx.beginPath();
@@ -79,7 +90,6 @@ class Chip {
         let difX = x - this.x;
         let difY = y - this.y;
         if(this.canMove){
-            //ojo que esta ya la tenia yo!
             return Math.sqrt((difX * difX) + (difY * difY)) < this.radius;
         }else{
             return false;

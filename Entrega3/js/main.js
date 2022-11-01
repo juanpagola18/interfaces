@@ -154,27 +154,22 @@ function load() {
     }
    
     function onMouseDown(event){
-            isMouseDown = true;
-        for (var i = 0; i < chipsPlayer1.length; i++) {
+        isMouseDown = true;
+        for (var i = 0; i <chipsPlayer1.length; i++) {
            
-          if (
-            chipsPlayer1[i].isCliked(event.clientX,event.clientY)
-         ) {
-            console.log("holaaa")
+          if (chipsPlayer1[i].isCliked(event.clientX,event.clientY)) {
             selectedChip = chipsPlayer1[i];
-            console.log(chipsPlayer1[i])
             console.log(selectedChip);
             inicioY = event.clientY - chipsPlayer1[i].y;
             console.log(inicioY);
             inicioX = event.clientX - chipsPlayer1[i].x;
             console.log(inicioX);
-            i = chipsPlayer1.length;
+            //i = chipsPlayer1.length;
           }
         }
       }
 
-      function onMouseMove(event) {
-        console.log("sadsda")   
+      function onMouseMove(event) {   
         if (selectedChip != null) {
             selectedChip.x = event.clientX - inicioX;
             selectedChip.y = event.clientY - inicioY;
@@ -187,7 +182,12 @@ function load() {
       }
 
       function onMouseUp(event)  {
-          selectedChip = null;
+            isMouseDown=false;
+            console.log('mouseup')
+            selectedChip.setX(selectedChip.getInitialX);
+            selectedChip.setY(selectedChip.getInitialY);
+            selectedChip = null;
+      
       }
     
     //......................................
