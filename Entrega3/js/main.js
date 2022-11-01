@@ -59,7 +59,7 @@ function load() {
         drawBoard();
         drawChips();
         drawDropZone();
-        setInterval(drawChips, 20)
+        
     }
 
     //se inicia el tablero creandolas zonas, fichas y dropZones
@@ -199,24 +199,15 @@ function load() {
             selectedChip.y = event.clientY - inicioY;
             
         }
-        clearCanvas();
-        drawChips();
-        drawBoard();
-        drawDropZone();
+       redraw();
       }
 
       function onMouseUp(event)  {
         console.log(playerTurn);
         isMouseDown = false;
           selectedChip = null;
+        changeTurn();
      
-        if (playerTurn == true) {
-            playerTurn = false;
-          
-        }
-        else if (playerTurn == false) {
-            playerTurn = true;
-       
         };
      
        
@@ -225,7 +216,15 @@ function load() {
     //......................................
 
     
-
+      function changeTurn(){
+        if (playerTurn == true) {
+            playerTurn = false;
+          
+        }
+        else if (playerTurn == false) {
+            playerTurn = true;
+       
+      }
 
 
 
