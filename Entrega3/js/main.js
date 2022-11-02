@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', load)
 
 function load() {
 
+    let btnReset = document.getElementById('reset');
+    btnReset.addEventListener('click', reset);
     let canvas = document.querySelector('#canvas');
     /** @type {CanvasRenderingContext2D} */
     let ctx = canvas.getContext('2d');
@@ -288,14 +290,57 @@ function load() {
 
 
     }
+    
+    function reset(){
+        chipsPlayer1= [];
+        chipsPlayer2= [];
+        figures= [];
+        board = [];
+        dropZone = [];
+        playerTurn = true
+        minutos = 2;
+        segundos = 59;
+        initBoard();
+        setTimeout(function reseted() {
+            reset();
+           }, 180000)
+        redraw();
+    }
+
+    let minute = document.getElementById('minute');
+    let second = document.getElementById('seconds');
+    let minutos = 2;
+    let segundos = 59;
+
+
+setInterval(function restSegundos(){
+    if(segundos >= 0){
+     second.innerHTML = segundos+"s";   
+     minute.innerHTML = minutos+"m";
+      segundos--;
+    }
+  
+    return;
+ },1000 );
+
+ setInterval(function restMinuto(){
+    if(minutos > 0){
+    
+     minutos--;
+     segundos= 59;
+    }
+    
+ },60000 );
+
+
+ setTimeout(function reseted() {
+   reset();
+  }, 180000)
+
+
+
+
+
+
+
 }
-
-
-
-
-
-
-
-
-
-
