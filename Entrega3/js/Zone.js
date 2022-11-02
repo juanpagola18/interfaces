@@ -7,7 +7,13 @@ class Zone {
         this.image = new Image();
         this.isChipInside = false;
         this.chip = null;
+        this.baseColor='#33BDC2';
     }
+
+    setBaseColor(color){
+        this.baseColor=color;
+    }
+
     getMiddleX(sizeOfZone) {
         return this.x + sizeOfZone / 2;
     }
@@ -47,13 +53,15 @@ class Zone {
         // this.ctx.fillStyle = 'blue';
         // this.ctx.fill();
         // this.ctx.closePath();
-
+        let adjust=10;
         this.ctx.beginPath();
         this.ctx.moveTo(this.x+this.width/2, this.y+this.width/1.5);
-        this.ctx.lineTo(this.x+5, this.y);
-        this.ctx.lineTo(this.x+this.width-5, this.y);
+        this.ctx.lineTo(this.x+adjust, this.y+adjust);
+        this.ctx.lineTo(this.x+this.width-adjust, this.y+adjust);
+        this.ctx.fillStyle=this.baseColor;
         this.ctx.fill();
-    }
+    }  
+
 
 }
 

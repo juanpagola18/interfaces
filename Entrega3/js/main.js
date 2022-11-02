@@ -56,8 +56,8 @@ function load() {
         drawBoard();
         drawDropZone();
         drawChips();
-        
-        
+
+
     }
 
     //se inicia el tablero creandolas zonas, fichas y dropZones
@@ -144,53 +144,47 @@ function load() {
     //......................................................................................................
 
 
-
+    //eventos del main? o de la ficha???
     function initEvents() {
         canvas.addEventListener('mousedown', onMouseDown);
         canvas.addEventListener('mouseup', onMouseUp);
         canvas.addEventListener('mousemove', onMouseMove);
     }
 
-
-   
-    
-      
-    
-
     function onMouseDown(event) {
-        if (playerTurn == true){
-        for (var i = 0; i < chipsPlayer1.length; i++) {
-           
-          if (
-            chipsPlayer1[i].isCliked(event.clientX,event.clientY)
-         ) {
-           
-            selectedChip = chipsPlayer1[i];
-            inicioY = event.clientY - chipsPlayer1[i].y;
-            console.log(inicioY);
-            inicioX = event.clientX - chipsPlayer1[i].x;
-            console.log(inicioX);
-           
-          }
+        if (playerTurn == true) {
+            for (let i = 0; i < chipsPlayer1.length; i++) {
+
+                if (
+                    chipsPlayer1[i].isCliked(event.clientX, event.clientY)
+                ) {
+
+                    selectedChip = chipsPlayer1[i];
+                    inicioY = event.clientY - chipsPlayer1[i].y;
+                    console.log(inicioY);
+                    inicioX = event.clientX - chipsPlayer1[i].x;
+                    console.log(inicioX);
+
+                }
+            }
+
         }
-        
-    }
-        else if (playerTurn == false){
+        else if (playerTurn == false) {
             for (var i = 0; i < chipsPlayer2.length; i++) {
-               
-              if (
-                chipsPlayer2[i].isCliked(event.clientX,event.clientY)
-             ) {
-               
-                selectedChip = chipsPlayer2[i];
-                inicioY = event.clientY - chipsPlayer2[i].y;
-                console.log(inicioY);
-                inicioX = event.clientX - chipsPlayer2[i].x;
-                console.log(inicioX);
-              
-              }
-         }
-    }
+
+                if (
+                    chipsPlayer2[i].isCliked(event.clientX, event.clientY)
+                ) {
+
+                    selectedChip = chipsPlayer2[i];
+                    inicioY = event.clientY - chipsPlayer2[i].y;
+                    console.log(inicioY);
+                    inicioX = event.clientX - chipsPlayer2[i].x;
+                    console.log(inicioX);
+
+                }
+            }
+        }
     }
 
     function onMouseMove(event) {
@@ -206,7 +200,7 @@ function load() {
     function onMouseUp(event) {
         isMouseDown = false;//revisar
         let insert = (selectedChip.getX() > locationBoardX && selectedChip.getX() < locationBoardX + widthBoard)
-            && (selectedChip.getY() < locationBoardY && selectedChip.getY() > locationBoardY - SIZEPOSBOARD*2);
+            && (selectedChip.getY() < locationBoardY && selectedChip.getY() > locationBoardY - SIZEPOSBOARD * 2);
         if (insert) {
             insertChip(returnColumnNum(selectedChip.getX()), selectedChip);
             changeTurn();
@@ -216,20 +210,20 @@ function load() {
         }
 
         selectedChip = null;
-        
+
     }
 
 
-     
-    function changeTurn(){
+
+    function changeTurn() {
         if (playerTurn == true) {
             playerTurn = false;
-          
+
         }
         else if (playerTurn == false) {
             playerTurn = true;
-       
-      }
+
+        }
     }
 
     //......................................
@@ -260,7 +254,7 @@ function load() {
             changeTurn();
             return;
         }
-        let box=figures[firstEmptyRow][numCol]
+        let box = figures[firstEmptyRow][numCol]
         //box va a ser el casillero donde "cae" la ficha
         box.setChip(chip);
         box.setIsChipInside(true);
@@ -270,6 +264,10 @@ function load() {
         chip.setCanMove(false);
         //CHECKWINNER(chip.getPlayer.getNumber) en la logica seguro buscamos por unos y dos, no?
         //la ficha tiene player, player tiene name y number (1 o 2)
+        setTimeout(()=>{
+            if(verGanador()){
+            alert("Ganador: " + chip.getPlayer().getName())
+        };},500)
     }
 
     function getFirstEmptyRow(numCol) {
@@ -277,18 +275,124 @@ function load() {
         if (figures[i][numCol].isChipInside) {
             return -1;
         } else {
-            while ((i < rows)&&(figures[i][numCol].isChipInside)===false) {
+            while ((i < rows) && (figures[i][numCol].isChipInside) === false) {
                 console.log(figures[i][numCol].isChipInside)
                 i++
-            } 
-            return i-1
+            }
+            return i - 1
         }
 
 
     }
+
+    //Logica del ganado
+    // funciones que cuentan en todas las direcciones para ver si hay x en linea
+
+    function verGanador() {
+        //Buscamos en horizontal
+        for (var f = 0; f < rows; f++) {
+            var n1 = 0;
+            var n2 = 0;
+            for (var c = 0; c < columns; c++) {
+                if (figures[f][c].getChip() == null) {
+                    n1 = 0;
+                    n2 = 0;
+                }
+                else if (figures[f][c].getChip().getPlayer().getNumber() == 1) {
+                    n1++;
+                    n2 = 0;
+                    if (n1 == inLine)
+                        return 1;
+                }
+                else {
+                    n1 = 0;
+                    n2++;
+                    if (n2 == inLine)
+                        return 2;
+                }
+            }
+        }
+
+        //Buscamos en vertical de abajo a arriba
+        for (var c = 0; c < columns; c++) {
+            var n1 = 0;
+            var n2 = 0;
+            for (var f = rows - 1; f >= 0; f--) {	//De abajo a arriba para poder cortar.
+                if (figures[f][c].getChip() == null) {
+                    break;	//Ya no hay mas en la columna.
+                }
+                else if (figures[f][c].getChip().getPlayer().getNumber() == 1) {
+                    n1++;
+                    n2 = 0;
+                    if (n1 == inLine)
+                        return 1;
+                }
+                else {
+                    n1 = 0;
+                    n2++;
+                    if (n2 == inLine)
+                        return 2;
+                }
+            }
+        }
+
+        //Buscamos en diagonal de izquierda a derecha
+        for (var i = -(columns + 4); i < columns; i++) {
+            var n1 = 0;
+            var n2 = 0;
+            for (var f = 0; f < rows; f++) {
+                var c = i + f;
+                if ((c < 0) || (c >= columns))
+                    continue;
+                if (figures[f][c].getChip() == null) {
+                    n1 = 0;
+                    n2 = 0;
+                }
+                else if (figures[f][c].getChip().getPlayer().getNumber() == 1) {
+                    n1++;
+                    n2 = 0;
+                    if (n1 == inLine)
+                        return 1;
+                }
+                else {
+                    n1 = 0;
+                    n2++;
+                    if (n2 == inLine)
+                        return 2;
+                }
+            }
+        }
+
+        //Buscamos en diagonal de derecha a izquierda
+        for (var i = 0; i < columns + 4; i++) {
+            var n1 = 0;
+            var n2 = 0;
+            for (var f = 0; f < rows; f++) {
+                var c = i - f;
+                if ((c < 0) || (c >= columns))
+                    continue;
+                if (figures[f][c].getChip() == null) {
+                    n1 = 0;
+                    n2 = 0;
+                }
+                else if (figures[f][c].getChip().getPlayer().getNumber() == 1) {
+                    n1++;
+                    n2 = 0;
+                    if (n1 == inLine)
+                        return 1;
+                }
+                else {
+                    n1 = 0;
+                    n2++;
+                    if (n2 == inLine)
+                        return 2;
+                }
+            }
+        }
+
+    }
+
 }
-
-
 
 
 
