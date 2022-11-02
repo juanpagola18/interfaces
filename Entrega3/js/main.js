@@ -4,14 +4,13 @@ document.addEventListener('DOMContentLoaded', load)
 function load() {
 
     let canvas = document.querySelector('#canvas');
-    /** @type {CanvasRenderingContext2D} */
+    /* @type {CanvasRenderingContext2D} */
     let ctx = canvas.getContext('2d');
     let canvasWidth = canvas.width;
     let canvasHeight = canvas.height;
     let selectedChip = null;
     let figures = [];
     let board = [];
-    let dropZone = [];
     let imgBoard = 'img/boardCell.png';
     let imgPlayer1 = 'img/theBoysPin.png';
     let imgPlayer2 = 'img/theSeven.png';
@@ -38,7 +37,6 @@ function load() {
     let chipsPlayer2 = [];
 
     let playerTurn = true;
-    let chipsPlayed = 0;
 
     //ficha jugandose actualmente
     let lastChipSelected;
@@ -48,38 +46,38 @@ function load() {
     let locationBoardX = (canvasWidth / 2) - (((columns) * SIZEPOSBOARD) / 2);
     let locationBoardY = canvasHeight / 2 - (((SIZEPOSBOARD) * (rows)) / 2);
 
-    //y esto?
-    initEvents();
     //
+    initEvents();
     initBoard();
 
     //redibujar el canvas
     function redraw() {
         clearCanvas();
         drawBoard();
-        drawChips();
         drawDropZone();
+        drawChips();
+        
         
     }
 
     //se inicia el tablero creandolas zonas, fichas y dropZones
 
     function initBoard() {
-        let chipsPlayed = 0;
-        let locationChipX = locationBoardX;
-        let locationChipY = locationBoardY;
+        let locationBoxX = locationBoardX;
+        let locationBoxY = locationBoardY;
         for (let r = 0; r < rows; r++) {
             let aux = [];
             for (let c = 0; c < columns; c++) {
                 if (c == 0) {
-                    locationChipX = locationBoardX;
+                    locationBoxX = locationBoardX;
                 }
-                let rect = addZone(locationChipX, locationChipY);
-                locationChipX += SIZEPOSBOARD;
+                //addZone dibuja el Box o Zone y lo agrega a board
+                let rect = addZone(locationBoxX, locationBoxY);
+                locationBoxX += SIZEPOSBOARD;
                 aux.push(rect);
             }
-            locationChipX -= SIZEPOSBOARD * columns + SIZEPOSBOARD;
-            locationChipY += SIZEPOSBOARD;
+            locationBoxX -= SIZEPOSBOARD * columns + SIZEPOSBOARD;
+            locationBoxY += SIZEPOSBOARD;
             figures.push(aux);
         }
         drawDropZone();
@@ -93,7 +91,6 @@ function load() {
     function initChips() {
         for (let i = 0; i < maxChips / 2; i++) {
             //fichas jugador1
-
             let posX = locationBoardX - SIZEPOSBOARD - Math.round(Math.random() * SIZEPOSBOARD * 2);
             let posY = Math.round(Math.random() * (heigthBoard - SIZEPOSBOARD)) + locationBoardY + SIZEPOSBOARD / 2;
             let singleChipP1 = new Chip(posX, posY, SIZECHIP, ctx, player1);
@@ -106,12 +103,10 @@ function load() {
             chipsPlayer2.push(singleChipP2);
 
         }
-
         drawChips();
     }
 
-    //agrega fondo de board
-
+    //crea box para tablero a partir de clase zone y los mete en board=[]
     function addZone(locationChipX, locationChipY) {
         let rectangle = new Zone(locationChipX, locationChipY, SIZEPOSBOARD, ctx);
         board.push(rectangle);
@@ -119,8 +114,8 @@ function load() {
         return rectangle;
     }
 
+    //......................................................................................................
     //metodos dibujar
-
     function clearCanvas() {
         ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     }
@@ -131,7 +126,6 @@ function load() {
             let y = locationBoardY - SIZEPOSBOARD;
             let zone = new Zone(x, y, SIZEPOSBOARD, ctx, c);
             zone.draw();
-            dropZone.push(zone);
         }
     }
 
@@ -147,6 +141,10 @@ function load() {
             board[i].drawImg(imgBoard);
         }
     }
+    //......................................................................................................
+
+
+
     function initEvents() {
         canvas.addEventListener('mousedown', onMouseDown);
         canvas.addEventListener('mouseup', onMouseUp);
@@ -208,7 +206,7 @@ function load() {
     function onMouseUp(event) {
         isMouseDown = false;//revisar
         let insert = (selectedChip.getX() > locationBoardX && selectedChip.getX() < locationBoardX + widthBoard)
-            && (selectedChip.getY() < locationBoardY && selectedChip.getY() > locationBoardY - SIZEPOSBOARD);
+            && (selectedChip.getY() < locationBoardY && selectedChip.getY() > locationBoardY - SIZEPOSBOARD*2);
         if (insert) {
             insertChip(returnColumnNum(selectedChip.getX()), selectedChip);
             changeTurn();

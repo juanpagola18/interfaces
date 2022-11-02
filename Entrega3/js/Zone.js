@@ -7,18 +7,17 @@ class Zone {
         this.image = new Image();
         this.isChipInside = false;
         this.chip = null;
-        this.saludo="hola"
     }
-    getMiddleX(sizeOfZone){
-        return this.x+sizeOfZone/2;
-    }
-
-    getMiddleY(sizeOfZone){
-        return this.y+sizeOfZone/2;
+    getMiddleX(sizeOfZone) {
+        return this.x + sizeOfZone / 2;
     }
 
-    setIsChipInside(bool){
-        this.isChipInside=bool;
+    getMiddleY(sizeOfZone) {
+        return this.y + sizeOfZone / 2;
+    }
+
+    setIsChipInside(bool) {
+        this.isChipInside = bool;
     }
 
     setChip(chip) {
@@ -28,24 +27,31 @@ class Zone {
     getChip() {
         return this.chip;
     }
-   
 
-    drawImg(img){
-        if(this.image.src===''){
-            this.image.src=img;
-            let loadImg= function (){
-                this.ctx.drawImage(this.image, this.x,this.y,this.width,this.width)
+
+    drawImg(img) {
+        if (this.image.src === '') {
+            this.image.src = img;
+            let loadImg = function () {
+                this.ctx.drawImage(this.image, this.x, this.y, this.width, this.width)
             }
-            this.image.onload=loadImg.bind(this);
-        } else this.ctx.drawImage(this.image, this.x,this.y,this.width,this.width)
+            this.image.onload = loadImg.bind(this);
+        } else this.ctx.drawImage(this.image, this.x, this.y, this.width, this.width)
     }
 
-    draw(){
+    draw() {
+        // this.ctx.beginPath();
+        // this.ctx.rect(this.x, this.y, this.width, this.width);
+        // this.ctx.strokeStyle = 'white';
+        // this.ctx.stroke();
+        // this.ctx.fillStyle = 'blue';
+        // this.ctx.fill();
+        // this.ctx.closePath();
+
         this.ctx.beginPath();
-        this.ctx.rect(this.x, this.y, this.width, this.width);
-        this.ctx.strokeStyle='white';
-        this.ctx.stroke();
-        this.ctx.fillStyle='blue';
+        this.ctx.moveTo(this.x+this.width/2, this.y+this.width/1.5);
+        this.ctx.lineTo(this.x+5, this.y);
+        this.ctx.lineTo(this.x+this.width-5, this.y);
         this.ctx.fill();
     }
 
