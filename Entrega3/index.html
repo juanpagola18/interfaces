@@ -9,12 +9,17 @@
 </head>
 <body>
     <div class="score">
-        <h1>Jugador 1</h1>
-        <p id="minute"></p>
-        <p id="seconds"></p>
+        <h1 class="player">Jugador 1</h1>
+        <div class="timer">
+        <p>Game Ends in:
+        <span id="minute"></span>
+        <span id="seconds"></span>
+        </p>
         <button id="reset">Reset</button>
+        </div>  
+       
         
-        <h1>Jugador 2</h1>
+        <h1 class="player">Jugador 2</h1>
     </div>   
     <canvas id="canvas" width="800" height="600"></canvas>
     <script src="js/Chip.js"></script>
