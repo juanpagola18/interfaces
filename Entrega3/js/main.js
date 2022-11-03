@@ -18,9 +18,9 @@ function load() {
     let selectedChip = null;
     let figures = [];
     let board = [];
-    let imgBoard = 'img/boardCell.png';
-    let imgPlayer1 = 'img/theBoysPin.png';
-    let imgPlayer2 = 'img/theSeven.png';
+    let imgBoard = 'images/boardCell.png';
+    let imgPlayer1 = 'images/theBoysPin.png';
+    let imgPlayer2 = 'images/theSeven.png';
     let inicioX = 0;
     let inicioY = 0;
     // let initialCanvasX=parX;
