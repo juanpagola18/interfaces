@@ -23,6 +23,7 @@ function load() {
     let rows = 6;
     let inLine = 4;
     let maxChips = columns * rows;
+    let playedChips=0;
 
     const SIZEPOSBOARD = 55;
     const SIZECHIP = 25;
@@ -61,7 +62,6 @@ function load() {
     }
 
     //se inicia el tablero creandolas zonas, fichas y dropZones
-
     function initBoard() {
         let locationBoxX = locationBoardX;
         let locationBoxY = locationBoardY;
@@ -155,19 +155,14 @@ function load() {
         if (playerTurn == true) {
             for (let i = 0; i < chipsPlayer1.length; i++) {
 
-                if (
-                    chipsPlayer1[i].isCliked(event.clientX, event.clientY)
-                ) {
-
+                if (chipsPlayer1[i].isCliked(event.clientX, event.clientY)) {
                     selectedChip = chipsPlayer1[i];
                     inicioY = event.clientY - chipsPlayer1[i].y;
                     console.log(inicioY);
                     inicioX = event.clientX - chipsPlayer1[i].x;
                     console.log(inicioX);
-
                 }
             }
-
         }
         else if (playerTurn == false) {
             for (var i = 0; i < chipsPlayer2.length; i++) {
@@ -181,7 +176,6 @@ function load() {
                     console.log(inicioY);
                     inicioX = event.clientX - chipsPlayer2[i].x;
                     console.log(inicioX);
-
                 }
             }
         }
@@ -208,28 +202,20 @@ function load() {
             selectedChip.setX(selectedChip.getInitialX());
             selectedChip.setY(selectedChip.getInitialY());
         }
-
         selectedChip = null;
-
     }
-
-
 
     function changeTurn() {
         if (playerTurn == true) {
             playerTurn = false;
-
         }
         else if (playerTurn == false) {
             playerTurn = true;
-
         }
     }
 
     //......................................
     //Logica
-
-
     function returnColumnNum(chipX) {
         let i = 0;
         let currentCol = locationBoardX + SIZEPOSBOARD;
@@ -245,6 +231,12 @@ function load() {
 
     //insertar ficha
     function insertChip(numCol, chip) {
+        playedChips ++;
+        setTimeout(()=>{
+        if (playedChips==maxChips){
+            alert ("empate");
+            return;
+        };},500)
         const firstEmptyRow = getFirstEmptyRow(numCol);
         console.log(firstEmptyRow)
         if (firstEmptyRow === -1) {
@@ -262,10 +254,8 @@ function load() {
         chip.setX(box.getMiddleX(SIZEPOSBOARD));
         chip.setY(box.getMiddleY(SIZEPOSBOARD));
         chip.setCanMove(false);
-        //CHECKWINNER(chip.getPlayer.getNumber) en la logica seguro buscamos por unos y dos, no?
-        //la ficha tiene player, player tiene name y number (1 o 2)
         setTimeout(()=>{
-            if(verGanador()){
+            if(checkWinner()){
             alert("Ganador: " + chip.getPlayer().getName())
         };},500)
     }
@@ -281,14 +271,10 @@ function load() {
             }
             return i - 1
         }
-
-
     }
 
-    //Logica del ganado
-    // funciones que cuentan en todas las direcciones para ver si hay x en linea
-
-    function verGanador() {
+    //Logica del ganador
+    function checkWinner() {
         //Buscamos en horizontal
         for (var f = 0; f < rows; f++) {
             var n1 = 0;
@@ -389,7 +375,6 @@ function load() {
                 }
             }
         }
-
     }
 
 }
