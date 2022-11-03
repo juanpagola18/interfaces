@@ -49,10 +49,6 @@ function load() {
     let playerTurn = 1;
     let chipsPlayed = 0;
 
-    //ficha jugandose actualmente
-    let lastChipSelected;
-    let isMouseDown = false;
-
     //ubicacion x y inicial del tablero
 
     let locationBoardX = (canvasWidth / 2) - (((columns) * SIZEPOSBOARD) / 2);
@@ -65,9 +61,10 @@ function load() {
     //redibujar el canvas
     function redraw() {
         clearCanvas();
-        drawBoard();
+        
         drawDropZone();
         drawChips();
+        drawBoard();
 
 
     }
@@ -209,7 +206,6 @@ function load() {
 
 
     function onMouseUp(event) {
-        isMouseDown = false;//revisar
         let insert = (selectedChip.getX() > locationBoardX && selectedChip.getX() < locationBoardX + widthBoard)
             && (selectedChip.getY() < locationBoardY && selectedChip.getY() > locationBoardY - SIZEPOSBOARD * 2);
         if (insert) {
@@ -220,6 +216,7 @@ function load() {
             selectedChip.setY(selectedChip.getInitialY());
         }
         selectedChip = null;
+        
     }
 
 
@@ -261,9 +258,9 @@ function load() {
             changeTurn();
             return;
         }
-        playedChips++;
+        chipsPlayed++;
         setTimeout(() => {
-            if (playedChips == maxChips) {
+            if (chipsPlayed == maxChips) {
                 alert("empate");
                 return;
             };
@@ -278,7 +275,8 @@ function load() {
         chip.setCanMove(false);
         setTimeout(() => {
             if (checkWinner()) {
-                alert("Ganador: " + chip.getPlayer().getName())
+                alert("Ganador: " + chip.getPlayer().getName());
+                reset();
             };
         }, 500)
     }
@@ -346,7 +344,7 @@ function load() {
         }
 
         //Buscamos en diagonal de izquierda a derecha
-        for (var i = -(columns + 4); i < columns; i++) {
+        for (var i = 0; i < columns; i++) {//ver la constante en cod
             var n1 = 0;
             var n2 = 0;
             for (var f = 0; f < rows; f++) {
@@ -405,15 +403,12 @@ function load() {
         chipsPlayer2 = [];
         figures = [];
         board = [];
-        dropZone = [];
+        // dropZone = [];
         chipsPlayed = 0;
         playerTurn = true
         min = 2;
         sec = 59;
         initBoard();
-        setTimeout(function reseted() {
-            reset();
-        }, 180000)
         redraw();
     }
 
@@ -428,9 +423,8 @@ function load() {
             second.innerHTML = sec + "s";
             minute.innerHTML = min + "m";
             sec--;
+            checkFinished();
         }
-
-        return;
     }, 1000);
 
     setInterval(function restMin() {
@@ -443,9 +437,11 @@ function load() {
     }, 60000);
 
 
-    setTimeout(function reseted() {
-        reset();
-    }, 180000)
+    function checkFinished(){
+        if(min== 0 && sec == -1){
+            reset();
+        }
+    }
 
 
 
