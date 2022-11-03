@@ -44,7 +44,7 @@ function load() {
     let player2 = new Player("user2", 2);
     let chipsPlayer2 = [];
 
-    let playerTurn = true;
+    let playerTurn = 1;
     let chipsPlayed = 0;
 
     //ficha jugandose actualmente
@@ -161,7 +161,7 @@ function load() {
     }
 
     function onMouseDown(event) {
-        if (playerTurn == true){
+        if (playerTurn == 1){//cambiar
         for (var i = 0; i < chipsPlayer1.length; i++) {
            
           if (
@@ -178,7 +178,7 @@ function load() {
         }
         
     }
-        else if (playerTurn == false){
+        else if (playerTurn == 2){
             for (var i = 0; i < chipsPlayer2.length; i++) {
                
               if (
@@ -225,12 +225,12 @@ function load() {
 
      
     function changeTurn(){
-        if (playerTurn == true) {
-            playerTurn = false;
+        if (playerTurn == 1) {
+            playerTurn = 2;
           
         }
-        else if (playerTurn == false) {
-            playerTurn = true;
+        else if (playerTurn == 2) {
+            playerTurn = 1;
        
       }
     }
