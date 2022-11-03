@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', load)
 function load() {
 
     let canvas = document.querySelector('#canvas');
-    /* @type {CanvasRenderingContext2D} */
+    /** @type {CanvasRenderingContext2D} */
     let ctx = canvas.getContext('2d');
     let canvasWidth = canvas.width;
     let canvasHeight = canvas.height;
@@ -16,6 +16,8 @@ function load() {
     let imgPlayer2 = 'img/theSeven.png';
     let inicioX = 0;
     let inicioY = 0;
+    // let initialCanvasX=parX;
+    // let initialCanvasY=parY;
 
     //luego pasar por parametro
 
@@ -44,8 +46,9 @@ function load() {
     let isMouseDown = false;
 
     //ubicacion x y inicial del tablero
+    
     let locationBoardX = (canvasWidth / 2) - (((columns) * SIZEPOSBOARD) / 2);
-    let locationBoardY = canvasHeight / 2 - (((SIZEPOSBOARD) * (rows)) / 2);
+    let locationBoardY = (canvasHeight / 2) - (((SIZEPOSBOARD) * (rows)) / 2);
 
     //
     initEvents();
@@ -231,14 +234,8 @@ function load() {
 
     //insertar ficha
     function insertChip(numCol, chip) {
-        playedChips ++;
-        setTimeout(()=>{
-        if (playedChips==maxChips){
-            alert ("empate");
-            return;
-        };},500)
         const firstEmptyRow = getFirstEmptyRow(numCol);
-        console.log(firstEmptyRow)
+       
         if (firstEmptyRow === -1) {
             chip.setX(chip.getInitialX());
             chip.setY(chip.getInitialY());
@@ -246,6 +243,12 @@ function load() {
             changeTurn();
             return;
         }
+        playedChips ++;
+        setTimeout(()=>{
+        if (playedChips==maxChips){
+            alert ("empate");
+            return;
+        };},500)
         let box = figures[firstEmptyRow][numCol]
         //box va a ser el casillero donde "cae" la ficha
         box.setChip(chip);
