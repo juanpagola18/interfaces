@@ -1,11 +1,16 @@
 "use strict";
 document.addEventListener('DOMContentLoaded', load)
 
+
 function load() {
 
     let btnReset = document.getElementById('reset');
     btnReset.addEventListener('click', reset);
     let canvas = document.querySelector('#canvas');
+
+    var pos = canvas.getBoundingClientRect();
+    console.log(pos.top, pos.left)
+
     /** @type {CanvasRenderingContext2D} */
     let ctx = canvas.getContext('2d');
     let canvasWidth = canvas.width;
@@ -48,7 +53,7 @@ function load() {
 
     //ubicacion x y inicial del tablero
     let locationBoardX = (canvasWidth / 2) - (((columns) * SIZEPOSBOARD) / 2);
-    let locationBoardY = canvasHeight / 2 - (((SIZEPOSBOARD) * (rows)) / 2);
+    let locationBoardY = (canvasHeight / 2) - (((SIZEPOSBOARD) * (rows)) / 2);
 
     //y esto?
     initEvents();
@@ -155,18 +160,12 @@ function load() {
         canvas.addEventListener('mousemove', onMouseMove);
     }
 
-
-   
-    
-      
-    
-
     function onMouseDown(event) {
         if (playerTurn == true){
         for (var i = 0; i < chipsPlayer1.length; i++) {
            
           if (
-            chipsPlayer1[i].isCliked(event.clientX,event.clientY)
+            chipsPlayer1[i].isCliked(event.clientX+pos.left,event.clientY-pos.top)
          ) {
            
             selectedChip = chipsPlayer1[i];
@@ -183,7 +182,7 @@ function load() {
             for (var i = 0; i < chipsPlayer2.length; i++) {
                
               if (
-                chipsPlayer2[i].isCliked(event.clientX,event.clientY)
+                chipsPlayer2[i].isCliked(event.clientX+pos.left,event.clientY-pos.top)
              ) {
                
                 selectedChip = chipsPlayer2[i];
@@ -297,9 +296,10 @@ function load() {
         figures= [];
         board = [];
         dropZone = [];
+        chipsPlayed=0;
         playerTurn = true
-        minutos = 2;
-        segundos = 59;
+        min = 2;
+        sec = 59;
         initBoard();
         setTimeout(function reseted() {
             reset();
@@ -309,25 +309,25 @@ function load() {
 
     let minute = document.getElementById('minute');
     let second = document.getElementById('seconds');
-    let minutos = 2;
-    let segundos = 59;
+    let min = 2;
+    let sec = 59;
 
 
-setInterval(function restSegundos(){
-    if(segundos >= 0){
-     second.innerHTML = segundos+"s";   
-     minute.innerHTML = minutos+"m";
-      segundos--;
+setInterval(function restSec(){
+    if(sec >= 0){
+     second.innerHTML = sec+"s";   
+     minute.innerHTML = min+"m";
+      sec--;
     }
   
     return;
  },1000 );
 
- setInterval(function restMinuto(){
-    if(minutos > 0){
+ setInterval(function restMin(){
+    if(min > 0){
     
-     minutos--;
-     segundos= 59;
+     min--;
+     sec= 59;
     }
     
  },60000 );
