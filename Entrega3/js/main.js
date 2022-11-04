@@ -1,8 +1,20 @@
 "use strict";
-document.addEventListener('DOMContentLoaded', load)
+let form=document.querySelector("#form-mode");
+form.addEventListener("submit", cargar);
+
+function cargar(e){
+    e.preventDefault();
+    let formData= new FormData(form);
+    let mode=formData.get("mode");
+    let player1=formData.get("player1name");
+    let p1img=formData.get("p1img");
+    let player2=formData.get("player2name");
+    let p2img=formData.get("p2img");
+    load(mode,player1,p1img,player2,p2img)
+}
 
 
-function load() {
+function load(mode,player1name,imgP1,player2name,imgP2) {
 
     let btnReset = document.getElementById('reset');
     btnReset.addEventListener('click', reset);
@@ -28,9 +40,11 @@ function load() {
 
     //luego pasar por parametro
 
-    let columns = 7;
-    let rows = 6;
-    let inLine = 4;
+    let inLine = mode;
+    let columns= Number(inLine)+3;
+    console.log(columns);
+    let rows = Number(inLine)+2;
+    console.log(rows);
     let maxChips = columns * rows;
     let playedChips = 0;
 
@@ -40,10 +54,10 @@ function load() {
     let widthBoard = columns * SIZEPOSBOARD;
     let heigthBoard = rows * SIZEPOSBOARD;
 
-    let player1 = new Player("user1", 1);
+    let player1 = new Player(player1name, 1);
     let chipsPlayer1 = [];
 
-    let player2 = new Player("user2", 2);
+    let player2 = new Player(player2name, 2);
     let chipsPlayer2 = [];
 
     let playerTurn = 1;
@@ -403,7 +417,6 @@ function load() {
         chipsPlayer2 = [];
         figures = [];
         board = [];
-        // dropZone = [];
         chipsPlayed = 0;
         playerTurn = true
         min = 2;
@@ -442,9 +455,4 @@ function load() {
             reset();
         }
     }
-
-
-
-
-
 }

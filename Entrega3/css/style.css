@@ -677,7 +677,7 @@ ul.img-container li{
         flex-direction: column;
         align-items: center;
         width: 100%;
-        height: 700px;
+        /* height: 700px; */
         
     }
     
@@ -704,11 +704,24 @@ ul.img-container li{
       
     
     /********game img and game videos********/  
+
     
     .play-game-area img{
         width: 100%;
         height: 100%;
         object-fit: cover;
+        display: none;
+    }
+
+    .play-game-area .canvas-container{
+        width: 100%;
+        /* display: none; */
+    }
+
+    .pop-up-form{
+        display: flex;
+        width: 100%;
+        height: 200px;
     }
     
     section.images-container{

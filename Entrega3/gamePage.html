@@ -13,7 +13,7 @@
     <div class="loading show">
         <div class="spin"></div>
         <p id="percent">1%</p>
-    </div>  
+    </div>
     <header>
         <div class="logo" alt="logo">
             <h3 class="title_logo">All Games</h3>
@@ -25,11 +25,11 @@
             <div class="hamburguer"><img class="hamburguer-icon" src="images/menu.png" alt="hamburger">
                 <div class="scrolled_menu">
                     <ul>
-                    <li><a href="index.html">Home</li></a>
-                    <li>Forum</li>
-                    <li><a href="ufc.html">Coming soon</li></a>
-                    <li>Recomended</li>
-                    <li>Logout</li>
+                        <li><a href="index.html">Home</li></a>
+                        <li>Forum</li>
+                        <li><a href="ufc.html">Coming soon</li></a>
+                        <li>Recomended</li>
+                        <li>Logout</li>
                     </ul>
                     <div class="social_bar">
                         <div class="icon_social"><img src="images/facebookLogo.png" alt="facebook"></div>
@@ -44,14 +44,13 @@
     </header>
     <div class="game-page-container">
         <section class="game-play-container">
-                <ul class="breadcrumbs">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Recomended</a></li>
-                    <li><a href="#">4 in a Row</a></li>
-                  </ul>
+            <ul class="breadcrumbs">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Recomended</a></li>
+                <li><a href="#">4 in a Row</a></li>
+            </ul>
             <div class="play-game-area">
-                <div>
-
+                <div class="canvas-container">
                     <div class="score">
                         <h1 class="player">Jugador 1</h1>
                         <div class="timer">
@@ -61,19 +60,70 @@
                             </p>
                             <button id="reset">Reset</button>
                         </div>
-            
-            
                         <h1 class="player">Jugador 2</h1>
                     </div>
-                    <canvas id="canvas" width="800" height="600"></canvas>
+                    <canvas id="canvas" width="1000" height="700"></canvas>
                 </div>
-                <img src="images/the boys juego.jpg"
-                    alt="game-4in-a-row">
+                <img src="images/the boys juego.jpg" alt="game-4in-a-row">
                 <div class="btn-play-help">
                     <button><a href="">Play</a></button>
                     <button class="btn-help"> <a href="">Help</a> </button>
                 </div>
-                
+
+                <div class="pop-up-form">
+                    <form id="form-mode" action="submit">
+                        <label for="">Choose mode</label>
+                        <select name="mode" id="select-mode">
+                            <option value=4>4 in a Row</option>
+                            <option value=5>5 in a Row</option>
+                            <option value=6>6 in a Row</option>
+                        </select>
+                        <label for="player1">Insert Player1 name:</label>
+                        <input type="text" name="player1name">
+                        <div>
+                            <label>Select a chip for P1:</label>
+                            <div>
+                              <input type="radio" name="p1img" value="../img/img1"
+                                     checked>
+                              <label for="img1">img1</label>
+                            </div>
+                        
+                            <div>
+                              <input type="radio" name="p1img" value="../img/img2">
+                              <label for="img2">img2</label>
+                            </div>
+                        
+                            <div>
+                              <input type="radio" name="p1img" value="../img/img3">
+                              <label for="img3">img3</label>
+                            </div>
+                        </div>
+                        
+                        <label for="player2">Insert Player2 name:</label>
+                        <input type="text" name="player2name">
+                        <div>
+                            <label>Select a chip for P2:</label>
+                            <div>
+                              <input type="radio" name="p2img" value="../img/img1"
+                                     checked>
+                              <label for="img1">img1</label>
+                            </div>
+                        
+                            <div>
+                              <input type="radio" name="p2img" value="../img/img2">
+                              <label for="img2">img2</label>
+                            </div>
+                        
+                            <div>
+                              <input type="radio" name="p2img" value="../img/img3">
+                              <label for="img3">img3</label>
+                            </div>
+                        </div>
+
+                        <button>Enviar</button>
+                    </form>
+                </div>
+
             </div>
             <div class="likeAndShare">
                 <div class="like">
@@ -82,17 +132,17 @@
                 </div>
                 <div class="share">
                     <button><img src="images/share.jpg" alt="Share">
-                    <p>Share</p>
-                    
+                        <p>Share</p>
+
                 </div>
             </div>
         </section>
         <div class="section-container">
-            <section class="images-container library" >
+            <section class="images-container library">
                 <h3>Images</h3>
                 <button id="btn-prev-img" class="btn-prev"><img src="images/prevIcon.png" alt="prev"></button>
                 <button id="btn-next-img" class="btn-next"><img src="images/nextIcon.png" alt="next"></button>
-                <ul id="img-ul-container"class="img-container">
+                <ul id="img-ul-container" class="img-container">
                     <li class="li-gallery"><img src="images/the boys gal1.jpeg" alt="img1"></li>
                     <li class="li-gallery notShow"><img src="images/the boys gal2.jpg" alt="img2"></li>
                     <li class="li-gallery notShow"><img src="images/the boys gal3.jpg" alt="img3"></li>
@@ -110,9 +160,11 @@
                 <button id="btn-prev-vid" class="btn-prev"><img src="images/prevIcon.png" alt="prev"></button>
                 <button id="btn-next-vid" class="btn-next"><img src="images/nextIcon.png" alt="next"></button>
                 <ul id="vid-ul-container" class="img-container">
-                    <li><iframe width="100%" height="100%" src="https://www.youtube.com/embed/GXM7SRdos2A" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen controls></iframe>
-                        
+                    <li><iframe width="100%" height="100%" src="https://www.youtube.com/embed/GXM7SRdos2A"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen controls></iframe>
+
                     </li>
                 </ul>
                 <ul class="img-library-state">
@@ -168,7 +220,7 @@
                         </ul>
                     </div>
                     <p class="p-comment">Lo mejor que jugue en mi vida. Me voló la cabeza! La gente
-                         que programa este juego evidentemente está para mucho mas!
+                        que programa este juego evidentemente está para mucho mas!
                     </p>
                 </li>
                 <li class="comment-container">
@@ -176,35 +228,37 @@
                         <p>elMalaLeche</p>
                         <ul>
                             <li><img src="images/star-icon.jpg" alt="star"></li>
-                        </ul> 
+                        </ul>
                     </div>
                     <p class="p-comment">No me parece que sea lo que se promete en la descripcion.
-                    Entre imaginando un juego de The Boys y era simplemente un 4 en linea. Ultima vez que lo juego!!!
-                    La proxima vez porgan solo cuatro en linea!!!!!.
+                        Entre imaginando un juego de The Boys y era simplemente un 4 en linea. Ultima vez que lo
+                        juego!!!
+                        La proxima vez porgan solo cuatro en linea!!!!!.
                     </p>
                 </li>
             </ul>
-            
+
         </section>
         <section class="post-comments-container">
             <h3>Post a comment</h3>
             <form action="">
                 <ul>
-                 <li>
-                   <label for="name">Name</label>
-                   <input type="text" id="name" name="user_name" placeholder="name..." maxlength="20">
-                 </li>
-                 <li>
-                   <label for="email">Email</label>
-                   <input type="email" id="email" name="user_mail" placeholder="game@email.com...">
-                 </li>
-                 <li>
-                   <label for="msg">Comment</label>
-                   <textarea id="msg" name="user_message" placeholder="leave a comment..." maxlength="300"></textarea>
-                 </li>
+                    <li>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="user_name" placeholder="name..." maxlength="20">
+                    </li>
+                    <li>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="user_mail" placeholder="game@email.com...">
+                    </li>
+                    <li>
+                        <label for="msg">Comment</label>
+                        <textarea id="msg" name="user_message" placeholder="leave a comment..."
+                            maxlength="300"></textarea>
+                    </li>
                 </ul>
                 <div class="btn-send-container">
-                    <button>Send</button> 
+                    <button>Send</button>
                     <ul>
                         <li><img src="images/star-icon.png" alt="star"></li>
                         <li><img src="images/star-icon.png" alt="star"></li>
@@ -213,40 +267,40 @@
                         <li><img src="images/star-icon.png" alt="star"></li>
                     </ul>
                 </div>
-                
-               </form>
+
+            </form>
         </section>
     </div>
     <footer>
         <div class="foot_category">
             <div class="foot_links">
-               <ol>
-                <h3 class="foot_title">All Games</h3>
-                <li>AG vision</li>
-                <li>AG history</li>
-                <li>Out team</li>
-                <li>Forum</li>
-               </ol>
-            
-            
                 <ol>
-                 <h3 class="foot_title">More Games</h3>
-                 <li>Last releases</li>
-                 <li><a href="ufc.html">Coming soon</li></a>
-                 <li>Most buys</li>
-                 <li>Classics</li>
+                    <h3 class="foot_title">All Games</h3>
+                    <li>AG vision</li>
+                    <li>AG history</li>
+                    <li>Out team</li>
+                    <li>Forum</li>
                 </ol>
-             
+
+
                 <ol>
-                 <h3 class="foot_title">All Games</h3>
-                 <li>AG vision</li>
-                 <li>AG history</li>
-                 <li>Out team</li>
-                 <li>Forum</li>
+                    <h3 class="foot_title">More Games</h3>
+                    <li>Last releases</li>
+                    <li><a href="ufc.html">Coming soon</li></a>
+                    <li>Most buys</li>
+                    <li>Classics</li>
+                </ol>
+
+                <ol>
+                    <h3 class="foot_title">All Games</h3>
+                    <li>AG vision</li>
+                    <li>AG history</li>
+                    <li>Out team</li>
+                    <li>Forum</li>
                 </ol>
             </div>
             <p class="company">© Company Name. All rights reserved. Privacy Policy.</p>
-            
+
         </div>
         <div class="foot_social">
             <h3 class="foot_title">Subscribe to our newsletter</h3>
@@ -267,8 +321,8 @@
     <script src="js/Zone.js"></script>
     <script src="js/Player.js"></script>
     <script src="js/main.js"></script>
-    <script type="text/javascript" src="js/scrollBar.js"></script> 
-    <script src="js/gallery.js"></script> 
+    <script type="text/javascript" src="js/scrollBar.js"></script>
+    <script src="js/gallery.js"></script>
 
 </body>
 
