@@ -75,54 +75,63 @@
 
                 <div class="pop-up-form notShow">
                     <form id="form-mode" action="submit">
-                        <label for="">Choose mode</label>
-                        <select name="mode" id="select-mode">
-                            <option value=4>4 in a Row</option>
-                            <option value=5>5 in a Row</option>
-                            <option value=6>6 in a Row</option>
-                        </select>
-                        <label for="player1">Insert Player1 name:</label>
-                        <input type="text" name="player1name">
                         <div>
-                            <label>Select a chip for P1:</label>
+                            <label for="">Choose mode</label>
+                            <select name="mode" id="select-mode">
+                                <option value=4>4 in a Row</option>
+                                <option value=5>5 in a Row</option>
+                                <option value=6>6 in a Row</option>
+                            </select>
+                         </div>
+                         <div>
+                        <label for="player1" >Insert Player1 name:</label>
+                        <input type="text" name="player1name" placeholder="Name...">
+                        <div>   
                             <div>
-                              <input type="radio" name="p1img" value="../img/img1"
-                                     checked>
-                              <label for="img1">img1</label>
+                                <label>Select a chip for P1:</label>
+                                
+                                    <div>
+                                        <input type="radio" name="p1img" value="../img/img1"checked>
+                                        <label for="img1">img1</label>
+                                    </div>
+                                
+                                    <div>
+                                        <input type="radio" name="p1img" value="../img/img2">
+                                        <label for="img2">img2</label>
+                                    </div>
+                                
+                                    <div>
+                                        <input type="radio" name="p1img" value="../img/img3">
+                                        <label for="img3">img3</label>
+                                    </div>
+                                 </div>
                             </div>
-                        
-                            <div>
-                              <input type="radio" name="p1img" value="../img/img2">
-                              <label for="img2">img2</label>
-                            </div>
-                        
-                            <div>
-                              <input type="radio" name="p1img" value="../img/img3">
-                              <label for="img3">img3</label>
-                            </div>
-                        </div>
-                        
+                         </div>
+                        <div>
                         <label for="player2">Insert Player2 name:</label>
-                        <input type="text" name="player2name">
+                        <input type="text" name="player2name" placeholder="Name...">
                         <div>
-                            <label>Select a chip for P2:</label>
                             <div>
-                              <input type="radio" name="p2img" value="../img/img1"
-                                     checked>
-                              <label for="img1">img1</label>
-                            </div>
-                        
-                            <div>
-                              <input type="radio" name="p2img" value="../img/img2">
-                              <label for="img2">img2</label>
-                            </div>
-                        
-                            <div>
-                              <input type="radio" name="p2img" value="../img/img3">
-                              <label for="img3">img3</label>
-                            </div>
-                        </div>
+                                <label>Select a chip for P2:</label>
 
+                                    <div>
+                                    <input type="radio" name="p2img" value="../img/img1"
+                                            checked>
+                                    <label for="img1">img1</label>
+                                    </div>
+                                
+                                    <div>
+                                    <input type="radio" name="p2img" value="../img/img2">
+                                    <label for="img2">img2</label>
+                                    </div>
+                                
+                                    <div>
+                                    <input type="radio" name="p2img" value="../img/img3">
+                                    <label for="img3">img3</label>
+                                    </div>
+                            </div>
+                         </div>
+                         
                         <button>Enviar</button>
                     </form>
                 </div>
