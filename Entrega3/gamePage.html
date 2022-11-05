@@ -51,7 +51,7 @@
             </ul>
             <div class="play-game-area">
                 <div class="canvas-container">
-                    <div class="score">
+                    <div class="score notShow">
                         <h1 class="player">Jugador 1</h1>
                         <div class="timer">
                             <p>Game Ends in:
@@ -62,15 +62,18 @@
                         </div>
                         <h1 class="player">Jugador 2</h1>
                     </div>
-                    <canvas id="canvas" width="1000" height="700"></canvas>
+                    <div class="canvas-in">
+                        <canvas id="canvas" width="1000" height="700"></canvas>
+                    </div>
+                    
                 </div>
                 <img src="images/the boys juego.jpg" alt="game-4in-a-row">
                 <div class="btn-play-help">
-                    <button><a href="">Play</a></button>
-                    <button class="btn-help"> <a href="">Help</a> </button>
+                    <button id="btnPlay">Play</button>
+                    <button class="btn-help"> Help </button>
                 </div>
 
-                <div class="pop-up-form">
+                <div class="pop-up-form notShow">
                     <form id="form-mode" action="submit">
                         <label for="">Choose mode</label>
                         <select name="mode" id="select-mode">

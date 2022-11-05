@@ -1,9 +1,26 @@
 "use strict";
 let form=document.querySelector("#form-mode");
 form.addEventListener("submit", cargar);
+let canvas = document.querySelector('#canvas');
+let btnPlayHelp = document.querySelector('.btn-play-help')
+let play = document.querySelector('#btnPlay');
+let score = document.querySelector('.score');
+
+
+let popUpForm = document.querySelector('.pop-up-form');
+play.addEventListener("click", showForm);
+function showForm(){
+    canvas.classList.add('notShow');
+    btnPlayHelp.classList.add('notShow');
+    popUpForm.classList.remove('notShow');
+}
 
 function cargar(e){
     e.preventDefault();
+    canvas.classList.remove('notShow');
+    score.classList.remove('notShow');
+    score.classList.add('show');
+    popUpForm.classList.add('notShow');
     let formData= new FormData(form);
     let mode=formData.get("mode");
     let player1=formData.get("player1name");
@@ -14,11 +31,12 @@ function cargar(e){
 }
 
 
+
 function load(mode,player1name,imgP1,player2name,imgP2) {
 
     let btnReset = document.getElementById('reset');
     btnReset.addEventListener('click', reset);
-    let canvas = document.querySelector('#canvas');
+    
 
     var pos = canvas.getBoundingClientRect();
     console.log(pos.top, pos.left)
@@ -174,11 +192,14 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
     }
 
     function onMouseDown(event) {
+        console.log("es"+ pos.left, pos.top);
+        console.log("clickeo en" +event.clientX, event.clientY);
+        console.log("busco en"+ (event.clientX + pos.left ), (event.clientY - pos.top));
         if (playerTurn == 1) {//cambiar
             for (var i = 0; i < chipsPlayer1.length; i++) {
 
                 if (
-                    chipsPlayer1[i].isCliked(event.clientX + pos.left, event.clientY - pos.top)
+                    chipsPlayer1[i].isCliked((event.clientX- pos.left), (event.clientY - pos.top))
                 ) {
 
                     selectedChip = chipsPlayer1[i];
@@ -195,7 +216,8 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
             for (var i = 0; i < chipsPlayer2.length; i++) {
 
                 if (
-                    chipsPlayer2[i].isCliked(event.clientX + pos.left, event.clientY - pos.top)
+                    chipsPlayer2[i].isCliked((event.clientX - pos.left), (event.clientY - pos.top))
+                    
                 ) {
 
                     selectedChip = chipsPlayer2[i];
@@ -385,7 +407,7 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
         }
 
         //Buscamos en diagonal de derecha a izquierda
-        for (var i = 0; i < columns + 4; i++) {
+        for (var i = 0; i < (columns + inLine); i++) {
             var n1 = 0;
             var n2 = 0;
             for (var f = 0; f < rows; f++) {
