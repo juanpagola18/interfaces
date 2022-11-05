@@ -1,0 +1,29 @@
+.score{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.timer{
+    display: flex;   
+    height: 30px;
+    color: #33BDC2;
+    font-weight: 400;
+    font-size: 20px;
+    height: 50%;
+    width: 50%;
+    align-items: center;
+    padding-left: 5px;
+    justify-content: space-around;
+}
+
+.player{
+    color: green;
+}
+
+#reset{
+    background-color: #33BDC2;
+
+}
+
