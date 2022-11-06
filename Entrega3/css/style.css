@@ -2034,7 +2034,7 @@ ul.img-container li{
             }
             
             #reset{
-                background-color: #D20B0B;
+                background-color: #64002F;
                 height: 60px;
                 width: 60px;
                 object-fit: cover;
@@ -2043,7 +2043,38 @@ ul.img-container li{
                 opacity: 0.8;   border: 1px solid #DFE4E7;
                 box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
             }
+
+            #settings{
+                background-color: #28C451;
+                height: 60px;
+                width: 60px;
+                object-fit: cover;
+                color:#F4F7F9;
+                border-radius: 50%;
+                opacity: 0.8;   border: 1px solid #DFE4E7;
+                box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+            #reset:hover{
+                background: #CC1E70;
+                transition: all 1s ease;
+            }
+            #goBack:hover{
+                background: #004C50;
+                transition: all 1s ease;
+            }
             
+            #btnPlay{
+                background-color: #F4F7F9;
+                height: 40px;
+                width: 60px;
+                object-fit: cover;
+                color:#33BDC2;
+                border-radius: 25%;
+                opacity: 1;   border: 1px solid #DFE4E7;
+                box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+            
+           
            .canvas-container{
                 justify-content: center;
             }
@@ -2077,7 +2108,6 @@ ul.img-container li{
                 flex-direction: row;
             }
             #form-mode input{
-                
                 width: 25%;
                 border: 1px solid #DFE4E7;
                 box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);

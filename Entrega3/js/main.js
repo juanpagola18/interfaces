@@ -8,6 +8,9 @@ let score = document.querySelector('.score');
 let playerN1 = document.querySelector('.player1');
 let playerN2 = document.querySelector('.player2');
 let gameMode = document.querySelector('.mode');
+let settings = document.querySelector('#settings');
+
+settings.addEventListener("click", showSettings)
 
 let popUpForm = document.querySelector('.pop-up-form');
 play.addEventListener("click", showForm);
@@ -17,6 +20,13 @@ function showForm(){
     popUpForm.classList.remove('notShow');
 }
 
+function showSettings(){
+    canvas.classList.add('notShow');
+    score.classList.add('notShow');
+    score.classList.remove('show');
+    popUpForm.classList.remove('notShow');ç
+    popUpForm.classList.remove('show');
+}
 function cargar(e){
     e.preventDefault();
     canvas.classList.remove('notShow');
