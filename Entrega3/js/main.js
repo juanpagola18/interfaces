@@ -5,7 +5,9 @@ let canvas = document.querySelector('#canvas');
 let btnPlayHelp = document.querySelector('.btn-play-help')
 let play = document.querySelector('#btnPlay');
 let score = document.querySelector('.score');
-
+let playerN1 = document.querySelector('.player1');
+let playerN2 = document.querySelector('.player2');
+let gameMode = document.querySelector('.mode');
 
 let popUpForm = document.querySelector('.pop-up-form');
 play.addEventListener("click", showForm);
@@ -23,9 +25,12 @@ function cargar(e){
     popUpForm.classList.add('notShow');
     let formData= new FormData(form);
     let mode=formData.get("mode");
+    gameMode.innerHTML = "Game Mode: " + mode + " in a row";
     let player1=formData.get("player1name");
+    playerN1.innerHTML = player1;
     let p1img=formData.get("p1img");
     let player2=formData.get("player2name");
+    playerN2.innerHTML = player2;
     let p2img=formData.get("p2img");
     load(mode,player1,p1img,player2,p2img)
 }

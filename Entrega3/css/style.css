@@ -742,6 +742,7 @@ ul.img-container li{
         padding:0 5%;
         display: flex;
         justify-content: space-between;
+        background-color: #DFE4E7;
     }
 
 
@@ -2012,7 +2013,7 @@ ul.img-container li{
                
                 align-items: center;
                 justify-content: space-around;
-                
+                margin: 25px;
             }
             
             .timer{
@@ -2028,13 +2029,19 @@ ul.img-container li{
                 justify-content: space-around;
             }
             
-            .player{
-                color: green;
+            .player1, .player2{
+                color: #33BDC2;
             }
             
             #reset{
-                background-color: #33BDC2;
-            
+                background-color: #D20B0B;
+                height: 60px;
+                width: 60px;
+                object-fit: cover;
+                color:#F4F7F9;
+                border-radius: 50%;
+                opacity: 0.8;   border: 1px solid #DFE4E7;
+                box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
             }
             
            .canvas-container{
