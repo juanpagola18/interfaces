@@ -654,7 +654,7 @@ ul.img-container li{
         background-color:rgba(1, 136, 142, 1);
     }
     ul.breadcrumbs {
-        padding: 10px 16px 10px 0;
+        padding: 0px 16px 10px 0;
     }
     
     ul.breadcrumbs li+li:before {
@@ -677,7 +677,7 @@ ul.img-container li{
         flex-direction: column;
         align-items: center;
         width: 100%;
-        /* height: 700px; */
+        height: 650px;
         
     }
     
@@ -716,14 +716,6 @@ ul.img-container li{
     .play-game-area .canvas-container{
         width: 100%;
         /* display: none; */
-    }
-
-    .pop-up-form{
-        display: flex;
-     
-     
-        width: 100%;
-        min-height: 700px;
     }
     
     section.images-container{
@@ -2010,20 +2002,18 @@ ul.img-container li{
             /* pagina del juego 4 en linea
             */
             .score{
-               
                 align-items: center;
                 justify-content: space-around;
-                margin: 25px;
+                margin:10px 25px 0 25px;
             }
             
             .timer{
                 display: flex;   
-                height: 30px;
+                height: 25px;
                 color: #33BDC2;
                 font-weight: 400;
                 font-size: 20px;
-                height: 50%;
-                width: 50%;
+                width: 60%;
                 align-items: center;
                 padding-left: 5px;
                 justify-content: space-around;
@@ -2033,51 +2023,43 @@ ul.img-container li{
                 color: #33BDC2;
             }
             
-            #reset{
-                background-color: #64002F;
-                height: 60px;
-                width: 60px;
-                object-fit: cover;
+            .btn-command{
+                height: 30px;
+                width: 65px;
                 color:#F4F7F9;
-                border-radius: 50%;
-                opacity: 0.8;   border: 1px solid #DFE4E7;
-                box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+                border-radius: 8px;
+            }
+            #reset {
+                background-color: #D84089;
+            }
+            #settings{
+                background-color: #33BDC2;
             }
 
-            #settings{
-                background-color: #28C451;
-                height: 60px;
-                width: 60px;
-                object-fit: cover;
-                color:#F4F7F9;
-                border-radius: 50%;
-                opacity: 0.8;   border: 1px solid #DFE4E7;
-                box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-            }
             #reset:hover{
                 background: #CC1E70;
-                transition: all 1s ease;
+                transition: all 0.2s ease;
             }
             #settings:hover{
-                background: #004C50;
-                transition: all 1s ease;
+                background: #01888E;
+                transition: all 0.2s ease;
             }
             
             #goGame{
                 background-color: #F4F7F9;
                 height: 40px;
                 width: 60px;
-                object-fit: cover;
                 color:#33BDC2;
-                border-radius: 25%;
-                opacity: 1;   border: 1px solid #DFE4E7;
-                box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+                border-radius: 8px;
+                border: 1px solid #DFE4E7;
+                box-shadow: outset 0px 4px 4px rgba(0, 0, 0, 0.25);
             }
             
            
            .canvas-container{
+                position: flex;
                 justify-content: center;
-                background: url(../images/the\ boys\ juego.jpg) no-repeat center center fixed;
+                background: url(../images/the\ boys\ juego.jpg) no-repeat center center;
                 background-size: cover;
             }
             .notBackground{
@@ -2088,7 +2070,9 @@ ul.img-container li{
                 justify-content: center;
             }
             .pop-up-form{
-                background: url(../images/the\ boys\ juego.jpg) no-repeat center center fixed;
+                width: 100%;
+                height: 600px;
+                background: url(../images/the\ boys\ juego.jpg) no-repeat center center;
                 align-items: center;
                 justify-content: center;
                 opacity: 0.7;
@@ -2098,13 +2082,10 @@ ul.img-container li{
             }
             #form-mode{
                 background-color:#01888E;
-                opacity: 1;
                 min-width: 500px;
                 min-height: 300px;
-                display: flex;
-                flex-direction: column;
                 color:#F4F7F9;
-                border-radius: 25%;
+                border-radius: 8px;
             }
 
             #form-mode div{
@@ -2120,6 +2101,5 @@ ul.img-container li{
                 width: 25%;
                 border: 1px solid #DFE4E7;
                 box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-                border-radius: 8px;
+                padding-left: 2px;
             }
-

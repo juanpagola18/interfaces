@@ -22,6 +22,7 @@ function showForm(){
     canvas.classList.add('notShow');
     btnPlayHelp.classList.add('notShow');
     popUpForm.classList.remove('notShow');
+    popUpForm.classList.add('show');
 }
 
 function showSettings(){
@@ -29,7 +30,7 @@ function showSettings(){
     score.classList.add('notShow');
     score.classList.remove('show');
     popUpForm.classList.remove('notShow');
-    popUpForm.classList.remove('show');
+    popUpForm.classList.add('show');
     stopDegree = -1;
 }
 function cargar(e){
@@ -37,17 +38,18 @@ function cargar(e){
     canvas.classList.remove('notShow');
     score.classList.remove('notShow');
     score.classList.add('show');
+    popUpForm.classList.remove('show');
     popUpForm.classList.add('notShow');
     canvasContainer.classList.add('notBackground');
     let formData= new FormData(form);
     let mode=formData.get("mode");
-    gameMode.innerHTML = "Game Mode: " + mode + " in a row";
     let player1=formData.get("player1name");
-    playerN1.innerHTML = player1;
     let p1img=formData.get("p1img");
     let player2=formData.get("player2name");
-    playerN2.innerHTML = player2;
     let p2img=formData.get("p2img");
+    gameMode.innerHTML = "Game Mode: " + mode + " in a row";
+    playerN1.innerHTML = player1;
+    playerN2.innerHTML = player2;
     load(mode,player1,p1img,player2,p2img);
     stopDegree = 0;
 }
@@ -63,9 +65,8 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
     let min = 2;
     let sec = 59;
    
-    var pos = canvas.getBoundingClientRect();
-    console.log(pos.top, pos.left)
-
+    let pos = canvas.getBoundingClientRect();
+    
     /** @type {CanvasRenderingContext2D} */
     let ctx = canvas.getContext('2d');
     let canvasWidth = canvas.width;
@@ -74,29 +75,23 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
     let figures = [];
     let board = [];
     let imgBoard = 'images/boardCell.png';
-    let imgPlayer1 = 'images/theBoysPin.png';
-    let imgPlayer2 = 'images/theSeven.png';
+    let imgPlayer1 = imgP1;
+    let imgPlayer2 = imgP2;
     let inicioX = 0;
     let inicioY = 0;
-    
-    // let initialCanvasX=parX;
-    // let initialCanvasY=parY;
 
-    //luego pasar por parametro
+    //paso valores de parametros
 
     let inLine = mode;
     let columns= Number(inLine)+3;
-    console.log(columns);
     let rows = Number(inLine)+2;
-    console.log(rows);
     let maxChips = columns * rows;
     
+    const BOXSIZE = 55;
+    const CHIPSIZE = 25;
 
-    const SIZEPOSBOARD = 55;
-    const SIZECHIP = 25;
-
-    let widthBoard = columns * SIZEPOSBOARD;
-    let heigthBoard = rows * SIZEPOSBOARD;
+    let widthBoard = columns * BOXSIZE;
+    let heigthBoard = rows * BOXSIZE;
 
     let player1 = new Player(player1name, 1);
     let chipsPlayer1 = [];
@@ -109,8 +104,8 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
 
     //ubicacion x y inicial del tablero
 
-    let locationBoardX = (canvasWidth / 2) - (((columns) * SIZEPOSBOARD) / 2);
-    let locationBoardY = (canvasHeight / 2) - (((SIZEPOSBOARD) * (rows)) / 2);
+    let locationBoardX = (canvasWidth / 2) - (((columns) * BOXSIZE) / 2);
+    let locationBoardY = (canvasHeight / 2) - (((BOXSIZE) * (rows)) / 2);
 
     //
     initEvents();
@@ -139,11 +134,11 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
                 }
                 //addZone dibuja el Box o Zone y lo agrega a board
                 let rect = addZone(locationBoxX, locationBoxY);
-                locationBoxX += SIZEPOSBOARD;
+                locationBoxX += BOXSIZE;
                 aux.push(rect);
             }
-            locationBoxX -= SIZEPOSBOARD * columns + SIZEPOSBOARD;
-            locationBoxY += SIZEPOSBOARD;
+            locationBoxX -= BOXSIZE * columns + BOXSIZE;
+            locationBoxY += BOXSIZE;
             figures.push(aux);
         }
         drawDropZone();
@@ -157,15 +152,15 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
     function initChips() {
         for (let i = 0; i < maxChips / 2; i++) {
             //fichas jugador1
-            let posX = locationBoardX - SIZEPOSBOARD - Math.round(Math.random() * SIZEPOSBOARD * 2);
-            let posY = Math.round(Math.random() * (heigthBoard - SIZEPOSBOARD)) + locationBoardY + SIZEPOSBOARD / 2;
-            let singleChipP1 = new Chip(posX, posY, SIZECHIP, ctx, player1);
+            let posX = locationBoardX - BOXSIZE - Math.round(Math.random() * BOXSIZE * 2);
+            let posY = Math.round(Math.random() * (heigthBoard - BOXSIZE)) + locationBoardY + BOXSIZE / 2;
+            let singleChipP1 = new Chip(posX, posY, CHIPSIZE, ctx, player1);
             chipsPlayer1.push(singleChipP1);
 
             //fichas jugador 2
-            posX = locationBoardX + widthBoard + SIZEPOSBOARD + Math.round(Math.random() * SIZEPOSBOARD * 2);
-            posY = Math.round(Math.random() * (heigthBoard - SIZEPOSBOARD)) + locationBoardY + SIZEPOSBOARD / 2;
-            let singleChipP2 = new Chip(posX, posY, SIZECHIP, ctx, player2);
+            posX = locationBoardX + widthBoard + BOXSIZE + Math.round(Math.random() * BOXSIZE * 2);
+            posY = Math.round(Math.random() * (heigthBoard - BOXSIZE)) + locationBoardY + BOXSIZE / 2;
+            let singleChipP2 = new Chip(posX, posY, CHIPSIZE, ctx, player2);
             chipsPlayer2.push(singleChipP2);
 
         }
@@ -174,7 +169,7 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
 
     //crea box para tablero a partir de clase zone y los mete en board=[]
     function addZone(locationChipX, locationChipY) {
-        let rectangle = new Zone(locationChipX, locationChipY, SIZEPOSBOARD, ctx);
+        let rectangle = new Zone(locationChipX, locationChipY, BOXSIZE, ctx);
         board.push(rectangle);
         drawBoard();
         return rectangle;
@@ -188,9 +183,9 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
 
     function drawDropZone() {
         for (let c = 0; c < columns; c++) {
-            let x = locationBoardX + (c * SIZEPOSBOARD);
-            let y = locationBoardY - SIZEPOSBOARD;
-            let zone = new Zone(x, y, SIZEPOSBOARD, ctx, c);
+            let x = locationBoardX + (c * BOXSIZE);
+            let y = locationBoardY - BOXSIZE;
+            let zone = new Zone(x, y, BOXSIZE, ctx, c);
             zone.draw();
         }
     }
@@ -269,7 +264,7 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
 
     function onMouseUp(event) {
         let insert = (selectedChip.getX() > locationBoardX && selectedChip.getX() < locationBoardX + widthBoard)
-            && (selectedChip.getY() < locationBoardY && selectedChip.getY() > locationBoardY - SIZEPOSBOARD * 2);
+            && (selectedChip.getY() < locationBoardY && selectedChip.getY() > locationBoardY - BOXSIZE * 2);
         if (insert) {
             insertChip(returnColumnNum(selectedChip.getX()), selectedChip);
             changeTurn();
@@ -298,12 +293,12 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
     //Logica
     function returnColumnNum(chipX) {
         let i = 0;
-        let currentCol = locationBoardX + SIZEPOSBOARD;
+        let currentCol = locationBoardX + BOXSIZE;
         if (chipX < currentCol) {
             return i
         } else {
             while (currentCol < chipX) {
-                currentCol += SIZEPOSBOARD;
+                currentCol += BOXSIZE;
                 i++;
             } return i;
         }
@@ -332,8 +327,8 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
         box.setChip(chip);
         box.setIsChipInside(true);
         console.log(figures)
-        chip.setX(box.getMiddleX(SIZEPOSBOARD));
-        chip.setY(box.getMiddleY(SIZEPOSBOARD));
+        chip.setX(box.getMiddleX(BOXSIZE));
+        chip.setY(box.getMiddleY(BOXSIZE));
         chip.setCanMove(false);
         setTimeout(() => {
             if (checkWinner()) {
@@ -406,7 +401,7 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
         }
 
         //Buscamos en diagonal de izquierda a derecha
-        for (var i = 0; i < columns; i++) {//ver la constante en cod
+        for (var i = 0-inLine; i < columns; i++) {//ver la constante en cod
             var n1 = 0;
             var n2 = 0;
             for (var f = 0; f < rows; f++) {

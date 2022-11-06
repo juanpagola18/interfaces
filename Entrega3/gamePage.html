@@ -58,18 +58,17 @@
                                 <span id="minute"></span>
                                 <span id="seconds"></span>
                             </p>
-                            <button id="reset">Reset</button>
-                            <button id="settings">Settings</button>
+                            <button id="reset" class="btn-command">Reset</button>
+                            <button id="settings" class="btn-command">Settings</button>
                             <div class="mode"></div>
                         </div>
                         <h1 class="player2">Jugador 2</h1>
                     </div>
                     <div class="canvas-in">
-                        <canvas id="canvas" width="1000" height="700"></canvas>
+                        <canvas id="canvas" width="1000" height="620"></canvas>
                     </div>
-                    
+
                 </div>
-                <img src="images/the boys juego.jpg" alt="game-4in-a-row">
                 <div class="btn-play-help">
                     <button id="btnPlay">Play</button>
                     <button class="btn-help"> Help </button>
@@ -85,62 +84,55 @@
                                 <option value=6>6 in a Row</option>
                                 <option value=7>7 in a Row</option>
                             </select>
-                         </div>
-                         <div>
-                        <label for="player1" >Insert Player1 name:</label>
-                        <input type="text" name="player1name" placeholder="Name...">
-                        <div>   
+                        </div>
+                        <div>
+                            <label for="player1">Insert Player1 name:</label>
+                            <input type="text" name="player1name" placeholder="Name..." required>
                             <div>
-                                <label>Select a chip for P1:</label>
-                                
+                                <div>
+                                    <label>Select a chip for P1:</label>
                                     <div>
-                                        <input type="radio" name="p1img" value="../img/img1"checked>
-                                        <label for="img1">img1</label>
+                                        <input type="radio" name="p1img" value="images/butcher.png" checked>
+                                        <label for="img1">Butcher</label>
                                     </div>
-                                
                                     <div>
-                                        <input type="radio" name="p1img" value="../img/img2">
-                                        <label for="img2">img2</label>
+                                        <input type="radio" name="p1img" value="images/frenchie.png">
+                                        <label for="img2">Frenchie</label>
                                     </div>
-                                
                                     <div>
-                                        <input type="radio" name="p1img" value="../img/img3">
-                                        <label for="img3">img3</label>
+                                        <input type="radio" name="p1img" value="images/mm.png">
+                                        <label for="img3">M-M</label>
                                     </div>
-                                 </div>
+                                </div>
                             </div>
-                         </div>
+                        </div>
                         <div>
-                        <label for="player2">Insert Player2 name:</label>
-                        <input type="text" name="player2name" placeholder="Name...">
-                        <div>
+                            <label for="player2">Insert Player2 name:</label>
+                            <input type="text" name="player2name" placeholder="Name...">
                             <div>
-                                <label>Select a chip for P2:</label>
+                                <div>
+                                    <label>Select a chip for P2:</label>
+                                    <div>
+                                        <input type="radio" name="p2img" value="images/homelander.png" checked>
+                                        <label for="img1">Homelander</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="p2img" value="images/blackNoir.png">
+                                        <label for="img2">Black Noir</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="p2img" value="images/theDeep.png">
+                                        <label for="img3">The Deep</label>
+                                    </div>
+                                </div>
+                            </div>
 
-                                    <div>
-                                    <input type="radio" name="p2img" value="../img/img1"
-                                            checked>
-                                    <label for="img1">img1</label>
-                                    </div>
-                                
-                                    <div>
-                                    <input type="radio" name="p2img" value="../img/img2">
-                                    <label for="img2">img2</label>
-                                    </div>
-                                
-                                    <div>
-                                    <input type="radio" name="p2img" value="../img/img3">
-                                    <label for="img3">img3</label>
-                                    </div>
-                            </div>
-                         </div>
-                         
-                        <button id="goGame">Play</button>
+                            <button id="goGame">Play</button>
                     </form>
                 </div>
 
             </div>
-       
+
         </section>
         <div class="likeAndShare">
             <div class="like">

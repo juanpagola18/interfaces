@@ -64,19 +64,15 @@ class Chip {
         return this.radius;
     }
 
-    draw() {
-        this.ctx.beginPath();
-        this.ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-        this.ctx.fillStyle='blue';
-        this.ctx.fill();
-        this.ctx.stroke();
-        this.ctx.closePath();
-    }
-
     drawImg(img){
         this.ctx.beginPath();
         this.ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-
+        if(this.player.getNumber()==1){
+            this.ctx.fillStyle='#33BDC2';
+        }else{
+            this.ctx.fillStyle='#D84089';
+        }
+        this.ctx.fill();
         if(this.image.src===''){
             this.image.src=img;
             let loadImg= function(){
