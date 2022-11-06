@@ -2058,12 +2058,12 @@ ul.img-container li{
                 background: #CC1E70;
                 transition: all 1s ease;
             }
-            #goBack:hover{
+            #settings:hover{
                 background: #004C50;
                 transition: all 1s ease;
             }
             
-            #btnPlay{
+            #goGame{
                 background-color: #F4F7F9;
                 height: 40px;
                 width: 60px;
@@ -2077,16 +2077,24 @@ ul.img-container li{
            
            .canvas-container{
                 justify-content: center;
+                background: url(../images/the\ boys\ juego.jpg) no-repeat center center fixed;
+                background-size: cover;
+            }
+            .notBackground{
+                background: none;
             }
             .canvas-in{
                 display:flex;
                 justify-content: center;
             }
             .pop-up-form{
-                background-image: url(../images/4enLinea.png);
+                background: url(../images/the\ boys\ juego.jpg) no-repeat center center fixed;
                 align-items: center;
                 justify-content: center;
                 opacity: 0.7;
+                background-repeat: no-repeat;
+                background-size: cover;
+                
             }
             #form-mode{
                 background-color:#01888E;
@@ -2096,6 +2104,7 @@ ul.img-container li{
                 display: flex;
                 flex-direction: column;
                 color:#F4F7F9;
+                border-radius: 25%;
             }
 
             #form-mode div{

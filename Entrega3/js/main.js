@@ -2,6 +2,7 @@
 let form=document.querySelector("#form-mode");
 form.addEventListener("submit", cargar);
 let canvas = document.querySelector('#canvas');
+let canvasContainer = document.querySelector('.canvas-container');
 let btnPlayHelp = document.querySelector('.btn-play-help')
 let play = document.querySelector('#btnPlay');
 let score = document.querySelector('.score');
@@ -9,6 +10,9 @@ let playerN1 = document.querySelector('.player1');
 let playerN2 = document.querySelector('.player2');
 let gameMode = document.querySelector('.mode');
 let settings = document.querySelector('#settings');
+let timer = document.querySelector('.timer');
+let stopDegree = 0;
+
 
 settings.addEventListener("click", showSettings)
 
@@ -24,8 +28,9 @@ function showSettings(){
     canvas.classList.add('notShow');
     score.classList.add('notShow');
     score.classList.remove('show');
-    popUpForm.classList.remove('notShow');ç
+    popUpForm.classList.remove('notShow');
     popUpForm.classList.remove('show');
+    stopDegree = -1;
 }
 function cargar(e){
     e.preventDefault();
@@ -33,6 +38,7 @@ function cargar(e){
     score.classList.remove('notShow');
     score.classList.add('show');
     popUpForm.classList.add('notShow');
+    canvasContainer.classList.add('notBackground');
     let formData= new FormData(form);
     let mode=formData.get("mode");
     gameMode.innerHTML = "Game Mode: " + mode + " in a row";
@@ -42,17 +48,21 @@ function cargar(e){
     let player2=formData.get("player2name");
     playerN2.innerHTML = player2;
     let p2img=formData.get("p2img");
-    load(mode,player1,p1img,player2,p2img)
+    load(mode,player1,p1img,player2,p2img);
+    stopDegree = 0;
 }
 
 
 
 function load(mode,player1name,imgP1,player2name,imgP2) {
-
+    
     let btnReset = document.getElementById('reset');
     btnReset.addEventListener('click', reset);
-    
-
+    let minute = document.getElementById('minute');
+    let second = document.getElementById('seconds');
+    let min = 2;
+    let sec = 59;
+   
     var pos = canvas.getBoundingClientRect();
     console.log(pos.top, pos.left)
 
@@ -68,6 +78,7 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
     let imgPlayer2 = 'images/theSeven.png';
     let inicioX = 0;
     let inicioY = 0;
+    
     // let initialCanvasX=parX;
     // let initialCanvasY=parY;
 
@@ -79,7 +90,7 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
     let rows = Number(inLine)+2;
     console.log(rows);
     let maxChips = columns * rows;
-    let playedChips = 0;
+    
 
     const SIZEPOSBOARD = 55;
     const SIZECHIP = 25;
@@ -462,28 +473,31 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
         redraw();
     }
 
-    let minute = document.getElementById('minute');
-    let second = document.getElementById('seconds');
-    let min = 2;
-    let sec = 59;
+ 
 
-
-    setInterval(function restSec() {
+    let degreeSec = setInterval(function restSec() {
         if (sec >= 0) {
             second.innerHTML = sec + "s";
             minute.innerHTML = min + "m";
             sec--;
             checkFinished();
         }
+        if(stopDegree === -1 ) 
+        {
+            clearInterval(degreeSec);
+        }
     }, 1000);
 
-    setInterval(function restMin() {
+    let degreeMin =setInterval(function restMin() {
         if (min > 0) {
 
             min--;
             sec = 59;
         }
-
+        if(stopDegree === -1) 
+        {
+            clearInterval(degreeMin);
+        }
     }, 60000);
 
 
@@ -492,4 +506,6 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
             reset();
         }
     }
+ 
+    
 }
