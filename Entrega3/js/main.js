@@ -92,14 +92,23 @@ function load() {
             //fichas jugador1
 
             let posX=Math.round(Math.random()*(locationBoardX-SIZEPOSBOARD*2)+SIZEPOSBOARD);
+<<<<<<< Updated upstream
             let posY=canvasHeight-Math.round(Math.random()*heigthBoard)-locationBoardY;
+=======
+            let posY=canvasHeight-Math.round(Math.random()*heigthBoard)-SIZEPOSBOARD;
+>>>>>>> Stashed changes
             let singleChipP1= new Chip(posX,posY,SIZECHIP,ctx,player1);
             chipsPlayer1.push(singleChipP1);
 
             //fichas jugador 2
             //ojo que aca al final no se como termina
+<<<<<<< Updated upstream
             posX= Math.round(Math.random()*((canvasWidth-SIZEPOSBOARD*2)-(locationBoardX+widthBoard+SIZEPOSBOARD))+(locationBoardX*3    ))
             posY= canvasHeight- Math.round(Math.random()*heigthBoard)-locationBoardY;
+=======
+            posX= Math.round(Math.random()*((canvasWidth-SIZEPOSBOARD*2)-(locationBoardX+widthBoard+SIZEPOSBOARD))+(locationBoardX))
+            posY= canvasHeight- Math.round(Math.random()*heigthBoard)-SIZEPOSBOARD;
+>>>>>>> Stashed changes
             let singleChipP2= new Chip(posX,posY,SIZECHIP,ctx,player2);
             chipsPlayer2.push(singleChipP2);
         }
