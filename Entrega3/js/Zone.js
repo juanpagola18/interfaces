@@ -30,14 +30,10 @@ class Zone {
     draw(){
         this.ctx.beginPath();
         this.ctx.rect(this.x, this.y, this.width, this.width);
-<<<<<<< Updated upstream
         this.ctx.strokeStyle='white';
         this.ctx.stroke();
         this.ctx.fillStyle='blue';
         this.ctx.fill();
-=======
-        this.ctx.stroke();
->>>>>>> Stashed changes
     }
 }
 
