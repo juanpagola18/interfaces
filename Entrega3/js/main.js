@@ -16,12 +16,10 @@ let gameMode = document.querySelector('.mode');
 let settings = document.querySelector('#settings');
 let timer = document.querySelector('.timer');
 let stopDegree = 0;
-<<<<<<< Updated upstream
 let popUpForm = document.querySelector('.pop-up-form');
 
 settings.addEventListener("click", showSettings)
 form.addEventListener("submit", submit);
-=======
 let returning = document.querySelector('#return');
 let goBack = document.querySelector('#returnGame');
 
@@ -30,9 +28,8 @@ returning.addEventListener("click", showGamePage);
 settings.addEventListener("click", showSettings);
 goBack.addEventListener("click", showGamePage);
 
-let popUpForm = document.querySelector('.pop-up-form');
+
 let popUpHelp = document.querySelector('.pop-up-help');
->>>>>>> Stashed changes
 play.addEventListener("click", showForm);
 
 function showForm(){
