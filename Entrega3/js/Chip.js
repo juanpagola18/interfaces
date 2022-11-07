@@ -31,7 +31,7 @@ class Chip {
     setCanMove(boolean) {
         this.canMove = boolean;
     }
-    //aca hay error en foto? yo puse como creo que va
+    
     isSelected() {
         return this.selected;
     }

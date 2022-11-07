@@ -499,6 +499,17 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
             clearInterval(degreeMin);
         }
     }, 60000);
+
+
+    function checkFinished(){
+        if(min== 0 && sec == -1){
+            setTimeout(() => {
+            reset();
+            
+            }, 1000)
+            
+        }
+    }
  
     
 }

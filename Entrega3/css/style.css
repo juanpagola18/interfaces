@@ -2123,6 +2123,54 @@ input[type=number]::-webkit-outer-spin-button {
     footer .foot_social {
         display: flex;
     }
+    
+     /* loading
+     */
+       
+            .loading {
+                width:100%;
+                height:100%;
+                position: fixed;
+                background: rgba(27, 31, 32, 0.5);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 3;
+                transition: 1s all;
+                color:#DFE4E7;
+               
+                
+            }
+    
+            .loading.show {
+                display: flex;
+                flex-direction: column;
+
+            }
+    
+            .notShow{
+                display: none;
+            }
+            .show{
+                display: flex;
+            }
+            #percent{
+                color:#DFE4E7;
+                padding: 15px;
+            }
+            .loading .spin {
+                border: 3px solid  #DFE4E7;
+                border-top-color: #004C50;
+                border-radius: 50%;
+                width: 6em;
+                height: 6em;
+                animation: spin 5s linear infinite;
+            }
+            @keyframes spin {
+              to {
+                transform: rotate(360deg);
+              }
+            }  
 
     footer .foot_category {
         display: flex;
@@ -2141,109 +2189,106 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 10px 25px 0 25px;
 }
 
-.timer {
-    display: flex;
-    height: 25px;
-    color: #33BDC2;
-    font-weight: 400;
-    font-size: 20px;
-    width: 60%;
-    align-items: center;
-    padding-left: 5px;
-    justify-content: space-around;
-}
+            #reset:hover{
+                background: #CC1E70;
+                transition: all 0.2s ease;
+            }
+            #settings:hover{
+                background: #01888E;
+                transition: all 0.2s ease;
+            }
+            
+            #goGame{
+                background-color: #F4F7F9;
+                height: 40px;
+                width: 60px;
+                color:#33BDC2;
+                border-radius: 8px;
+                border: 1px solid #DFE4E7;
+                box-shadow: outset 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+            
+           
+           .canvas-container{
+                position: flex;
+                justify-content: center;
+                background: url(../images/the\ boys\ juego.jpg) no-repeat center center;
+                background-size: cover;
+            }
+            .notBackground{
+                background: none;
+            }
+            .canvas-in{
+                display:flex;
+                justify-content: center;
+            }
+            .pop-up-form{
+                width: 100%;
+                height: 600px;
+                background: url(../images/the\ boys\ juego.jpg) no-repeat center center;
+                align-items: center;
+                justify-content: center;
+                opacity: 1;
+                background-repeat: no-repeat;
+                background-size: cover;
+                
+            }
+            #form-mode{
+                background-color:#13ABB2;
+                min-width: 500px;
+                min-height: 300px;
+                color:#F4F7F9;
+                border-radius: 8px;
+            }
 
-.player1,
-.player2 {
-    color: #33BDC2;
-}
-
-.btn-command {
-    height: 30px;
-    width: 65px;
-    color: #F4F7F9;
-    border-radius: 8px;
-}
-
-#reset {
-    background-color: #D84089;
-}
-
-#settings {
-    background-color: #33BDC2;
-}
-
-#reset:hover {
-    background: #CC1E70;
-    transition: all 0.2s ease;
-}
-
-#settings:hover {
-    background: #01888E;
-    transition: all 0.2s ease;
-}
-
-#goGame {
-    background-color: #F4F7F9;
-    height: 40px;
-    width: 60px;
-    color: #33BDC2;
-    border-radius: 8px;
-    border: 1px solid #DFE4E7;
-    box-shadow: outset 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-
-.canvas-container {
-    position: flex;
-    justify-content: center;
-    background: url(../images/the\ boys\ juego.jpg) no-repeat center center;
-    background-size: cover;
-}
-
-.notBackground {
-    background: none;
-}
-
-.canvas-in {
-    display: flex;
-    justify-content: center;
-}
-
-.pop-up-form {
-    width: 100%;
-    height: 600px;
-    background: url(../images/the\ boys\ juego.jpg) no-repeat center center;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.7;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-}
-
-#form-mode {
-    background-color: #01888E;
-    min-width: 500px;
-    min-height: 300px;
-    color: #F4F7F9;
-    border-radius: 8px;
-}
-
-#form-mode div {
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-}
-
-#form-mode div div {
-    display: flex;
-    flex-direction: row;
-}
-
-#form-mode input {
-    width: 25%;
-    border: 1px solid #DFE4E7;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding-left: 2px;
-}
+            #form-mode div{
+                display: flex;
+                flex-direction: column;
+                padding: 5px;
+            }
+            #form-mode div div{
+                display: flex;
+                flex-direction: row;
+            }
+            #form-mode input{
+                width: 25%;
+                border: 1px solid #DFE4E7;
+                box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+                padding-left: 2px;
+            }
+            div #butcher{
+                background: url(../images/butcher.png) no-repeat center center;
+                width: 50px;
+                height: 50px;
+                background-size: cover;
+            }
+            div #frenchie{
+                background: url(../images/frenchie.png) no-repeat center center;
+                width: 50px;
+                height: 50px;
+                background-size: cover;
+            }
+            div #M-M{
+                background: url(../images/mm.png) no-repeat center center;
+                width: 50px;
+                height: 50px;
+                background-size: cover;
+            }
+            div #homelander{
+                background: url(../images/homelander.png) no-repeat center center;
+                width: 50px;
+                height: 50px;
+                background-size: cover;
+            }
+            div #blackNoir{
+                background: url(../images/blackNoir.png) no-repeat center center;
+                width: 50px;
+                height: 50px;
+                background-size: cover;
+            }
+            div #theDeep{
+                background: url(../images/theDeep.png) no-repeat center center;
+                width: 50px;
+                height: 50px;
+                background-size: cover;
+            }
