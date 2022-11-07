@@ -64,12 +64,12 @@
                         </div>
                         <h1 class="player2">Jugador 2</h1>
                     </div>
-                    <div class="canvas-in">
-                        <canvas id="canvas" width="1000" height="620"></canvas>
+                    <div class="canvas-in show">
+                        <canvas id="canvas" width="1000" height="620" class="show"></canvas>
                     </div>
 
                 </div>
-                <div class="btn-play-help">
+                <div class="btn-play-help show">
                     <button id="btnPlay">Play</button>
                     <button class="btn-help"> Help </button>
                 </div>
@@ -128,11 +128,22 @@
                             </div>
 
                             <button id="goGame">Play</button>
+                            
                     </form>
+                    <button id="returnGame" class="return">Return</button>
                 </div>
-
+             
             </div>
-
+            <div class="pop-up-help notShow">
+                <div class="help-mode">
+                    <p>Players must connect 4 of the same tipe of chip in a row to win.</p>
+                    <p>Only one chip is played at a time.</p>
+                    <p>Select one chip and drag it into the drop zone</p>
+                    <p>The game ends when there is a 4-in-a-row or a stalemate.</p>
+                    <button id="return" class="return">Return</button>
+                </div>
+               
+            </div>
         </section>
         <div class="likeAndShare">
             <div class="like">

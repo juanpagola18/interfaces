@@ -746,7 +746,7 @@ ul.breadcrumbs li a:hover {
 }
 
 .btn-play-help {
-    display: flex;
+    
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -2237,8 +2237,20 @@ input[type=number]::-webkit-outer-spin-button {
                 border: 1px solid #DFE4E7;
                 box-shadow: outset 0px 4px 4px rgba(0, 0, 0, 0.25);
             }
-            
-           
+            .return{
+                background-color: #D20B0B;
+                height: 30px;
+                width: 50px;
+                color:#DFE4E7;
+                margin: 5px;
+                border-radius: 8px;
+                border: 1px solid #DFE4E7;
+                box-shadow: outset 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+            .return:hover{
+                background: #64002F;
+                transition: all 0.2s ease;
+            }
            .canvas-container{
                 position: flex;
                 justify-content: center;
@@ -2263,6 +2275,43 @@ input[type=number]::-webkit-outer-spin-button {
                 background-size: cover;
                 
             }
+            .pop-up-help{
+                width: 100%;
+                height: 600px;
+                background: url(../images/the\ boys\ juego.jpg) no-repeat center center;
+                align-items: center;
+                justify-content: center;
+                opacity: 1;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .help-mode{
+                background-color:#13ABB2;
+                min-width: 500px;
+                min-height: 300px;
+                color:#F4F7F9;
+                border-radius: 8px;
+            }
+
+            .pop-up-help .help-mode{
+                
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                align-items: center;
+                font-size: 18px;
+                
+                
+            }
+            .help-mode p{
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+                align-items: center;
+                justify-content: center;
+            }
+          
             #form-mode{
                 background-color:#13ABB2;
                 min-width: 500px;

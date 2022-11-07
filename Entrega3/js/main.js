@@ -4,9 +4,11 @@
 
 let form=document.querySelector("#form-mode");
 let canvas = document.querySelector('#canvas');
+let canvasIn = document.querySelector('.canvas-in');
 let canvasContainer = document.querySelector('.canvas-container');
 let btnPlayHelp = document.querySelector('.btn-play-help')
 let play = document.querySelector('#btnPlay');
+let help = document.querySelector('.btn-help')
 let score = document.querySelector('.score');
 let playerN1 = document.querySelector('.player1');
 let playerN2 = document.querySelector('.player2');
@@ -14,17 +16,57 @@ let gameMode = document.querySelector('.mode');
 let settings = document.querySelector('#settings');
 let timer = document.querySelector('.timer');
 let stopDegree = 0;
+<<<<<<< Updated upstream
 let popUpForm = document.querySelector('.pop-up-form');
 
 settings.addEventListener("click", showSettings)
 form.addEventListener("submit", submit);
+=======
+let returning = document.querySelector('#return');
+let goBack = document.querySelector('#returnGame');
+
+help.addEventListener("click", showHelp);
+returning.addEventListener("click", showGamePage);
+settings.addEventListener("click", showSettings);
+goBack.addEventListener("click", showGamePage);
+
+let popUpForm = document.querySelector('.pop-up-form');
+let popUpHelp = document.querySelector('.pop-up-help');
+>>>>>>> Stashed changes
 play.addEventListener("click", showForm);
 
 function showForm(){
+    canvasIn.classList.add('notShow');
+    canvasIn.classList.remove('show');
+    canvas.classList.remove('show');
     canvas.classList.add('notShow');
+    btnPlayHelp.classList.remove('show');
     btnPlayHelp.classList.add('notShow');
     popUpForm.classList.remove('notShow');
     popUpForm.classList.add('show');
+  
+}
+function showHelp(){
+    canvas.classList.remove('show');
+    canvas.classList.add('notShow');
+    canvasIn.classList.add('notShow');
+    canvasIn.classList.remove('show');
+    btnPlayHelp.classList.remove('show');
+    btnPlayHelp.classList.add('notShow');
+    popUpHelp.classList.add('show');
+    popUpHelp.classList.remove('notShow');
+
+}
+function showGamePage(){
+    canvasIn.classList.remove('show');
+    canvasIn.classList.add('notShow');
+    btnPlayHelp.classList.add('show');
+    btnPlayHelp.classList.remove('notShow');
+    popUpHelp.classList.remove('show');
+    popUpHelp.classList.add('notShow');
+    popUpForm.classList.remove('show');
+    popUpForm.classList.add('notShow');
+    canvasContainer.classList.remove('notBackground');
 }
 
 function showSettings(){
