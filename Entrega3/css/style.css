@@ -1653,12 +1653,15 @@ ul.img-container li{
                 align-items: center;
                 z-index: 3;
                 transition: 1s all;
-                color:#DFE4E7
+                color:#DFE4E7;
+               
+                
             }
     
             .loading.show {
                 display: flex;
                 flex-direction: column;
+
             }
     
             .notShow{
@@ -1667,10 +1670,13 @@ ul.img-container li{
             .show{
                 display: flex;
             }
-    
+            #percent{
+                color:#DFE4E7;
+                padding: 15px;
+            }
             .loading .spin {
                 border: 3px solid  #DFE4E7;
-                border-top-color: #D20B0B;
+                border-top-color: #004C50;
                 border-radius: 50%;
                 width: 6em;
                 height: 6em;
@@ -2075,13 +2081,13 @@ ul.img-container li{
                 background: url(../images/the\ boys\ juego.jpg) no-repeat center center;
                 align-items: center;
                 justify-content: center;
-                opacity: 0.7;
+                opacity: 1;
                 background-repeat: no-repeat;
                 background-size: cover;
                 
             }
             #form-mode{
-                background-color:#01888E;
+                background-color:#13ABB2;
                 min-width: 500px;
                 min-height: 300px;
                 color:#F4F7F9;
@@ -2102,4 +2108,40 @@ ul.img-container li{
                 border: 1px solid #DFE4E7;
                 box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
                 padding-left: 2px;
+            }
+            div #butcher{
+                background: url(../images/butcher.png) no-repeat center center;
+                width: 50px;
+                height: 50px;
+                background-size: cover;
+            }
+            div #frenchie{
+                background: url(../images/frenchie.png) no-repeat center center;
+                width: 50px;
+                height: 50px;
+                background-size: cover;
+            }
+            div #M-M{
+                background: url(../images/mm.png) no-repeat center center;
+                width: 50px;
+                height: 50px;
+                background-size: cover;
+            }
+            div #homelander{
+                background: url(../images/homelander.png) no-repeat center center;
+                width: 50px;
+                height: 50px;
+                background-size: cover;
+            }
+            div #blackNoir{
+                background: url(../images/blackNoir.png) no-repeat center center;
+                width: 50px;
+                height: 50px;
+                background-size: cover;
+            }
+            div #theDeep{
+                background: url(../images/theDeep.png) no-repeat center center;
+                width: 50px;
+                height: 50px;
+                background-size: cover;
             }
