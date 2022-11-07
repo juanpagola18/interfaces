@@ -746,7 +746,7 @@ ul.breadcrumbs li a:hover {
 }
 
 .btn-play-help {
-    
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -2238,7 +2238,7 @@ input[type=number]::-webkit-outer-spin-button {
                 box-shadow: outset 0px 4px 4px rgba(0, 0, 0, 0.25);
             }
             .return{
-                background-color: #D20B0B;
+                background-color: #64002F;
                 height: 30px;
                 width: 50px;
                 color:#DFE4E7;
@@ -2254,6 +2254,9 @@ input[type=number]::-webkit-outer-spin-button {
            .canvas-container{
                 position: flex;
                 justify-content: center;
+             
+            }
+            .play-game-area{
                 background: url(../images/the\ boys\ juego.jpg) no-repeat center center;
                 background-size: cover;
             }
@@ -2267,7 +2270,7 @@ input[type=number]::-webkit-outer-spin-button {
             .pop-up-form{
                 width: 100%;
                 height: 600px;
-                background: url(../images/the\ boys\ juego.jpg) no-repeat center center;
+               
                 align-items: center;
                 justify-content: center;
                 opacity: 1;
@@ -2278,7 +2281,6 @@ input[type=number]::-webkit-outer-spin-button {
             .pop-up-help{
                 width: 100%;
                 height: 600px;
-                background: url(../images/the\ boys\ juego.jpg) no-repeat center center;
                 align-items: center;
                 justify-content: center;
                 opacity: 1;
@@ -2332,6 +2334,7 @@ input[type=number]::-webkit-outer-spin-button {
             #form-mode input{
                 width: 25%;
                 border: 1px solid #DFE4E7;
+                box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
                 padding-left: 2px;
             }
             div #butcher{

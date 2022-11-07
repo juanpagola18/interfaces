@@ -17,16 +17,18 @@ let settings = document.querySelector('#settings');
 let timer = document.querySelector('.timer');
 let stopDegree = 0;
 let popUpForm = document.querySelector('.pop-up-form');
+let playArea = document.querySelector('.play-game-area')
+
 
 settings.addEventListener("click", showSettings)
 form.addEventListener("submit", submit);
 let returning = document.querySelector('#return');
-let goBack = document.querySelector('#returnGame');
+
 
 help.addEventListener("click", showHelp);
 returning.addEventListener("click", showGamePage);
 settings.addEventListener("click", showSettings);
-goBack.addEventListener("click", showGamePage);
+
 
 
 let popUpHelp = document.querySelector('.pop-up-help');
@@ -46,8 +48,6 @@ function showForm(){
 function showHelp(){
     canvas.classList.remove('show');
     canvas.classList.add('notShow');
-    canvasIn.classList.add('notShow');
-    canvasIn.classList.remove('show');
     btnPlayHelp.classList.remove('show');
     btnPlayHelp.classList.add('notShow');
     popUpHelp.classList.add('show');
@@ -84,6 +84,7 @@ function submit(e){
     score.classList.add('show');
     popUpForm.classList.remove('show');
     popUpForm.classList.add('notShow');
+    playArea.classList.add('notBackground');
     canvasContainer.classList.add('notBackground');
     let formData= new FormData(form);
     let mode=formData.get("mode");
@@ -536,3 +537,5 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
  
     
 }
+
+
