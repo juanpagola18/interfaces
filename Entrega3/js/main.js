@@ -1,6 +1,8 @@
 "use strict";
+
+//manejo de pop up de ventanas del form y canvas
+
 let form=document.querySelector("#form-mode");
-form.addEventListener("submit", cargar);
 let canvas = document.querySelector('#canvas');
 let canvasContainer = document.querySelector('.canvas-container');
 let btnPlayHelp = document.querySelector('.btn-play-help')
@@ -12,12 +14,12 @@ let gameMode = document.querySelector('.mode');
 let settings = document.querySelector('#settings');
 let timer = document.querySelector('.timer');
 let stopDegree = 0;
-
+let popUpForm = document.querySelector('.pop-up-form');
 
 settings.addEventListener("click", showSettings)
-
-let popUpForm = document.querySelector('.pop-up-form');
+form.addEventListener("submit", submit);
 play.addEventListener("click", showForm);
+
 function showForm(){
     canvas.classList.add('notShow');
     btnPlayHelp.classList.add('notShow');
@@ -33,7 +35,10 @@ function showSettings(){
     popUpForm.classList.add('show');
     stopDegree = -1;
 }
-function cargar(e){
+
+//envio de datos del form para cargar el canvas parametrizado
+
+function submit(e){
     e.preventDefault();
     canvas.classList.remove('notShow');
     score.classList.remove('notShow');
@@ -55,18 +60,18 @@ function cargar(e){
 }
 
 
-
+//carga del canvas
 function load(mode,player1name,imgP1,player2name,imgP2) {
     
+    //inicio de variables y constantes
     let btnReset = document.getElementById('reset');
     btnReset.addEventListener('click', reset);
     let minute = document.getElementById('minute');
     let second = document.getElementById('seconds');
     let min = 2;
     let sec = 59;
-   
+    //uso funcion para luego obtener las posiciones top y left del canvas
     let pos = canvas.getBoundingClientRect();
-    
     /** @type {CanvasRenderingContext2D} */
     let ctx = canvas.getContext('2d');
     let canvasWidth = canvas.width;
@@ -75,8 +80,6 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
     let figures = [];
     let board = [];
     let imgBoard = 'images/boardCell.png';
-    let imgPlayer1 = imgP1;
-    let imgPlayer2 = imgP2;
     let inicioX = 0;
     let inicioY = 0;
 
@@ -86,40 +89,36 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
     let columns= Number(inLine)+3;
     let rows = Number(inLine)+2;
     let maxChips = columns * rows;
-    
+    let imgPlayer1 = imgP1;
+    let imgPlayer2 = imgP2;
+    //tamaño de cada cuadrado del canvas, incluidas las dropzones, y de las fichas
     const BOXSIZE = 55;
     const CHIPSIZE = 25;
-
+    //calculo ancho y alto del board, luego lo vamos a usar
     let widthBoard = columns * BOXSIZE;
     let heigthBoard = rows * BOXSIZE;
-
+    //instancio players
     let player1 = new Player(player1name, 1);
     let chipsPlayer1 = [];
-
     let player2 = new Player(player2name, 2);
     let chipsPlayer2 = [];
-
     let playerTurn = 1;
     let chipsPlayed = 0;
 
     //ubicacion x y inicial del tablero
+    let locationBoardX = (canvasWidth / 2) - ((BOXSIZE * columns) / 2);
+    let locationBoardY = (canvasHeight / 2) - ((BOXSIZE * rows) / 2);
 
-    let locationBoardX = (canvasWidth / 2) - (((columns) * BOXSIZE) / 2);
-    let locationBoardY = (canvasHeight / 2) - (((BOXSIZE) * (rows)) / 2);
-
-    //
+    //inicio eventos y tablero
     initEvents();
     initBoard();
 
-    //redibujar el canvas
+    // funcion para redibujar el canvas
     function redraw() {
         clearCanvas();
-        
         drawDropZone();
         drawChips();
         drawBoard();
-
-
     }
 
     //se inicia el tablero creandolas zonas, fichas y dropZones
@@ -132,7 +131,7 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
                 if (c == 0) {
                     locationBoxX = locationBoardX;
                 }
-                //addZone dibuja el Box o Zone y lo agrega a board
+                //al instanciar, addZone dibuja el Box y lo agrega a board
                 let rect = addZone(locationBoxX, locationBoxY);
                 locationBoxX += BOXSIZE;
                 aux.push(rect);
@@ -142,21 +141,20 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
             figures.push(aux);
         }
         drawDropZone();
-        console.log("board: ", board);
         initChips();
+        console.log("board: ", board);
         console.log("chipsPlayer1: ", chipsPlayer1);
         console.log("chipsPlayer2: ", chipsPlayer2);
         console.log("figures: ", figures);
     }
-
+    //inicializar las fichas
     function initChips() {
         for (let i = 0; i < maxChips / 2; i++) {
-            //fichas jugador1
+            //fichas jugador1 damos un x e y random para "desparramar" las fichas de manera controlada
             let posX = locationBoardX - BOXSIZE - Math.round(Math.random() * BOXSIZE * 2);
             let posY = Math.round(Math.random() * (heigthBoard - BOXSIZE)) + locationBoardY + BOXSIZE / 2;
-            let singleChipP1 = new Chip(posX, posY, CHIPSIZE, ctx, player1);
+            let singleChipP1 = new Chip(posX, posY, CHIPSIZE, ctx, player1);//instancio la ficha
             chipsPlayer1.push(singleChipP1);
-
             //fichas jugador 2
             posX = locationBoardX + widthBoard + BOXSIZE + Math.round(Math.random() * BOXSIZE * 2);
             posY = Math.round(Math.random() * (heigthBoard - BOXSIZE)) + locationBoardY + BOXSIZE / 2;
@@ -167,7 +165,7 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
         drawChips();
     }
 
-    //crea box para tablero a partir de clase zone y los mete en board=[]
+    //crea box para tablero a partir de clase zone y los mete en arreglo board=[]
     function addZone(locationChipX, locationChipY) {
         let rectangle = new Zone(locationChipX, locationChipY, BOXSIZE, ctx);
         board.push(rectangle);
@@ -177,10 +175,12 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
 
     //......................................................................................................
     //metodos dibujar
+    //borra canvas
     function clearCanvas() {
         ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     }
-
+    
+    //dibujo dropzones en forma de triangulo
     function drawDropZone() {
         for (let c = 0; c < columns; c++) {
             let x = locationBoardX + (c * BOXSIZE);
@@ -190,13 +190,14 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
         }
     }
 
+    //dibuo fichas usando imagen pasada por parametro
     function drawChips() {
         for (let i = 0; i < chipsPlayer1.length; i++) {
             chipsPlayer1[i].drawImg(imgPlayer1);
             chipsPlayer2[i].drawImg(imgPlayer2);
         }
     }
-
+    //tablero
     function drawBoard() {
         for (let i = 0; i < board.length; i++) {
             board[i].drawImg(imgBoard);
@@ -205,7 +206,7 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
     //......................................................................................................
 
 
-    //eventos del main? o de la ficha???
+    //eventos del canvas para interactuar con las fichas
     function initEvents() {
         canvas.addEventListener('mousedown', onMouseDown);
         canvas.addEventListener('mouseup', onMouseUp);
@@ -213,80 +214,68 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
     }
 
     function onMouseDown(event) {
-        console.log("es"+ pos.left, pos.top);
-        console.log("clickeo en" +event.clientX, event.clientY);
-        console.log("busco en"+ (event.clientX + pos.left ), (event.clientY - pos.top));
-        if (playerTurn == 1) {//cambiar
+        //mientras tengo presionado, controlo el turno
+        if (playerTurn == 1) {
             for (var i = 0; i < chipsPlayer1.length; i++) {
-
-                if (
+                if (//pregunto a cada ficha del arreglo si esta cliqueada
                     chipsPlayer1[i].isCliked((event.clientX- pos.left), (event.clientY - pos.top))
-                ) {
-
+                ) {//esa ficha la selecciono
                     selectedChip = chipsPlayer1[i];
                     inicioY = event.clientY - chipsPlayer1[i].y;
-                    console.log(inicioY);
                     inicioX = event.clientX - chipsPlayer1[i].x;
-                    console.log(inicioX);
-
                 }
             }
 
         }
+        //idem player2
         else if (playerTurn == 2) {
             for (var i = 0; i < chipsPlayer2.length; i++) {
-
                 if (
                     chipsPlayer2[i].isCliked((event.clientX - pos.left), (event.clientY - pos.top))
-                    
                 ) {
-
                     selectedChip = chipsPlayer2[i];
                     inicioY = event.clientY - chipsPlayer2[i].y;
-                    console.log(inicioY);
                     inicioX = event.clientX - chipsPlayer2[i].x;
-                    console.log(inicioX);
-
                 }
             }
         }
     }
 
     function onMouseMove(event) {
+        //voy seteando x e y de la ficha seleccionada mientras muevo
         if (selectedChip != null) {
             selectedChip.setX(event.clientX - inicioX);
             selectedChip.setY(event.clientY - inicioY);
             console.log(selectedChip);
         }
+        //funcion que redibuja en cada desplazamiento todo
         redraw();
     }
 
-
+    //al soltar la ficha
     function onMouseUp(event) {
-        let insert = (selectedChip.getX() > locationBoardX && selectedChip.getX() < locationBoardX + widthBoard)
+        //calculo que este en zona donde puede insertarse
+        let canInsert = (selectedChip.getX() > locationBoardX && selectedChip.getX() < locationBoardX + widthBoard)
             && (selectedChip.getY() < locationBoardY && selectedChip.getY() > locationBoardY - BOXSIZE * 2);
-        if (insert) {
+        if (canInsert) {
+            //lamo la funcion que inserta la ficha y luego cambio turno
             insertChip(returnColumnNum(selectedChip.getX()), selectedChip);
             changeTurn();
         } else {
+            //devuelvo la ficha a su pos inicial
             selectedChip.setX(selectedChip.getInitialX());
             selectedChip.setY(selectedChip.getInitialY());
         }
-        selectedChip = null;
-        
+        selectedChip = null; 
     }
 
-
-
+    //cambio de turno
     function changeTurn() {
         if (playerTurn == 1) {
             playerTurn = 2;
-
         }
-        else if (playerTurn == 2) {
+        else
             playerTurn = 1;
-
-        }
     }
 
     //......................................
@@ -306,9 +295,9 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
 
     //insertar ficha
     function insertChip(numCol, chip) {
+        //agarro primera fila vacia, recibiendo la columna que tengo que controlar por parametro
         const firstEmptyRow = getFirstEmptyRow(numCol);
-
-        if (firstEmptyRow === -1) {
+        if (firstEmptyRow === -1) {//si la fila esta llena
             chip.setX(chip.getInitialX());
             chip.setY(chip.getInitialY());
             alert('Cannot put here, it is full');
@@ -316,26 +305,27 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
             return;
         }
         chipsPlayed++;
+        //lo ponemos en un timeout porque sino hace el alert antes de colocar la ficha, queda horrible.
         setTimeout(() => {
             if (chipsPlayed == maxChips) {
-                alert("empate");
+                alert("TIE!");
                 return;
             };
-        }, 500)
+        }, 400)
         let box = figures[firstEmptyRow][numCol]
         //box va a ser el casillero donde "cae" la ficha
-        box.setChip(chip);
+        box.setChip(chip);//que la recibe por parametro
         box.setIsChipInside(true);
         console.log(figures)
-        chip.setX(box.getMiddleX(BOXSIZE));
+        chip.setX(box.getMiddleX(BOXSIZE));//setea desde medio de x e y para que quede centrada la ficha
         chip.setY(box.getMiddleY(BOXSIZE));
         chip.setCanMove(false);
         setTimeout(() => {
             if (checkWinner()) {
-                alert("Ganador: " + chip.getPlayer().getName());
+                alert("WINNER: " + chip.getPlayer().getName());//con el nombre que se lo pide a la ficha
                 reset();
             };
-        }, 500)
+        }, 400)
     }
 
     function getFirstEmptyRow(numCol) {
@@ -454,7 +444,7 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
             }
         }
     }
-
+    //ya la usamos antes, es la que resetea todos los valores
     function reset() {
         chipsPlayer1 = [];
         chipsPlayer2 = [];
@@ -467,14 +457,8 @@ function load(mode,player1name,imgP1,player2name,imgP2) {
         initBoard();
         redraw();
     }
-
-    function checkFinished(){
-        if(min== 0 && sec == -1){
-            reset();
-        }
-    }
- 
-
+    //funciones que controlan el timer
+    
     let degreeSec = setInterval(function restSec() {
         if (sec >= 0) {
             second.innerHTML = sec + "s";

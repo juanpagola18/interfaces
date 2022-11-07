@@ -2283,7 +2283,6 @@ input[type=number]::-webkit-outer-spin-button {
             #form-mode input{
                 width: 25%;
                 border: 1px solid #DFE4E7;
-                box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
                 padding-left: 2px;
             }
             div #butcher{
