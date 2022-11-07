@@ -2183,11 +2183,41 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* pagina del juego 4 en linea
             */
-.score {
-    align-items: center;
-    justify-content: space-around;
-    margin: 10px 25px 0 25px;
-}
+
+            .score{
+                align-items: center;
+                justify-content: space-around;
+                margin:10px 25px 0 25px;
+            }
+
+            .timer{
+                display: flex;   
+                height: 25px;
+                color: #33BDC2;
+                font-weight: 400;
+                font-size: 20px;
+                width: 60%;
+                align-items: center;
+                padding-left: 5px;
+                justify-content: space-around;
+            }
+
+            .player1, .player2{
+                color: #33BDC2;
+            }
+
+            .btn-command{
+                height: 30px;
+                width: 65px;
+                color:#F4F7F9;
+                border-radius: 8px;
+            }
+            #reset {
+                background-color: #D84089;
+            }
+            #settings{
+                background-color: #33BDC2;
+            }
 
             #reset:hover{
                 background: #CC1E70;
