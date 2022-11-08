@@ -4,14 +4,631 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>All Games</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="loading show">
+        <div class="spin"></div>
+        <p id="percent">1%</p>
+    </div>
+    <div class="main_layout">
+        <header>
+            <div class="logo" alt="logo">
+             
+                <h3 class="title_logo">All Games</h3>
+                <div class="img_logo"><a href="index.html"><img src="images/Logo.jpg" alt="Logo Header"></a></div>
+                            
+            </div>
+            <h1>All Games</h1>
+            <nav>
+                <div class="lens"><img src="images/Lupa.png" alt="lens"></div>
+                <div class="search"><input type="text"></div>
+                <div class="hamburguer"><img class="hamburguer-icon" src="images/menu.png" alt="hamburger">
+                    <div class="scrolled_menu">
+                        <ul>
+                        <li><a href="index.html">Home</li></a>
+                        <li>Forum</li>
+                        <li><a href="ufc.html">Coming soon</li></a>
+                        <li>Recomended</li>
+                        <li>Logout</li>
+                        </ul>
+                        <div class="social_bar">
+                            <div class="icon_social"><img src="images/facebookLogo.png" alt="facebook"></div>
+                            <div class="icon_social"><img src="images/instagramLogo.webp" alt="instagram"></div>
+                            <div class="icon_social"><img src="images/tweeter-logo.webp" alt="twitter"></div>
+                            <div class="icon_social"><img src="images/gmaillogo.png" alt="gmail"></div>
+                        </div>
+                    </div>
+                </div>
+                <button class="profile">P</button>
+            </nav>
+        </header>
+        <div class="game-container">
+            <section>
+                <h2>Recomended for you</h2>
+                <div class="game-cards-container">
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/fifa23.jpeg"
+                                alt="fifa23-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Fifa 23</h3>
+                            <div class="priceAndPlay">
+                                <p>$1000</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/the boys img.jpg"
+                                alt="4-in-a-row-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>4 in a Row: The Boys</h3>
+                            <div class="priceAndPlay">
+                                <p>Bought</p>
+                                <button class="btn-play"><a href="gamePage.html">Play</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <p>New</p>
+                            <img src="images/Uncharted.jpg"
+                                alt="uncharted-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Uncharted I</h3>
+                            <div class="priceAndPlay">
+                                <p>$15000</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/monkey island.jpeg"
+                                alt="monkey-island-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Monkey Island</h3>
+                            <div class="priceAndPlay">
+                                <p>$140</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/AOEII.jpg"
+                                alt="age-of-empire2-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Age of Empire II</h3>
+                            <div class="priceAndPlay">
+                                <p>$150</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/crash bandicoot.jfif"
+                                alt="crash-bandicoot-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Crash Bandicoot</h3>
+                            <div class="priceAndPlay">
+                                <p>Free</p>
+                                <button class="btn-play">Play</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/Ghost of Tsushima.jpg"
+                                alt="Ghost of Tsushima-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Ghost of Tsushima</h3>
+                            <div class="priceAndPlay">
+                                <p>$20000</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/Metal Gear Solid 2.jpeg"
+                                alt="Metal Gear Solid 2-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Metal Gear Solid 2</h3>
+                            <div class="priceAndPlay">
+                                <p>$2000</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/Red Dead Redemption.jfif"
+                                alt="Red Dead Redemption 2-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Red Dead Redemption 2</h3>
+                            <div class="priceAndPlay">
+                                <p>$11000</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <a class="comingSoon" href="ufc.html">
+                <img src="images/UFC_Logo.svg" alt="">
+                <h1 class="comingSoonH1">Coming Soon: UFC23 Survival</h1>
+                <img src="images/UFC_Logo.svg" alt="">
+            </a>
+            <section>
+                <h2>Action and Adventure</h2>
+                <div class="game-cards-container">
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/Adventure-Island.png"
+                                alt="adventure-island-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Adventure Island</h3>
+                            <div class="priceAndPlay">
+                                <p>Free</p>
+                                <button class="btn-play">Play</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/yie-ar-kung-fu.jpg"
+                                alt="yie-ar-kung-fu-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Ye-ar Kung Fu</h3>
+                            <div class="priceAndPlay">
+                                <p>Free</p>
+                                <button class="btn-play">Play</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <p>New</p>
+                            <img src="images/DukeNukem-TimeToKill.jpg"
+                                alt="dukenukem-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Duke Nukem: Time to Kill</h3>
+                            <div class="priceAndPlay">
+                                <p>Free</p>
+                                <button class="btn-play">Play</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/ContraII.jpg"
+                                alt="contra2-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Contra II</h3>
+                            <div class="priceAndPlay">
+                                <p>$300</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <p>New</p>
+                            <img src="images/uncharted1.jpg"
+                                alt="uncharted2-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Uncharted II</h3>
+                            <div class="priceAndPlay">
+                                <p>$1000</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/donkey kong.webp"
+                                alt="donkey-kong-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Donkey Kong</h3>
+                            <div class="priceAndPlay">
+                                <p>Free</p>
+                                <button class="btn-play">Play</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/Shadow of the Colossus.jpg"
+                                alt="Shadow of the Colossus-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Shadow of the Colossus</h3>
+                            <div class="priceAndPlay">
+                                <p>$5000</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/Sunset Riders.jpg"
+                                alt="Sunset Riders-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Sunset Riders</h3>
+                            <div class="priceAndPlay">
+                                <p>$900</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/tmnt.webp"
+                                alt="tmnt-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Teenage Mutant Ninja Turtles</h3>
+                            <div class="priceAndPlay">
+                                <p>$500</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Horror</h2>
+                <div class="game-cards-container">
+                    <div class="game-card">
+                        <div class="img-container">
+                            <p>New</p>
+                            <img src="images/Far-Cry-2.jpg"
+                                alt="far-cry-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Far-cry</h3>
+                            <div class="priceAndPlay">
+                                <p>$5000</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/dracula.jpeg"
+                                alt="dracula-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Brom Stroker’s Dracula</h3>
+                            <div class="priceAndPlay">
+                                <p>Free</p>
+                                <button class="btn-play">Play</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <p>New</p>
+                            <img src="images/Silent Hill.jpg"
+                                alt="silent-hill-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Silent Hill</h3>
+                            <div class="priceAndPlay">
+                                <p>$1500</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/ResidentEvil.jpg"
+                                alt="resident-evil-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Resident Evil II</h3>
+                            <div class="priceAndPlay">
+                                <p>Free</p>
+                                <button class="btn-play">Play</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/MonkeyIsland2.jpg"
+                                alt="monkey-island-2-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Monkey Island II</h3>
+                            <div class="priceAndPlay">
+                                <p>$800</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/monkey island III.jpg"
+                                alt="monkey-island-3-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Monkey Island III</h3>
+                            <div class="priceAndPlay">
+                                <p>$2100</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/ResidentEvil4.jpeg"
+                                alt="Resident Evil 4-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Resident Evil 4</h3>
+                            <div class="priceAndPlay">
+                                <p>$1500</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/PlantsvsZombies.jpg"
+                                alt="Plants vs Zombies-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Plants vs Zombies</h3>
+                            <div class="priceAndPlay">
+                                <p>$900</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/silentHill2.jpg"
+                                alt="silent hill 2-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Silent Hill 2</h3>
+                            <div class="priceAndPlay">
+                                <p>$1500</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Shooter</h2>
+                <div class="game-cards-container">
+                    <div class="game-card">
+                        <div class="img-container">
+                            <p>New</p>
+                            <img src="images/doom.webp"
+                                alt="doom-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Doom</h3>
+                            <div class="priceAndPlay">
+                                <p>Free</p>
+                                <button class="btn-play">Play</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <p>New</p>
+                            <img src="images/duck hunt.png"
+                                alt="duck-hunt-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Duck Hunt</h3>
+                            <div class="priceAndPlay">
+                                <p>Free</p>
+                                <button class="btn-play">Play</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <p>New</p>
+                            <img src="images/overwatch.jpg"
+                                alt="overwatch-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Overwatch</h3>
+                            <div class="priceAndPlay">
+                                <p>$2000</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <p>New</p>
+                            <img src="images/battlefield.jpg"
+                                alt="battelfield-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Battlefield</h3>
+                            <div class="priceAndPlay">
+                                <p>$1000</p>
+                                <button class="btn-play">Play</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/halo.webp"
+                                alt="halo-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Halo</h3>
+                            <div class="priceAndPlay">
+                                <p>$2000</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/counter strike.jpg"
+                                alt="counter-strike-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Counter Strike</h3>
+                            <div class="priceAndPlay">
+                                <p>Free</p>
+                                <button class="btn-play">Play</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/codModernWarfare3.jpg"
+                                alt="call of duty modern warfare 3-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Call of Duty: Modern Warfare</h3>
+                            <div class="priceAndPlay">
+                                <p>$1200</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/codModernWarfare.jpg"
+                                alt="call of duty modern warfare 1-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Call of Duty: Modern Warfare</h3>
+                            <div class="priceAndPlay">
+                                <p>$1000</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="img-container">
+                            <img src="images/codWarzone.jpg"
+                                alt="call of duty warzone-img">
+                        </div>
+                        <div class="card-description">
+                            <h3>Call of Duty: Warzone</h3>
+                            <div class="priceAndPlay">
+                                <p>$15000</p>
+                                <button class="btn-buy">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="mobile_nav">
+            <div class="lens"><img src="images/Lupa.png" alt="lens"></div>
+            <div class="hamburguer2"><img class="hamburguer-icon" src="images/menu.png" alt="hamburger">
+                <div class="scrolled_menu2">
+                    <ul>
+                    <li><a href="index.html">Home</li></a>
+                    <li>Forum</li>
+                    <li><a href="ufc.html">Coming soon</li></a>
+                    <li>Recomended</li>
+                    <li>Logout</li>
+                    </ul>
+                    <div class="social_bar">
+                        <div class="icon_social"><img src="images/facebookLogo.png" alt="facebook"></div>
+                        <div class="icon_social"><img src="images/instagramLogo.webp" alt="instagram"></div>
+                        <div class="icon_social"><img src="images/tweeter-logo.webp" alt="twitter"></div>
+                        <div class="icon_social"><img src="images/gmaillogo.png" alt="gmail"></div>
+                    </div>
+                </div>
+            </div>
+            <button class="profile">P</button>
+        </div>
+        <footer>
+          
+        <div class="foot_category">
+            <div class="foot_links">
+               <ol>
+                <h3 class="foot_title">All Games</h3>
+                <li>AG vision</li>
+                <li>AG history</li>
+                <li>Out team</li>
+                <li>Forum</li>
+               </ol>
+            
+            
+                <ol>
+                 <h3 class="foot_title">More Games</h3>
+                 <li>Last releases</li>
+                 <li><a href="ufc.html">Coming soon</li></a>
+                 <li>Most buys</li>
+                 <li>Classics</li>
+                </ol>
+             
+                <ol>
+                 <h3 class="foot_title">All Games</h3>
+                 <li>AG vision</li>
+                 <li>AG history</li>
+                 <li>Out team</li>
+                 <li>Forum</li>
+                </ol>
+            </div>
+            <p class="company">© Company Name. All rights reserved. Privacy Policy.</p>
+            
+        </div>
+        <div class="foot_social">
+            <h3 class="foot_title">Subscribe to our newsletter</h3>
+            <p>Sign up to receive tips and tricks on how to create online designs that make people take action.</p>
+            <div class="suscribe_newsletter">
+                <input type="text" placeholder="allgames@gmail.com">
+                <button class="btn_action">Send</button>
+            </div>
+            <div class="social_bar">
+                <div class="icon_social"><img src="images/facebookLogo.png" alt="facebook"></div>
+                <div class="icon_social"><img src="images/instagramLogo.webp" alt="instagram"></div>
+                <div class="icon_social"><img src="images/tweeter-logo.webp" alt="twitter"></div>
+                <div class="icon_social"><img src="images/gmaillogo.png" alt="gmail"></div>
+            </div>
+        </div>
+        <div class="foot_mobile">
+            <p class="company">© Company Name. All rights reserved. Privacy Policy.</p>
+            <div class="social_bar">
+                <div class="icon_social"><img src="images/facebookLogo.png" alt="facebook"></div>
+                <div class="icon_social"><img src="images/instagramLogo.webp" alt="instagram"></div>
+                <div class="icon_social"><img src="images/tweeter-logo.webp" alt="twitter"></div>
+                <div class="icon_social"><img src="images/gmaillogo.png" alt="gmail"></div>
+            </div>
 
-    <canvas id="canvas" width="800" height="600"></canvas>
-    <script src="js/Chip.js"></script>
-    <script src="js/Zone.js"></script>
-    <script src="js/Player.js"></script>
-    <script src="js/main.js"></script>
+        </div>
+
+        </footer>
+    </div>
+    <script type="text/javascript" src="js/scrollBar.js"></script>  
+    <script type="text/javascript" src="js/scrollBar2.js"></script> 
 </body>
 </html>
