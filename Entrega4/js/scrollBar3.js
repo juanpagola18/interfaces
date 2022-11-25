@@ -1,13 +1,5 @@
-let icono2 = document.querySelector('.hamburguer2');
-let desplegable2 = document.querySelector('.scrolled_menu2');
-let nav = document.querySelector('.head');
 let logo = document.querySelector('#img_logo');
-
-
-icono2.addEventListener('click', () => {
-    desplegable2.classList.toggle('showHamburguer');
-    
-});
+let nav = document.querySelector('.head');
 
 
 window.onscroll = function() {myFunction()};

@@ -15,22 +15,25 @@
         <p id="percent">1%</p>
     </div>
     <div class="ufc_layout">
-        <header>
+        <header class="head">
             <div class="logo" alt="logo">
+             
                 <h3 class="title_logo">All Games</h3>
-                <div class="img_logo"><a href="index.html"><img src="images/Logo.jpg" alt="Logo Header"></a></div>
+                <div class="img_logo"><a href="index.html"><img id="img_logo"src="images/Logo.jpg" alt="Logo Header"></a></div>
+                            
             </div>
+            <h1>All Games</h1>
             <nav>
                 <div class="lens"><img src="images/Lupa.png" alt="lens"></div>
                 <div class="search"><input type="text"></div>
                 <div class="hamburguer"><img class="hamburguer-icon" src="images/menu.png" alt="hamburger">
                     <div class="scrolled_menu">
                         <ul>
-                            <li><a href="index.html">Home</li></a>
-                            <li>Forum</li>
-                            <li><a href="ufc.html">Coming soon</li></a>
-                            <li>Recomended</li>
-                            <li>Logout</li>
+                        <li><a href="index.html">Home</li></a>
+                        <li>Forum</li>
+                        <li><a href="ufc.html">Coming soon</li></a>
+                        <li>Recomended</li>
+                        <li>Logout</li>
                         </ul>
                         <div class="social_bar">
                             <div class="icon_social"><img src="images/facebookLogo.png" alt="facebook"></div>
@@ -72,7 +75,7 @@
                     <p><span>$2800</span></p>
                 </div>
             </div>
-
+      
             <div class="payment_page">
                 <div class="payment_header"><img id="closePayment" src="images/close.png" alt="close">
                 </div>
@@ -134,6 +137,20 @@
                     <img src="images/Payment security icon.png" alt="payment">
                 </div>
             </div>
+            <section class="images-ufc-container library">
+                <h3>Game Play</h3>
+                <button id="btn-prev-img" class="btn-prev"><img src="images/prevIcon.png" alt="prev"></button>
+                <button id="btn-next-img" class="btn-next"><img src="images/nextIcon.png" alt="next"></button>
+                <ul id="img-ul-container" class="img-ufc-container">
+                    <li class="li-gallery"><img src="images/the boys gal1.jpeg" alt="img1"></li>
+                    <li class="li-gallery notShow"><img src="images/the boys gal2.jpg" alt="img2"></li>
+                    <li class="li-gallery notShow"><img src="images/the boys gal3.jpg" alt="img3"></li>
+                    <li class="li-gallery notShow"><img src="images/the boys gal4.jpeg" alt="img4"></li>
+                    <li class="li-gallery notShow"><img src="images/the boys gal5.jpg" alt="img5"></li>
+                    <li class="li-gallery notShow"><img src="images/the boys gal6.jpg" alt="img6"></li>
+                </ul>
+              
+            </section>
             <div class="game_info">
                 <div class="features_container">
                     <div class="feature">
@@ -358,6 +375,8 @@
         </footer>
     </div>
     <script type="text/javascript" src="js/scrollBar.js"></script>
+    <script type="text/javascript" src="js/scrollBar3.js"></script> 
+    <script type="text/javascript" src="js/galleryUFC.js"></script>
 </body>
 
 </html>

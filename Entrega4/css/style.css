@@ -4,6 +4,7 @@
     border: 0;
     outline: 0;
     box-sizing: border-box;
+
     list-style: none;
     text-decoration: none;
     border: none;
@@ -68,15 +69,17 @@
     height: 100%;
     width: 100%;
 }
+.close-icon{
+    height: 100%;
+    width: 100%;
+    transform: all 6ms;
+}
 
 .hamburguer .hamburguer-icon {
     height: 100%;
     width: 100%;
 }
 
-.scrolled_menu div {
-    margin-top: 30px;
-}
 
 button {
     cursor: pointer;
@@ -123,6 +126,7 @@ header {
     width: 100%;
     border-radius: 8px;
     mix-blend-mode: darken;
+    
 }
 
 .img_logo img:hover {
@@ -212,7 +216,6 @@ footer .foot_category {
 /* hamburguesa
     */
 .scrolled_menu {
-    background-color: #EDFDFE;
     display: flex;
     flex-direction: column;
     height: 400px;
@@ -286,7 +289,7 @@ section.library button {
     height: 40px;
     width: 40px;
     object-fit: cover;
-    top: 240px;
+    top: 50%;
     border-radius: 50%;
     opacity: 0.8;
 }
@@ -298,10 +301,12 @@ section.library button:hover {
 
 section.library button.btn-next {
     right: 5px;
+    justify-self: center;
 }
 
 section.library button.btn-prev {
     left: 5px;
+    
 }
 
 section.library button img {
@@ -475,7 +480,7 @@ ul.img-container li {
 .scrolled_menu li:hover {
     display: inline-block;
     vertical-align: middle;
-    transform: scale(1.3) rotate(-4deg);
+    transform: scale(1.005) rotate(1deg);
 }
 
 .scrolled_menu .social_bar,
@@ -1142,7 +1147,7 @@ form div {
 /* layout page ufc*/
 .ufc_layout {
     min-height: 100vh;
-    background: #01888E;
+    background: #D20B0B;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 2fr 34fr 5fr;
@@ -1176,10 +1181,15 @@ form div {
     max-height: 700px;
     background-image: url(../images/ring3.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
     display: flex;
     flex-direction: column;
+    background-repeat: repeat-x;
+    animation: movement 25s infinite linear;
+}
+
+@keyframes movement {
+    0% {background-position-x: -1720px}
+    100% {background-position-x: 0px}
 }
 
 .game_info {
@@ -1199,6 +1209,10 @@ form div {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    justify-items: center;
+    align-items: center;
+    padding-bottom: 5px;
+    
 
 }
 
@@ -1210,6 +1224,7 @@ form div {
     line-height: 47px;
     display: flex;
     align-items: center;
+    
 }
 
 .title_ufc p {
@@ -1746,10 +1761,12 @@ input[type=number]::-webkit-outer-spin-button {
 
 .notShow {
     display: none;
+    
 }
 
 .show {
     display: flex;
+    
 }
 
 .loading .spin {
@@ -1790,6 +1807,24 @@ input[type=number]::-webkit-outer-spin-button {
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
+        position: sticky;
+        z-index: 12222;
+        top:0px;
+        height: 80px;
+        transition: height .5s ease-out;
+    }
+    .normal{
+        height: 80px;
+        transition: height .5s ease-out;
+    }
+    .sticky {
+        height: 66px;
+        transition: height .5s ease-in;
+    }
+    
+    .sizeLogo{
+        height: 30px;
+        transition: height 5s ease-out;
     }
 
     .logo {
@@ -1798,7 +1833,7 @@ input[type=number]::-webkit-outer-spin-button {
         justify-content: center;
         align-items: center;
         margin-left: 12px;
-        width: 66px;
+        width: 75px;
     }
 
     .title_logo {
@@ -1824,7 +1859,7 @@ input[type=number]::-webkit-outer-spin-button {
                 */
 
     nav {
-        height: 80px;
+      
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -1871,9 +1906,7 @@ input[type=number]::-webkit-outer-spin-button {
         width: 100%;
     }
 
-    .scrolled_menu div {
-        margin-top: 30px;
-    }
+    
 
     button.profile {
         width: 40px;
@@ -2372,4 +2405,141 @@ input[type=number]::-webkit-outer-spin-button {
                 width: 50px;
                 height: 50px;
                 background-size: cover;
+            }
+
+            .images-ufc-container {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            section.images-ufc-container ul {
+                width: 100%;
+                height: 100%;
+            }
+            .images-ufc-container ul.img-library-state {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #F4F7F9;
+                border: solid 1px #1B1F20;
+                border-radius: 8px;
+                padding: 10px;
+                width: 70px;
+                height: 20px;
+                position: relative;
+                bottom: 35px;
+                left: 25px;
+            }
+            .images-container ul.img-library-state li {
+                color: #1B1F20;
+                font-size: 12px;
+            }
+            ul.img-ufc-container li {
+                min-height: 500px;
+                max-height: 500px;
+                min-width: 800px;
+                max-width: 800px;
+                align-self: center;
+                justify-self:center;
+                margin-bottom:15px;
+            }
+
+
+            .img-ufc-container img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                transition: all 3s ease-in;
+            }
+
+            #img-ul-container{
+                display:flex;
+                flex-direction: column;
+                
+            }
+            .images-ufc-container {
+                background-image: url(../images/cageBackground.jpg);
+                color:#EDFDFE;
+                top:-1px;
+                justify-self: center;
+                align-items: center;
+            }
+            .images-ufc-container h3{
+                color: #F4F7F9;
+                font-weight: 400px;
+                font-size: 32px;
+                min-height: 45px;
+                display: flex;
+                align-items: center;
+                justify-self: center;   
+            }
+         
+            
+            .appear{
+               
+                animation: appear .5s ease;
+            }
+            @keyframes appear {
+                0% {
+                    margin-right: -40%;
+                }
+                50% {
+                    margin-right: 30%;
+                }
+                100%{
+                    margin-right: 0%;
+                }
+            }
+            .title_ufc h1 {
+                opacity: 100;
+                
+                animation: reappear 5s ease infinite;
+            }
+            @keyframes reappear {
+                0% {
+                    opacity: 100;
+                }
+                100%{
+                    opacity:0;
+                }
+            }
+            .showX{
+                animation: paintX 3s ease-in;
+            }
+
+            @keyframes paintX {
+                0%{ opacity: 0;}
+
+                30%{opacity: 0.5;}
+
+                100%{opacity: 1;}                  
+            }
+            .showMenu1{
+                animation: showMenu .5s ease-in;
+                background-color: #EDFDFE;
+            }
+            .showMenu2{
+                animation: showMenu 1s ease-in;
+                background-color: #EDFDFE;
+            }
+            .showMenu3{
+                animation: showMenu 1.5s ease-in;
+                background-color: #EDFDFE;
+            }
+            .showMenu4{
+                animation: showMenu 2s ease-in;
+                background-color: #EDFDFE;
+            }
+            .showMenu5{
+                animation: showMenu 2.5s ease-in;
+                background-color: #EDFDFE;
+            }
+            .showMenu6{
+                animation: showMenu 3s ease-in;
+                background-color: #EDFDFE;
+            }
+
+            @keyframes showMenu {
+                0%{ margin-left: 1720px;}
+                100%{margin-left:0px;}                  
             }
