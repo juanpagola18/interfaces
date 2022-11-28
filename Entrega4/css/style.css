@@ -1176,18 +1176,20 @@ form div {
     grid-area: "foot";
 }
 
+
+
 .game_container {
     width: 100%;
     height: 50%;
-   
-    background-image: url(../images/ring3.jpg);
+    
+    background-image: url(../images/ufcFondoParallax.jpg);
     background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     background-repeat: repeat-x;
     animation: movement 30s linear infinite;
 }
-
 @keyframes movement {
     0% {background-position-x: -1720px}
     100% {background-position-x: 0px}
@@ -1610,7 +1612,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .hero {
-    transform: translateX(-5000px);
+    
     margin-top: 10px;
     margin-left: 15px;
     display: flex;
@@ -1621,8 +1623,11 @@ input[type=number]::-webkit-outer-spin-button {
     transition: all 3s;
     
 }
-.hero2{
+.feature2{
     transform: translateX(5000px);
+}
+.feature{
+    transform:translateX(-5000px);
 }
 
 .hero h1 {
@@ -1657,6 +1662,8 @@ input[type=number]::-webkit-outer-spin-button {
     object-fit: cover;
     border-radius: 0 0 8px 8px;
     outline: 1px solid #F4F7F9;
+    transform: translateY(0px);
+    animation: all 2s;
 }
 
 .hero_stats {
@@ -1667,9 +1674,9 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
     color: #1B1F20;
     height: 80%;
-    z-index: -1;
+    z-index: -1;    
     text-align: center;
- 
+
     
 }
 .showRight{
@@ -1680,10 +1687,18 @@ input[type=number]::-webkit-outer-spin-button {
     animation: showLeft 3s;    
     transform: translateX(0px);
 }
+.showUp{
+    animation: showUp 1s;    
+    
+}
+.showDown{
+    animation: showDown 1s;  
+    transform: translateY(100px);
+}
 
 @keyframes showLeft {
     0% {
-      transform: translateX(-500px);
+      transform: translateX(-1000px);
     }
     100% {
         transform: translateX(0px);
@@ -1692,14 +1707,29 @@ input[type=number]::-webkit-outer-spin-button {
 
   @keyframes showRight {
     0% {
-      transform: translateX( 500px);
+      transform: translateX( 1000px);
     }
     100% {
         transform: translateX(0px);
     }
   }
 
-
+  @keyframes showUp {
+    0% {
+      transform: translateY(100px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+  }
+  @keyframes showDown {
+    0% {
+      transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(100px);
+    }
+  }
 .hero:hover .hero_image {
     display: none;
     
@@ -1756,7 +1786,7 @@ input[type=number]::-webkit-outer-spin-button {
 .info {
     background-color: #DFE4E7;
     height: 35%;
-    min-height: 3   0px;
+    min-height: 300px;
     display: flex;
 
 }
@@ -1785,7 +1815,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .info_content{
     overflow: hidden;
-    min-height: 350px;
+    
 }
 .info .info_content {
     display: flex;
@@ -1922,7 +1952,7 @@ input[type=number]::-webkit-outer-spin-button {
         position: sticky;
         z-index: 12222;
         top:0px;
-        height: 80px;
+        
         transition: height .5s ease-out;
     }
     .normal{
@@ -2654,4 +2684,19 @@ input[type=number]::-webkit-outer-spin-button {
             @keyframes showMenu {
                 0%{ margin-left: 1720px;}
                 100%{margin-left:0px;}                  
+            }
+
+            .spriteSheet {
+                align-self:center;
+                position: relative;
+                width: 70px;
+                height: 73px;
+                overflow: hidden;
+                background: url(../images/spriteUFC.jpg) repeat-x;
+                animation: moveFront 3s steps(6) infinite;
+            }
+            @keyframes moveFront {
+                0%{background-position: 0px;}
+                50%{background-position:406px;}
+                100%{background-position:0px;}                                    
             }

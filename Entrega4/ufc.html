@@ -27,15 +27,16 @@
                 <div class="lens"><img src="images/Lupa.png" alt="lens"></div>
                 <div class="search"><input type="text"></div>
                 <div class="hamburguer"><img class="hamburguer-icon" src="images/menu.png" alt="hamburger">
+                    <img class="close-icon notShow" src="images/close.png" alt="close">
                     <div class="scrolled_menu">
                         <ul>
-                        <li><a href="index.html">Home</li></a>
-                        <li>Forum</li>
-                        <li><a href="ufc.html">Coming soon</li></a>
-                        <li>Recomended</li>
-                        <li>Logout</li>
+                        <li class="menuItem" id="menu--1"><a href="index.html">Home</li></a>
+                        <li class="menuItem" id="menu--2">Forum</li>
+                        <li class="menuItem" id="menu--3"><a href="ufc.html">Coming soon</li></a>
+                        <li class="menuItem" id="menu--4">Recomended</li>
+                        <li class="menuItem" id="menu--5">Logout</li>
                         </ul>
-                        <div class="social_bar">
+                        <div class="social_bar menuItem" id="menu--6" >
                             <div class="icon_social"><img src="images/facebookLogo.png" alt="facebook"></div>
                             <div class="icon_social"><img src="images/instagramLogo.webp" alt="instagram"></div>
                             <div class="icon_social"><img src="images/tweeter-logo.webp" alt="twitter"></div>
@@ -46,33 +47,34 @@
                 <button class="profile">P</button>
             </nav>
         </header>
-
         <section class="content_ufc">
             <div class="game_container">
-                <div class="header_ufc">
-                    <div class="title_ufc">
-                        <h1> UFC: 23 Survival </h1>
-                        <p>Multiplayer - Fight - Carrere Mode</p>
+                <div class="game_container2">
+                    <div class="header_ufc">
+                        <div class="title_ufc">
+                            <h1> UFC: 23 Survival </h1>
+                            <p>Multiplayer - Fight - Carrere Mode</p>
+                        </div>
+                        <div class="days_left">
+                            <p>Coming in <span> 4</span> days</p>
+                        </div>
                     </div>
-                    <div class="days_left">
-                        <p>Coming in <span> 4</span> days</p>
+                    <div class="main-image">
+                        <div>
+                            <img class="background-fighters" src="images/fondo2.jpg" alt="background-fighters">*/
+                        </div>
+                        <div class="mcGregor">
+                            <img class="mcGregor circle" src="images/Mcgregor draw.jpg" alt="Mc Gregor">
+                        </div>
+                        <div>
+                            <img class="logoUfc circle" src="images/UFC-LOGO.png" alt="UFC logo">
+                        </div>
                     </div>
-                </div>
-                <div class="main-image">
-                    <div>
-                        <img class="background-fighters" src="images/fondo2.jpg" alt="background-fighters">*/
+                    <div class="footer_ufc">
+                        <button class="preOrder">Pre Order Now</button>
+                        <p>$1699</p>
+                        <p><span>$2800</span></p>
                     </div>
-                    <div class="mcGregor">
-                        <img class="mcGregor circle" src="images/Mcgregor draw.jpg" alt="mc gregor">
-                    </div>
-                    <div>
-                        <img class="logoUfc circle" src="images/UFC-LOGO.png" alt="UFC logo">
-                    </div>
-                </div>
-                <div class="footer_ufc">
-                    <button class="preOrder">Pre Order Now</button>
-                    <p>$1699</p>
-                    <p><span>$2800</span></p>
                 </div>
             </div>
       
@@ -142,12 +144,12 @@
                 <button id="btn-prev-img" class="btn-prev"><img src="images/prevIcon.png" alt="prev"></button>
                 <button id="btn-next-img" class="btn-next"><img src="images/nextIcon.png" alt="next"></button>
                 <ul id="img-ul-container" class="img-ufc-container">
-                    <li class="li-gallery"><img src="images/the boys gal1.jpeg" alt="img1"></li>
-                    <li class="li-gallery notShow"><img src="images/the boys gal2.jpg" alt="img2"></li>
-                    <li class="li-gallery notShow"><img src="images/the boys gal3.jpg" alt="img3"></li>
-                    <li class="li-gallery notShow"><img src="images/the boys gal4.jpeg" alt="img4"></li>
-                    <li class="li-gallery notShow"><img src="images/the boys gal5.jpg" alt="img5"></li>
-                    <li class="li-gallery notShow"><img src="images/the boys gal6.jpg" alt="img6"></li>
+                    <li class="li-gallery"><img src="images/ufc1.jpg" alt="ufc1"></li>
+                    <li class="li-gallery notShow"><img src="images/ufc2.jpg" alt="ufc2"></li>
+                    <li class="li-gallery notShow"><img src="images/ufc3.jpg" alt="ufc3"></li>
+                    <li class="li-gallery notShow"><img src="images/ufc4.jpg" alt="ufc4"></li>
+                    <li class="li-gallery notShow"><img src="images/ufc5.jpg" alt="ufc5"></li>
+                    <li class="li-gallery notShow"><img src="images/ufc6.jpg" alt="ufc6"></li>
                 </ul>
               
             </section>
@@ -167,7 +169,7 @@
                             <p>Create a new fighter and do your best to be the new UFC sensation.</p>
                         </div>
                     </div>
-                    <div class="feature">
+                    <div class="feature feature2">
 
                         <h2>History Mode</h2>
                         <div class="feature_image">
@@ -277,20 +279,13 @@
                         worldwide sensation and a two division champion!
                         Join the UFC Franchise in this new exiting release. Multiple characters
                         are playable in the 1vs1 mode.
-                        The new motion design motor created by EA Games improves the realism of every move. We have also
-                        added a new exiting history mode,
-                        featuring Connor McGregor. You can play as him, as he goes up the ranks and become a new
-                        worldwide sensation and a two division champion!
+                       
                         </div>
                         <div id="info_2">
                            The Ultimate Fighting Championship is the largest mixed martial arts company in the world, 
                             home to most of the top ranked fighters in the sport and producing events all over the world.
                             Join the UFC Franchise in this new exiting release. Multiple characters
                         are playable in the 1vs1 mode.
-                        The new motion design motor created by EA Games improves the realism of every move. We have also
-                        added a new exiting history mode,
-                        featuring Connor McGregor. You can play as him, as he goes up the ranks and become a new
-                        worldwide sensation and a two division champion!
                         The Ultimate Fighting Championship is the largest mixed martial arts company in the world, 
                         home to most of the top ranked fighters in the sport and producing events all over the world.
                         </div>
@@ -299,14 +294,14 @@
                                  A constant rotation of rules means that this mode always brings something new and spices up the competition.  
                                  Join the UFC Franchise in this new exiting release. Multiple characters
                         are playable in the 1vs1 mode.
-                        The new motion design motor created by EA Games improves the realism of every move. We have also
-                        added a new exiting history mode,
-                        featuring Connor McGregor. You can play as him, as he goes up the ranks and become a new
+                        Featuring Connor McGregor. You can play as him, as he goes up the ranks and become a new
                         worldwide sensation and a two division champion!
                         </div>
+                       
                     </div>
+                    
                 </div>  
-     
+                
         </div>
         </section>
     
@@ -341,6 +336,7 @@
                 <p class="company">© Company Name. All rights reserved. Privacy Policy.</p>
 
             </div>
+            <div class="spriteSheet"></div>
             <div class="foot_social">
                 <h3 class="foot_title">Subscribe to our newsletter</h3>
                 <p>Sign up to receive tips and tricks on how to create online designs that make people take action.</p>

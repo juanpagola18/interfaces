@@ -1,9 +1,11 @@
 let index=0;
 document.querySelector('#btn-prev-img').addEventListener('click',()=>changeDisplay(-1,ulImg));
 document.querySelector('#btn-next-img').addEventListener('click',()=>changeDisplay(1,ulImg));
-let hero =document.querySelectorAll('.hero');
+let hero =document.querySelectorAll('.hero_image');
 window.addEventListener('scroll', showScroll)
-
+let feature =document.querySelectorAll('.feature');
+let circle =document.querySelectorAll('.efect_circle');
+let stats =document.querySelectorAll('.hero_stats');
 
 let info_1 = document.querySelector('#info_1');
 let altura_info_1 = info_1.offsetTop;
@@ -16,7 +18,7 @@ let info_content = document.querySelector('.info_content');
 
 
 function changeDisplay(num,liElement){
-    console.log(liElement);
+    
     if((num==-1)&&(index==0)){
      
      liElement[index].classList.toggle('notShow');
@@ -49,34 +51,53 @@ function changeDisplay(num,liElement){
         let alturaHero = hero[i].offsetTop;
 
         if(alturaHero-500 < scrollTop){
-            if(i<3){
-                hero[i].classList.add('showLeft')
-            }
-            else{
-                hero[i].classList.add('showRight')
-            }
+            
+                hero[i].classList.add('showUp');
+                hero[i].classList.remove('showDown');
+                circle[i].classList.add('showUp');
+                circle[i].classList.remove('showDown');
+                stats[i].classList.add('showUp');
+                stats[i].classList.remove('showDown');
+           
         }
         if(alturaHero-500 > scrollTop){
-            if(i<3){
-                hero[i].classList.remove('showLeft')
-            }
-            else{
-                hero[i].classList.remove('showRight')
-            }
+            
+                hero[i].classList.add('showDown');
+                hero[i].classList.remove('showUp');
+                circle[i].classList.add('showDown');
+                circle[i].classList.remove('showUp');
+                stats[i].classList.add('showDown');
+                stats[i].classList.remove('showUp');
+          
         }
-    
-   
+
        
     }
+    for (var i=0; i< feature.length; i++){
+        let alturafeature = feature[i].offsetTop;
+
+        if(alturafeature-500 < scrollTop){
+            if(i<2){
+                feature[i].classList.add('showLeft')
+            }
+            else{
+                feature[i].classList.add('showRight')
+            }
+        }
+        if(alturafeature-500 > scrollTop){
+            if(i<2){
+                feature[i].classList.remove('showLeft')
+            }
+            else{
+                feature[i].classList.remove('showRight')
+            }
+        }
+    }
     if(info_content.offsetTop > scrollTop){
-        console.log("info1 " +altura_info_1)
-        console.log("info2 " +altura_info_2)
-        console.log("info3 " +altura_info_3)
+        console.log(altura_info_1)
         console.log(scrollTop)
-        console.log(info_content.offsetTop) 
-   if((altura_info_1-450 < scrollTop-200)){
+   if((altura_info_1-450 < scrollTop-300)){
         
-        console.log("ee1")
         info_1.classList.add('showInfo');
         info_2.classList.add('notShowInfo');
         info_3.classList.add('notShowInfo');
@@ -84,8 +105,8 @@ function changeDisplay(num,liElement){
         info_2.classList.remove('showInfo');
         info_3.classList.remove('showInfo');
     }   
-    if(((altura_info_1-350 < scrollTop-200))&&((altura_info_1-450 < scrollTop))){
-        console.log("ee2")
+    if(((altura_info_1-150 < scrollTop-200))&&((altura_info_1-450 < scrollTop))){
+       
         
         info_2.classList.add('showInfo');
         info_1.classList.add('notShowInfo');
@@ -95,8 +116,8 @@ function changeDisplay(num,liElement){
         info_1.classList.remove('showInfo');
 
     }
-    if((altura_info_1-250 < scrollTop-200)){
-        console.log("eeee3")
+    if((altura_info_1 < scrollTop-100)){
+        
         info_3.classList.add('showInfo')
         info_1.classList.add('notShowInfo');
         info_2.classList.add('notShowInfo');
@@ -105,4 +126,5 @@ function changeDisplay(num,liElement){
         info_1.classList.remove('showInfo');
     }
 }
- }
+}
+
