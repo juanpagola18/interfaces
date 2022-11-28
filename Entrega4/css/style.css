@@ -1833,21 +1833,21 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 15px;
     justify-self:center;
 }
-#info_1{
+.info_1{
     opacity: 1;
     transition: all 1s;
     position: absolute;
     
 
 }
-#info_2{
-    opacity: 1;
+.info_2{
+    opacity: 0;
     
     transition: all 1s;
     position: absolute;
 }
-#info_3{
-    opacity: 1;
+.info_3{
+    opacity: 0;
     transition: all 1s;
     position: absolute;
     
@@ -1855,10 +1855,11 @@ input[type=number]::-webkit-outer-spin-button {
 .showInfo{
     z-index:1;
     animation: showInfo 1s;
+    opacity: 1;
 }
 .notShowInfo{
     z-index:-1;
-   
+    opacity: 0;
 }
 @keyframes showInfo {
     0% {

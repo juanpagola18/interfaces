@@ -7,12 +7,12 @@ let feature =document.querySelectorAll('.feature');
 let circle =document.querySelectorAll('.efect_circle');
 let stats =document.querySelectorAll('.hero_stats');
 
-let info_1 = document.querySelector('#info_1');
+let info_1 = document.querySelector('.info_1');
 let altura_info_1 = info_1.offsetTop;
 
-let info_2 = document.querySelector('#info_2');
+let info_2 = document.querySelector('.info_2');
 let altura_info_2 = info_2.offsetTop;
-let info_3 = document.querySelector('#info_3');
+let info_3 = document.querySelector('.info_3');
 let altura_info_3 = info_3.offsetTop;
 let info_content = document.querySelector('.info_content');
 
@@ -94,8 +94,7 @@ function changeDisplay(num,liElement){
         }
     }
     if(info_content.offsetTop > scrollTop){
-        console.log(altura_info_1)
-        console.log(scrollTop)
+        
    if((altura_info_1-450 < scrollTop-300)){
         
         info_1.classList.add('showInfo');
