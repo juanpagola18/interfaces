@@ -1147,11 +1147,12 @@ form div {
 /* layout page ufc*/
 .ufc_layout {
     min-height: 100vh;
-    background: #D20B0B;
+    background: #EDFDFE;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 2fr 34fr 5fr;
     grid-template-areas: "head"
+        
         "content"
         "foot";
 }
@@ -1178,13 +1179,13 @@ form div {
 .game_container {
     width: 100%;
     height: 50%;
-    max-height: 700px;
+   
     background-image: url(../images/ring3.jpg);
     background-size: cover;
     display: flex;
     flex-direction: column;
     background-repeat: repeat-x;
-    animation: movement 25s infinite linear;
+    animation: movement 30s linear infinite;
 }
 
 @keyframes movement {
@@ -1544,7 +1545,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 /********section hero**********/
 .characters {
-    height: 30%;
+    height:  30%;
     display: flex;
 }
 
@@ -1563,7 +1564,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .characters_info p {
-    padding: 12%;
+    padding: 12px;
     font-weight: 400;
     font-size: 18px;
     line-height: 1.5em;
@@ -1577,10 +1578,7 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: rgba(27, 31, 32, 1);
 }
 
-.heros_carousel {
-    width: 100%;
-    overflow-x: auto;
-}
+
 
 .heros_carousel::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -1600,16 +1598,19 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .carousel {
-    width: 170%;
+    padding-left: 15px;
+    padding-right: 15px;
     height: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
     padding-top: 10px;
+    overflow: hidden;
 }
 
 .hero {
+    transform: translateX(-5000px);
     margin-top: 10px;
     margin-left: 15px;
     display: flex;
@@ -1617,8 +1618,12 @@ input[type=number]::-webkit-outer-spin-button {
     height: 90%;
     min-width: 130px;
     background-color: rgba(27, 31, 32, 1);
+    transition: all 3s;
+    
 }
-
+.hero2{
+    transform: translateX(5000px);
+}
 
 .hero h1 {
     color: #F4F7F9;
@@ -1631,56 +1636,107 @@ input[type=number]::-webkit-outer-spin-button {
     align-self: center;
     border-radius: 8px 8px 0 0;
     outline: 1px solid #F4F7F9;
-    ;
+    
 }
 
 .hero_image {
+    
     width: 100%;
-    height: 100%;
+    height: 80%;
     z-index: 1;
     border-radius: 0 0 8px 8px;
+    transition: transform 0.4s ease 0s;
+    animation: giro 1s 1;
 }
 
 .hero_image img {
+    backface-visibility: hidden;
+    box-sizing: border-box;
     width: 100%;
-    height: 90%;
+    height: 80%;
     object-fit: cover;
     border-radius: 0 0 8px 8px;
     outline: 1px solid #F4F7F9;
 }
 
 .hero_stats {
-    min-width: 130px;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    transition: transform 0.4s ease 0s;
+    animation: giro 0.5s 1;
+    width: 100%;
     color: #1B1F20;
+    height: 80%;
     z-index: -1;
-    font-weight: 400;
-    font-size: 14;
-    line-height: 1em;
     text-align: center;
-    outline: 1px solid #F4F7F9;
+ 
+    
 }
+.showRight{
+    animation: showRight 3s;    
+    transform: translateX(0px);
+}
+.showLeft{
+    animation: showLeft 3s;    
+    transform: translateX(0px);
+}
+
+@keyframes showLeft {
+    0% {
+      transform: translateX(-500px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+  }
+
+  @keyframes showRight {
+    0% {
+      transform: translateX( 500px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+  }
+
 
 .hero:hover .hero_image {
     display: none;
+    
 }
 
 .hero:hover .efect_circle {
     display: none;
 }
 
-.hero:hover {
-    transform: scale(1.1);
-}
 
-.hero:hover .hero_stats {
+@keyframes giro {
+    from {
+      transform: rotateY( 180deg);
+    }
+    to {
+      transform: rotateY( 0deg);
+    }
+  }
+
+.hero:hover .hero_stats{
     z-index: 1;
-    width: 100%;
-    height: 70%;
+    transition: transform 0.4s ease 0s;
     background-color: #F4F7F9;
     border: 1px solid #F4F7F9;
     border-radius: 0 0 8px 8px;
-
+    animation: antiGiro 0.5s 1;
 }
+@keyframes antiGiro {
+    from {
+      transform: rotateY( 0deg);
+    }
+    to {
+      transform: rotateY( 360deg);
+
+    }
+  }
+
 
 
 .hero .efect_circle {
@@ -1700,6 +1756,7 @@ input[type=number]::-webkit-outer-spin-button {
 .info {
     background-color: #DFE4E7;
     height: 35%;
+    min-height: 3   0px;
     display: flex;
 
 }
@@ -1724,22 +1781,77 @@ input[type=number]::-webkit-outer-spin-button {
     background-position: 0%;
     width: 90%;
     height: 20%;
-
+    
 }
-
+.info_content{
+    overflow: hidden;
+    min-height: 350px;
+}
 .info .info_content {
     display: flex;
-    margin: 25px;
+    flex-direction: column;
     width: 70%;
     font-weight: 400;
     font-size: 20px;
     line-height: 1.5em;
-    align-items: center;
     color: #1B1F20;
+  
+    
+    
 }
+.info_content{
+    padding: 15px;
+    justify-self:center;
+}
+#info_1{
+    opacity: 1;
+    transition: all 1s;
+    position: absolute;
+    
+
+}
+#info_2{
+    opacity: 1;
+    
+    transition: all 1s;
+    position: absolute;
+}
+#info_3{
+    opacity: 1;
+    transition: all 1s;
+    position: absolute;
+    
+}
+.showInfo{
+    z-index:1;
+    animation: showInfo 1s;
+}
+.notShowInfo{
+    z-index:-1;
+   
+}
+@keyframes showInfo {
+    0% {
+      opacity:0;
+    }
+    100% {
+        opacity:1;
+        
+    }
+  }
+  @keyframes notShowInfo {
+    0% {
+      opacity:1;
+    }
+    100% {
+        opacity:0;
+        display:hidden;
+    }
+  }
 
 /* loading
      */
+
 
 .loading {
     width: 100%;
@@ -1997,7 +2109,7 @@ input[type=number]::-webkit-outer-spin-button {
     footer {
         height: 200px;
         padding-top: 30px;
-        background-color: #F4F7F9;
+        background: #EDFDFE;
         border-top: 3px solid #D84089;
         display: flex;
         justify-content: space-between;
