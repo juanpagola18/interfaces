@@ -2705,18 +2705,18 @@ input[type=number]::-webkit-outer-spin-button {
                 background-size: cover;
                 position:absolute;
                 width: 100%;
-                height: 80%;
+                height: 100%;
                 background-position: center;
                 background-repeat: repeat-x;
                 opacity: 0.8;
-                margin-top:5%
+                
                 
             }
             .layer_1{
                 
                 background-image: url(../images/layer_01_2048\ x\ 1546.png);
                 animation: movement 15s linear infinite;
-               
+              
             }
             .layer_2{
                 background-image: url(../images/layer_02_2048\ x\ 1546.png);
