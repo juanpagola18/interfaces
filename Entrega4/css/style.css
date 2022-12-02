@@ -1182,9 +1182,7 @@ form div {
     width: 100%;
     height: 50%;
     
-    background-image: url(../images/ufcFondoParallax.jpg);
-    background-size: cover;
-    background-position: center;
+
     display: flex;
     flex-direction: column;
     background-repeat: repeat-x;
@@ -1204,6 +1202,7 @@ form div {
     width: 100%;
     height: 10%;
     display: flex;
+    z-index: 1;
 }
 
 .title_ufc {
@@ -2690,14 +2689,52 @@ input[type=number]::-webkit-outer-spin-button {
             .spriteSheet {
                 align-self:center;
                 position: relative;
-                width: 70px;
+                width: 81px;
                 height: 73px;
                 overflow: hidden;
-                background: url(../images/spriteUFC.jpg) repeat-x;
-                animation: moveFront 3s steps(6) infinite;
+                background: url(../images/spriteUFC2.jpg) repeat-x;
+                animation: moveFront 3s steps(8) infinite;
             }
             @keyframes moveFront {
                 0%{background-position: 0px;}
-                50%{background-position:406px;}
-                100%{background-position:0px;}                                    
+                100%{background-position:650px;}
+                                             
             }
+            .layer{
+                
+                background-size: cover;
+                position:absolute;
+                width: 100%;
+                height: 80%;
+                background-position: center;
+                background-repeat: repeat-x;
+                opacity: 0.8;
+                margin-top:5%
+                
+            }
+            .layer_1{
+                
+                background-image: url(../images/layer_01_2048\ x\ 1546.png);
+                animation: movement 15s linear infinite;
+               
+            }
+            .layer_2{
+                background-image: url(../images/layer_02_2048\ x\ 1546.png);
+                animation: movement 17s linear infinite;
+                
+            }
+            .layer_3{
+                background-image: url(../images/layer_03_2048\ x\ 1546.png);
+                animation: movement 40s linear infinite;
+                
+                
+            }
+            .layer_4{
+                background-image: url(../images/layer_04_2048\ x\ 1546.png);
+                animation: movement 20s linear infinite;
+                
+                
+            }
+            
+          
+         
